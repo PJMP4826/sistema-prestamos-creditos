@@ -1,6 +1,5 @@
-package com.misproyectos.enums;
+package com.misproyectos.interfaces;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
