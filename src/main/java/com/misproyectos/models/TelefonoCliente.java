@@ -1,10 +1,12 @@
 package com.misproyectos.models;
 
+import com.misproyectos.enums.TipoTelefono;
+
 public class TelefonoCliente {
     private Long idTelefono;
     private Long idCliente;
     private String telefono;
-    private String tipo;
+    private TipoTelefono tipo;
 
     public TelefonoCliente() {
 
@@ -34,11 +36,11 @@ public class TelefonoCliente {
         this.telefono = telefono;
     }
 
-    public String getTipo() {
+    public TipoTelefono getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoTelefono tipo) {
         this.tipo = tipo;
     }
 }
