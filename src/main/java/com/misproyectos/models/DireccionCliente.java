@@ -1,11 +1,11 @@
 package com.misproyectos.models;
 
 public class DireccionCliente {
-    private  Long idDireccion;
-    private  Long idCliente;
-    private  String tipo;
+    private Long idDireccion;
+    private Long idCliente;
+    private String tipo;
 
-    public DireccionCliente(){
+    public DireccionCliente() {
 
     }
 

@@ -2,6 +2,7 @@ package com.misproyectos.models;
 
 import com.misproyectos.enums.EstadoPrestamo;
 import com.misproyectos.interfaces.BuilderInterface;
+
 import java.util.UUID;
 
 public class Prestamo {

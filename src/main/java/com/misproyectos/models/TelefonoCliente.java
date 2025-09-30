@@ -1,12 +1,12 @@
 package com.misproyectos.models;
 
 public class TelefonoCliente {
-    private  Long idTelefono;
-    private  Long idCliente;
-    private  String telefono;
-    private  String tipo;
+    private Long idTelefono;
+    private Long idCliente;
+    private String telefono;
+    private String tipo;
 
-    public  TelefonoCliente(){
+    public TelefonoCliente() {
 
     }
 

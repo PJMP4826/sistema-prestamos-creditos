@@ -5,7 +5,7 @@ public enum EstadoPrestamo {
     COMPLETADO,
     INCUMPLIDO;
 
-    public boolean isFinalizado(){
+    public boolean isFinalizado() {
         return this == COMPLETADO || this == INCUMPLIDO;
     }
 }
