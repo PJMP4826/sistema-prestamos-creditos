@@ -52,6 +52,17 @@ public class Database {
         return conn;
     }
 
+    public void closeConnection(){
+        try {
+            if(conn != null){
+                conn.close();
+                System.out.println("Connection a la BD cerrada");
+            }
+        } catch (SQLException e){
+            System.err.println("Error al cerrar la connection: " + e.getMessage());
+        }
+    }
+
 }
 
 
