@@ -63,4 +63,15 @@ public class Cliente {
     public void setDireccionClientes(List<DireccionCliente> direccionClientes) {
         this.direccionClientes = direccionClientes;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", telefonoClientes=" + telefonoClientes +
+                ", correoClientes=" + correoClientes +
+                ", direccionClientes=" + direccionClientes +
+                '}';
+    }
 }
