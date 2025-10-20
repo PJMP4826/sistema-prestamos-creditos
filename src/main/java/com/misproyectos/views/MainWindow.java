@@ -4,8 +4,8 @@
  */
 package com.misproyectos.views;
 
+import com.misproyectos.views.clientes.AddClientes;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -238,7 +238,7 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        // TODO add your handling code here:
+        ShowJPanel(new AddClientes());
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnAsignarPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarPrestamosActionPerformed
@@ -254,7 +254,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        // TODO add your handling code here:
+        ShowJPanel(new Dashboard());
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     /**
