@@ -1,13 +1,14 @@
-package com.misproyectos.service;
+package com.misproyectos.repositories;
 
 import com.misproyectos.config.Database;
+import com.misproyectos.interfaces.ClienteRepInterface;
 import com.misproyectos.models.Cliente;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteRepository {
+public class ClienteRepository implements ClienteRepInterface {
     private Connection conn;
 
     public ClienteRepository() {
@@ -33,5 +34,23 @@ public class ClienteRepository {
         }
 
         return clientes;
+    }
+
+    @Override
+    public int add(Cliente cliente) throws SQLException {
+        String sql = "INSERT INTO clientes (nombre, rfc) VALUES (?, ?) RETURNING id";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cliente.getNombre());
+            stmt.setString(2, cliente.getRfc());
+
+            try (ResultSet res = stmt.executeQuery()) {
+                if (res.next()) {
+                    return res.getInt("id");
+                } else {
+                    throw new SQLException("Error al guardar cliente");
+                }
+            }
+        }
     }
 }

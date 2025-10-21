@@ -2,7 +2,7 @@ package com.misproyectos;
 
 import com.misproyectos.config.Database;
 import com.misproyectos.models.Cliente;
-import com.misproyectos.service.ClienteRepository;
+import com.misproyectos.repositories.ClienteRepository;
 
 import java.sql.Connection;
 import java.util.List;
@@ -21,10 +21,18 @@ public class Main {
             //System.out.println("Conexion exitosa: " + db);
 
             ClienteRepository rep = new ClienteRepository();
-            List<Cliente> clientes = rep.getClients();
-            for (Cliente c : clientes) {
-                System.out.println(c);
-            }
+            Cliente cliente = new Cliente();
+            cliente.setNombre("Fran");
+            cliente.setRfc("FRGABHBJB2BJH2");
+
+            int clientId = rep.add(cliente);
+
+            System.out.println("Cliente id: " + clientId);
+
+            //List<Cliente> clientes = rep.getClients();
+            //for (Cliente c : clientes) {
+                //System.out.println(c);
+            //}
 
         } catch (Exception e) {
             System.out.println("Conexion faild: ");
