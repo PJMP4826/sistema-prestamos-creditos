@@ -1,8 +1,11 @@
 package com.misproyectos;
 
 import com.misproyectos.config.Database;
+import com.misproyectos.enums.TipoTelefono;
 import com.misproyectos.models.Cliente;
+import com.misproyectos.models.TelefonoCliente;
 import com.misproyectos.repositories.ClienteRepository;
+import com.misproyectos.repositories.TelefonoRepository;
 
 import java.sql.Connection;
 import java.util.List;
@@ -20,14 +23,26 @@ public class Main {
             //Connection db = Database.getInstance().getConnection();
             //System.out.println("Conexion exitosa: " + db);
 
-            ClienteRepository rep = new ClienteRepository();
+            ClienteRepository repClient = new ClienteRepository();
             Cliente cliente = new Cliente();
-            cliente.setNombre("Fran");
-            cliente.setRfc("FRGABHBJB2BJH2");
+            cliente.setNombre("Dan2");
+            cliente.setRfc("DAEJNJN344234NJW");
 
-            int clientId = rep.add(cliente);
+            //id autogenerado por Postgres
+            Long clientId = repClient.add(cliente);
+
+            TipoTelefono tipo = TipoTelefono.fromTag("Casa");
+            TelefonoCliente telefono = new TelefonoCliente();
+
+            telefono.setIdCliente(clientId);
+            telefono.setTelefono("99345686");
+            telefono.setTipo(tipo);
+
+            TelefonoRepository repTel = new TelefonoRepository();
+            repTel.add(telefono);
 
             System.out.println("Cliente id: " + clientId);
+            System.out.println("Cliente info: " + cliente.toString());
 
             //List<Cliente> clientes = rep.getClients();
             //for (Cliente c : clientes) {
@@ -37,7 +52,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Conexion faild: ");
             e.printStackTrace();
-
         }
 
     }

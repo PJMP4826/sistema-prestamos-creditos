@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface TelefonoRepInterface {
-    int add(TelefonoCliente telefonoCliente) throws SQLException;
+    boolean add(TelefonoCliente telefonoCliente) throws SQLException;
 
     boolean update(TelefonoCliente telefonoCliente) throws SQLException;
 

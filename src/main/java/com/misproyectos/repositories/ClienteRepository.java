@@ -37,7 +37,7 @@ public class ClienteRepository implements ClienteRepInterface {
     }
 
     @Override
-    public int add(Cliente cliente) throws SQLException {
+    public Long add(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO clientes (nombre, rfc) VALUES (?, ?) RETURNING id";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -46,7 +46,7 @@ public class ClienteRepository implements ClienteRepInterface {
 
             try (ResultSet res = stmt.executeQuery()) {
                 if (res.next()) {
-                    return res.getInt("id");
+                    return res.getLong("id");
                 } else {
                     throw new SQLException("Error al guardar cliente");
                 }
