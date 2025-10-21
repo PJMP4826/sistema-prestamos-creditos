@@ -14,4 +14,14 @@ public enum TipoTelefono {
     public String getTag() {
         return tag;
     }
+
+    public static TipoTelefono fromTag(String tag) {
+        for (TipoTelefono t : TipoTelefono.values()) {
+            if (t.getTag().equalsIgnoreCase(tag)) {
+                return t;
+            }
+        }
+
+        throw new IllegalArgumentException("Tipo de telefono invalido: " + tag);
+    }
 }
