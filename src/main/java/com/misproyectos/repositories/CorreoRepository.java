@@ -71,7 +71,28 @@ public class CorreoRepository implements CorreoRepInterface {
     }
 
     @Override
-    public CorreoCliente findByClientId(int idCorreo) throws SQLException {
-        return null;
+    public CorreoCliente findByClientId(Long idCliente) throws SQLException {
+        CorreoCliente correo = new CorreoCliente();
+
+        String sql = "SELECT id, cliente_id, correo FROM correos_clientes WHERE cliente_id = ?";
+
+        try (
+                PreparedStatement stmt = conn.prepareStatement(sql)
+        ) {
+            stmt.setLong(1, idCliente);
+            try (ResultSet result = stmt.executeQuery()) {
+
+                while (result.next()) {
+                    correo.setIdCorreo(result.getLong("id"));
+                    correo.setIdCliente(result.getLong("cliente_id"));
+                    correo.setCorreo(result.getString("correo"));
+                }
+            }
+
+            return correo;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

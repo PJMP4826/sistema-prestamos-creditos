@@ -14,5 +14,5 @@ public interface CorreoRepInterface {
 
     CorreoCliente findById(int idCorreo) throws SQLException;
 
-    CorreoCliente findByClientId(int idCliente) throws SQLException;
+    CorreoCliente findByClientId(Long idCliente) throws SQLException;
 }
