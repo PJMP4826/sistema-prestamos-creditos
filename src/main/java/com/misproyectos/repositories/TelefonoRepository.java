@@ -1,12 +1,15 @@
 package com.misproyectos.repositories;
 
 import com.misproyectos.config.Database;
+import com.misproyectos.enums.TipoTelefono;
 import com.misproyectos.interfaces.TelefonoRepInterface;
 import com.misproyectos.models.TelefonoCliente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TelefonoRepository implements TelefonoRepInterface {
@@ -50,7 +53,28 @@ public class TelefonoRepository implements TelefonoRepInterface {
     }
 
     @Override
-    public List<TelefonoCliente> findByClientId(int idTelefono) throws SQLException {
-        return List.of();
+    public List<TelefonoCliente> findByClientId(Long idCliente) throws SQLException {
+        List<TelefonoCliente> phones = new ArrayList<>();
+        String sql = "SELECT id, cliente_id, telefono, tipo FROM telefonos_clientes";
+
+        try (
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet result = stmt.executeQuery();
+        ) {
+            while (result.next()) {
+                TelefonoCliente telefono = new TelefonoCliente();
+                telefono.setIdTelefono(result.getLong("id"));
+                telefono.setIdCliente(result.getLong("cliente_id"));
+                telefono.setTelefono(result.getString("telefono"));
+
+                TipoTelefono tipo = TipoTelefono.fromTag(result.getString("tipo"));
+                telefono.setTipo(tipo);
+                phones.add(telefono);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return phones;
     }
 }

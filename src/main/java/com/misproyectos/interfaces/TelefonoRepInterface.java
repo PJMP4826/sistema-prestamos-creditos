@@ -14,5 +14,5 @@ public interface TelefonoRepInterface {
 
     TelefonoCliente findById(int idTelefono) throws SQLException;
 
-    List<TelefonoCliente> findByClientId(int idTelefono) throws SQLException;
+    List<TelefonoCliente> findByClientId(Long idCliente) throws SQLException;
 }

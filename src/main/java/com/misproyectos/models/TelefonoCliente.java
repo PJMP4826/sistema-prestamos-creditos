@@ -43,4 +43,14 @@ public class TelefonoCliente {
     public void setTipo(TipoTelefono tipo) {
         this.tipo = tipo;
     }
+
+    @Override
+    public String toString() {
+        return "TelefonoCliente{" +
+                "idTelefono=" + idTelefono +
+                ", idCliente=" + idCliente +
+                ", telefono='" + telefono + '\'' +
+                ", tipo=" + tipo +
+                '}';
+    }
 }
