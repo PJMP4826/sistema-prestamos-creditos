@@ -25,17 +25,17 @@ public class Main {
 
             ClienteRepository repClient = new ClienteRepository();
             Cliente cliente = new Cliente();
-            cliente.setNombre("Dan2");
-            cliente.setRfc("DAEJNJN344234NJW");
+            cliente.setNombre("Edna");
+            cliente.setRfc("EBJHBHD72354624");
 
             //id autogenerado por Postgres
             Long clientId = repClient.add(cliente);
 
-            TipoTelefono tipo = TipoTelefono.fromTag("Casa");
+            TipoTelefono tipo = TipoTelefono.fromTag("Móvil");
             TelefonoCliente telefono = new TelefonoCliente();
 
             telefono.setIdCliente(clientId);
-            telefono.setTelefono("99345686");
+            telefono.setTelefono("9932527972");
             telefono.setTipo(tipo);
 
             TelefonoRepository repTel = new TelefonoRepository();
