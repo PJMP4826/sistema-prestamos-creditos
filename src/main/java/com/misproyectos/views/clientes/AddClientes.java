@@ -127,6 +127,11 @@ public class AddClientes extends javax.swing.JPanel {
         typeTelefonoDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Trabajo", "Móvil" }));
         typeTelefonoDropDown.setBorder(new javax.swing.border.MatteBorder(null));
         typeTelefonoDropDown.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        typeTelefonoDropDown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeTelefonoDropDownActionPerformed(evt);
+            }
+        });
 
         saveBtn.setBackground(new java.awt.Color(0, 124, 239));
         saveBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -210,7 +215,7 @@ public class AddClientes extends javax.swing.JPanel {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(59, 59, 59)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(backgroundLayout.createSequentialGroup()
@@ -242,7 +247,7 @@ public class AddClientes extends javax.swing.JPanel {
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -280,6 +285,10 @@ public class AddClientes extends javax.swing.JPanel {
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editBtnActionPerformed
+
+    private void typeTelefonoDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeTelefonoDropDownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeTelefonoDropDownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

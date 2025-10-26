@@ -5,6 +5,7 @@
 package com.misproyectos.views;
 
 import com.misproyectos.views.clientes.AddClientes;
+import com.misproyectos.views.usuarios.Usuarios;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -250,7 +251,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroPagosActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        // TODO add your handling code here:
+        ShowJPanel(new Usuarios());
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
