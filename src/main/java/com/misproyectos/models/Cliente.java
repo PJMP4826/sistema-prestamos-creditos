@@ -9,20 +9,16 @@ public class Cliente {
     private String rfc;
 
     private List<TelefonoCliente> telefonoClientes;
-    private List<CorreoCliente> correoClientes;
-    private List<DireccionCliente> direccionClientes;
+    private CorreoCliente correoClientes;
+    private DireccionCliente direccionClientes;
 
     public Cliente() {
         this.telefonoClientes = new ArrayList<>();
-        this.correoClientes = new ArrayList<>();
-        this.direccionClientes = new ArrayList<>();
     }
 
     public Cliente(String nombre) {
         this.nombre = nombre;
         this.telefonoClientes = new ArrayList<>();
-        this.correoClientes = new ArrayList<>();
-        this.direccionClientes = new ArrayList<>();
     }
 
     public Long getId() {
@@ -57,19 +53,19 @@ public class Cliente {
         this.telefonoClientes = telefonoClientes;
     }
 
-    public List<CorreoCliente> getCorreoClientes() {
+    public CorreoCliente getCorreoClientes() {
         return correoClientes;
     }
 
-    public void setCorreoClientes(List<CorreoCliente> correoClientes) {
+    public void setCorreoClientes(CorreoCliente correoClientes) {
         this.correoClientes = correoClientes;
     }
 
-    public List<DireccionCliente> getDireccionClientes() {
+    public DireccionCliente getDireccionClientes() {
         return direccionClientes;
     }
 
-    public void setDireccionClientes(List<DireccionCliente> direccionClientes) {
+    public void setDireccionClientes(DireccionCliente direccionClientes) {
         this.direccionClientes = direccionClientes;
     }
 

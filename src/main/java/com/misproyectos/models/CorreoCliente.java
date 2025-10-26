@@ -32,4 +32,13 @@ public class CorreoCliente {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    @Override
+    public String toString() {
+        return "CorreoCliente{" +
+                "idCorreo=" + idCorreo +
+                ", idCliente=" + idCliente +
+                ", correo='" + correo + '\'' +
+                '}';
+    }
 }
