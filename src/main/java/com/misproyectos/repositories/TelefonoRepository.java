@@ -55,22 +55,26 @@ public class TelefonoRepository implements TelefonoRepInterface {
     @Override
     public List<TelefonoCliente> findByClientId(Long idCliente) throws SQLException {
         List<TelefonoCliente> phones = new ArrayList<>();
-        String sql = "SELECT id, cliente_id, telefono, tipo FROM telefonos_clientes";
+        String sql = "SELECT id, cliente_id, telefono, tipo FROM telefonos_clientes WHERE cliente_id = ?";
 
         try (
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ResultSet result = stmt.executeQuery();
-        ) {
-            while (result.next()) {
-                TelefonoCliente telefono = new TelefonoCliente();
-                telefono.setIdTelefono(result.getLong("id"));
-                telefono.setIdCliente(result.getLong("cliente_id"));
-                telefono.setTelefono(result.getString("telefono"));
+                PreparedStatement stmt = conn.prepareStatement(sql)
 
-                TipoTelefono tipo = TipoTelefono.fromTag(result.getString("tipo"));
-                telefono.setTipo(tipo);
-                phones.add(telefono);
+        ) {
+            stmt.setLong(1, idCliente);
+            try(ResultSet result = stmt.executeQuery()){
+                while (result.next()) {
+                    TelefonoCliente telefono = new TelefonoCliente();
+                    telefono.setIdTelefono(result.getLong("id"));
+                    telefono.setIdCliente(result.getLong("cliente_id"));
+                    telefono.setTelefono(result.getString("telefono"));
+
+                    TipoTelefono tipo = TipoTelefono.fromTag(result.getString("tipo"));
+                    telefono.setTipo(tipo);
+                    phones.add(telefono);
+                }
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
