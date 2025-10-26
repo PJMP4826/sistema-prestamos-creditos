@@ -3,8 +3,10 @@ package com.misproyectos;
 import com.misproyectos.config.Database;
 import com.misproyectos.enums.TipoTelefono;
 import com.misproyectos.models.Cliente;
+import com.misproyectos.models.DireccionCliente;
 import com.misproyectos.models.TelefonoCliente;
 import com.misproyectos.repositories.ClienteRepository;
+import com.misproyectos.repositories.DireccionRepository;
 import com.misproyectos.repositories.TelefonoRepository;
 
 import java.sql.Connection;
@@ -25,21 +27,32 @@ public class Main {
 
             ClienteRepository repClient = new ClienteRepository();
             Cliente cliente = new Cliente();
-            cliente.setNombre("Edna");
-            cliente.setRfc("EBJHBHD72354624");
+            cliente.setNombre("Daniel");
+            cliente.setRfc("DAJKNJKCNSVCS");
 
             //id autogenerado por Postgres
             Long clientId = repClient.add(cliente);
 
+            //Objects
             TipoTelefono tipo = TipoTelefono.fromTag("Móvil");
             TelefonoCliente telefono = new TelefonoCliente();
 
+            DireccionCliente address = new DireccionCliente();
+
+            //agregar Data
             telefono.setIdCliente(clientId);
-            telefono.setTelefono("9932527972");
+            telefono.setTelefono("9723768645");
             telefono.setTipo(tipo);
 
+            address.setIdCliente(clientId);
+            address.setDescription("Calle 4, Centro, Gaviotas, Tabasco");
+
+            //Insert data
             TelefonoRepository repTel = new TelefonoRepository();
             repTel.add(telefono);
+
+            DireccionRepository repAddress = new DireccionRepository();
+            repAddress.add(address);
 
             System.out.println("Cliente id: " + clientId);
             System.out.println("Cliente info: " + cliente.toString());

@@ -3,7 +3,7 @@ package com.misproyectos.models;
 public class DireccionCliente {
     private Long idDireccion;
     private Long idCliente;
-    private String tipo;
+    private String description;
 
     public DireccionCliente() {
 
@@ -25,11 +25,11 @@ public class DireccionCliente {
         this.idCliente = idCliente;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
