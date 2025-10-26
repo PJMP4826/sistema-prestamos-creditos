@@ -59,7 +59,7 @@ public class DireccionRepository implements DireccionRepInterface {
             stmt.setLong(1, idCliente);
             try(ResultSet result = stmt.executeQuery()){
                 while (result.next()){
-                    address.setIdCliente(result.getLong("id"));
+                    address.setIdDireccion(result.getLong("id"));
                     address.setIdCliente(result.getLong("cliente_id"));
                     address.setDescription(result.getString("direccion"));
                 }
