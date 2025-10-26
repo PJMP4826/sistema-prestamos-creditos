@@ -3,9 +3,11 @@ package com.misproyectos;
 import com.misproyectos.config.Database;
 import com.misproyectos.enums.TipoTelefono;
 import com.misproyectos.models.Cliente;
+import com.misproyectos.models.CorreoCliente;
 import com.misproyectos.models.DireccionCliente;
 import com.misproyectos.models.TelefonoCliente;
 import com.misproyectos.repositories.ClienteRepository;
+import com.misproyectos.repositories.CorreoRepository;
 import com.misproyectos.repositories.DireccionRepository;
 import com.misproyectos.repositories.TelefonoRepository;
 
@@ -27,8 +29,8 @@ public class Main {
 
             ClienteRepository repClient = new ClienteRepository();
             Cliente cliente = new Cliente();
-            cliente.setNombre("Daniel");
-            cliente.setRfc("DAJKNJKCNSVCS");
+            cliente.setNombre("Socrates");
+            cliente.setRfc("SCXCVBBHJ23NJK");
 
             //id autogenerado por Postgres
             Long clientId = repClient.add(cliente);
@@ -38,14 +40,18 @@ public class Main {
             TelefonoCliente telefono = new TelefonoCliente();
 
             DireccionCliente address = new DireccionCliente();
+            CorreoCliente correo = new CorreoCliente();
 
             //agregar Data
             telefono.setIdCliente(clientId);
-            telefono.setTelefono("9723768645");
+            telefono.setTelefono("9323896754");
             telefono.setTipo(tipo);
 
             address.setIdCliente(clientId);
-            address.setDescription("Calle 4, Centro, Gaviotas, Tabasco");
+            address.setDescription("Calle 3, Centro, Gaviotas, Tabasco");
+
+            correo.setIdCliente(clientId);
+            correo.setCorreo("socrates@philosophy.com");
 
             //Insert data
             TelefonoRepository repTel = new TelefonoRepository();
@@ -53,6 +59,9 @@ public class Main {
 
             DireccionRepository repAddress = new DireccionRepository();
             repAddress.add(address);
+
+            CorreoRepository emailRep = new CorreoRepository();
+            emailRep.add(correo);
 
             System.out.println("Cliente id: " + clientId);
             System.out.println("Cliente info: " + cliente.toString());
