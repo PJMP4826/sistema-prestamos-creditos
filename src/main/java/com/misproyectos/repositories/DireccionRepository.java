@@ -6,6 +6,7 @@ import com.misproyectos.models.DireccionCliente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -48,7 +49,24 @@ public class DireccionRepository implements DireccionRepInterface {
     }
 
     @Override
-    public List<DireccionCliente> findByClientId(int idDireccion) throws SQLException {
-        return List.of();
+    public DireccionCliente findByClientId(Long idCliente) throws SQLException {
+        DireccionCliente address = new DireccionCliente();
+        String sql = "SELECT id, cliente_id, direccion FROM direcciones_clientes WHERE cliente_id = ?";
+
+        try (
+                PreparedStatement stmt = conn.prepareStatement(sql)
+        ) {
+            stmt.setLong(1, idCliente);
+            try(ResultSet result = stmt.executeQuery()){
+                while (result.next()){
+                    address.setIdCliente(result.getLong("id"));
+                    address.setIdCliente(result.getLong("cliente_id"));
+                    address.setDescription(result.getString("direccion"));
+                }
+            }
+
+            return  address;
+        }
+
     }
 }

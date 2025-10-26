@@ -32,4 +32,13 @@ public class DireccionCliente {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "DireccionCliente{" +
+                "idDireccion=" + idDireccion +
+                ", idCliente=" + idCliente +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

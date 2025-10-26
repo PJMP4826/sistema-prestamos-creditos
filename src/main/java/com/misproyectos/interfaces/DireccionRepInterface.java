@@ -14,5 +14,5 @@ public interface DireccionRepInterface {
 
     DireccionCliente findById(int idDireccion) throws SQLException;
 
-    List<DireccionCliente> findByClientId(int idDireccion) throws SQLException;
+    DireccionCliente findByClientId(Long idCliente) throws SQLException;
 }
