@@ -28,7 +28,7 @@ public class PrestamoRepository extends PrestamoRepInterface {
         String sql = """
                    INSERT INTO prestamos(
                    cliente_id, periodicidad_id, importe, plazo, fecha_inicio, saldo_actual,
-                   aprobado, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                   aprobado) VALUES (?, ?, ?, ?, ?, ?, ?)
                 """;
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
