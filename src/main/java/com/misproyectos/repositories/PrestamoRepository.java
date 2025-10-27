@@ -20,8 +20,32 @@ public class PrestamoRepository extends PrestamoRepInterface {
         this.conn = Database.getInstance().getConnection();
     }
 
-    public boolean add(Prestamo prestamo) throws SQLException {
-        return false;
+    public boolean add(
+            Prestamo prestamo,
+            Cliente cliente,
+            Periodicidad periodicidad
+    ) throws SQLException {
+        String sql = """
+                   INSERT INTO prestamos(
+                   cliente_id, periodicidad_id, importe, plazo, fecha_inicio, saldo_actual,
+                   aprobado, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """;
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, cliente.getId());
+            stmt.setLong(2, periodicidad.getIdPeriodicidad());
+            stmt.setBigDecimal(3, prestamo.getMontoPrestado());
+            stmt.setDouble(4, prestamo.getPlazoPago());
+            stmt.setTimestamp(5, prestamo.getFechaInicio());
+            stmt.setDouble(6, prestamo.getSaldoPendiente());
+            stmt.setString(7, prestamo.getEstadoPrestamo().getTag());
+
+            int rowsAffected = stmt.executeUpdate();
+            if(rowsAffected <= 0){
+                throw new SQLException("Errror al guadar el prestamo");
+            }
+            return  true;
+        }
     }
 
     public boolean update(Prestamo prestamo) throws SQLException {
@@ -59,9 +83,9 @@ public class PrestamoRepository extends PrestamoRepInterface {
                 periodicidad.setNombrePeriodicidad(result.getString("nombre_periodicidad"));
 
                 Prestamo prestamo = Prestamo.builder()
-                        .setMontoPrestado(result.getInt("importe"))
+                        .setMontoPrestado(result.getBigDecimal("importe"))
                         .setPlazoPago(result.getInt("plazo"))
-                        .setFechaInicio(result.getTimestamp("fecha_inicio").toLocalDateTime())
+                        .setFechaInicio(result.getTimestamp("fecha_inicio"))
                         .setSaldoPendiente(result.getDouble("saldo_actual"))
                         .setCliente(cliente)
                         .setPeriodicidadPago(periodicidad)
