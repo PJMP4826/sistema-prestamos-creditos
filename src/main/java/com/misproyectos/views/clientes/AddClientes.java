@@ -4,6 +4,8 @@
  */
 package com.misproyectos.views.clientes;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Fausto
@@ -291,6 +293,40 @@ public class AddClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_typeTelefonoDropDownActionPerformed
 
 
+    //getters 
+    public String getNombre(){
+        return nombreClienteInput.getText().trim();
+    }
+    
+    public String getRfc(){
+        return rfcInput.getText().trim();
+    }
+    
+    public String getTelefono(){
+        return telefonoInput.getText().trim();
+    }
+    
+    public String getTipoTelefono(){
+        return (String) typeTelefonoDropDown.getSelectedItem();
+    }
+    
+    public String getCorreo(){
+        return correoInput.getText().trim();
+    }
+    
+    public JButton getSaveBtn(){
+        return saveBtn;
+    }
+    
+    public JButton getEditBtn(){
+        return editBtn;
+    }
+    
+    public JButton getDeleteBtn(){
+        return deleteBtn;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JTable clientesTable;
