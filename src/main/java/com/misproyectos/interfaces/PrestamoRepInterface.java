@@ -6,8 +6,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 public abstract class PrestamoRepInterface {
-    abstract boolean add(Prestamo prestamo) throws SQLException;
-    abstract boolean update(Prestamo prestamo) throws SQLException;
-    abstract boolean delete(int idPrestamos) throws SQLException;
-    abstract List<Prestamo> findAll() throws SQLException;
+    protected abstract boolean add(Prestamo prestamo) throws SQLException;
+    protected abstract boolean update(Prestamo prestamo) throws SQLException;
+    protected abstract boolean delete(Long idPrestamo) throws SQLException;
+    protected abstract Prestamo findById(Long idPrestamo) throws SQLException;
+    protected abstract List<Prestamo> findAll() throws SQLException;
 }

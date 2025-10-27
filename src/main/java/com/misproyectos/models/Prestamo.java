@@ -3,6 +3,9 @@ package com.misproyectos.models;
 import com.misproyectos.enums.EstadoPrestamo;
 import com.misproyectos.interfaces.BuilderInterface;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 public class Prestamo {
@@ -13,9 +16,13 @@ public class Prestamo {
     private final double montoPrestado;
     private final double tasaIntereses;
     private final double plazoPago;
+    private LocalDateTime fechaInicio;
     private final double pagoMensual;
     private final double saldoPendiente;
     private final EstadoPrestamo estadoPrestamo;
+
+    private Cliente cliente;
+    private Periodicidad periodicidadPago;
 
 
     private Prestamo(PrestamoBuilder builder) {
@@ -28,6 +35,9 @@ public class Prestamo {
         this.pagoMensual = builder.pagoMensual;
         this.saldoPendiente = builder.saldoPendiente;
         this.estadoPrestamo = builder.estadoPrestamo;
+        this.cliente = builder.cliente;
+        this.periodicidadPago = builder.periodicidadPago;
+        this.fechaInicio = builder.fechaInicio;
     }
 
     public static PrestamoBuilder builder() {
@@ -42,9 +52,12 @@ public class Prestamo {
         private double montoPrestado;
         private double tasaIntereses;
         private double plazoPago;
+        private LocalDateTime fechaInicio;
         private double pagoMensual;
         private double saldoPendiente;
         private EstadoPrestamo estadoPrestamo = EstadoPrestamo.ACTIVO;
+        private Cliente cliente;
+        private Periodicidad periodicidadPago;
 
         public PrestamoBuilder() {
         }
@@ -79,6 +92,11 @@ public class Prestamo {
             return this;
         }
 
+        public PrestamoBuilder setFechaInicio(LocalDateTime fechaInicio){
+            this.fechaInicio = fechaInicio;
+            return this;
+        }
+
         public PrestamoBuilder setPagoMensual(double pagoMensual) {
             this.pagoMensual = pagoMensual;
             return this;
@@ -91,6 +109,16 @@ public class Prestamo {
 
         public PrestamoBuilder setEstadoPrestamo(EstadoPrestamo estadoPrestamo) {
             this.estadoPrestamo = estadoPrestamo;
+            return this;
+        }
+
+        public PrestamoBuilder setCliente(Cliente cliente) {
+            this.cliente = cliente;
+            return this;
+        }
+
+        public PrestamoBuilder setPeriodicidadPago(Periodicidad periodicidadPago) {
+            this.periodicidadPago = periodicidadPago;
             return this;
         }
 
@@ -120,6 +148,10 @@ public class Prestamo {
         return plazoPago;
     }
 
+    public LocalDateTime getFechaInicio(){
+        return fechaInicio;
+    }
+
     public double getPagoMensual() {
         return pagoMensual;
     }
@@ -132,18 +164,30 @@ public class Prestamo {
         return estadoPrestamo;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Periodicidad getPeriodicidadPago() {
+        return periodicidadPago;
+    }
+
+
     @Override
     public String toString() {
-        return " Prestamo: {" +
-                "\n   idPrestamo=" + idPrestamo +
-                ", \n   UUID=" + uuid +
-                ", \n   idCliente=" + idCliente +
-                ", \n   montoPrestado=" + montoPrestado +
-                ", \n   tasaIntereses=" + tasaIntereses +
-                ", \n   plazoPago=" + plazoPago +
-                ", \n   pagoMensual=" + pagoMensual +
-                ", \n   saldoPendiente=" + saldoPendiente +
-                ", \n   estadoPrestamo=" + estadoPrestamo +
-                "\n }";
+        return "Prestamo{" +
+                "idPrestamo=" + idPrestamo +
+                ", uuid='" + uuid + '\'' +
+                ", idCliente=" + idCliente +
+                ", montoPrestado=" + montoPrestado +
+                ", tasaIntereses=" + tasaIntereses +
+                ", plazoPago=" + plazoPago +
+                ", fechaInicio=" + fechaInicio +
+                ", pagoMensual=" + pagoMensual +
+                ", saldoPendiente=" + saldoPendiente +
+                ", estadoPrestamo=" + estadoPrestamo +
+                ", cliente=" + cliente +
+                ", periodicidadPago=" + periodicidadPago +
+                '}';
     }
 }
