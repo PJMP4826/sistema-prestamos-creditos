@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.misproyectos.views.usuarios;
+package com.misproyectos.views.periodicidades;
 
 /**
  *
  * @author IK
  */
-public class Usuarios extends javax.swing.JPanel {
+public class Periodicidades extends javax.swing.JPanel {
 
     /**
-     * Creates new form Usuarios
+     * Creates new form Periodicidades
      */
-    public Usuarios() {
+    public Periodicidades() {
         initComponents();
     }
 
@@ -26,27 +26,23 @@ public class Usuarios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
         background1 = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        nombreUsuarioLbl = new javax.swing.JLabel();
-        nombreUsuarioInput = new javax.swing.JTextField();
-        ContrasenaUsuarioLbl = new javax.swing.JLabel();
+        nombrePeriodicidadLbl = new javax.swing.JLabel();
+        nombrePeriodicidadInput = new javax.swing.JTextField();
+        DiasPeriodicidadLbl = new javax.swing.JLabel();
         ContrasenaUsuarioInput = new javax.swing.JTextField();
-        CorreoElectronicoUsuarioLbl = new javax.swing.JLabel();
-        CorreoUsuarioInput = new javax.swing.JTextField();
+        PorcentajeInteresesLbl = new javax.swing.JLabel();
+        PorcentajeInteresesInput = new javax.swing.JTextField();
         saveBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        clientesTable = new javax.swing.JTable();
+        PeriodicidadesTable = new javax.swing.JTable();
         deleteBtn = new javax.swing.JButton();
         editBtn = new javax.swing.JButton();
-        ListaUsuarios = new javax.swing.JPanel();
+        ListaPeriodicidades = new javax.swing.JPanel();
         title1 = new javax.swing.JLabel();
-
-        background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setForeground(new java.awt.Color(255, 255, 255));
 
         background1.setBackground(new java.awt.Color(239, 239, 239));
         background1.setForeground(new java.awt.Color(255, 255, 255));
@@ -55,7 +51,7 @@ public class Usuarios extends javax.swing.JPanel {
 
         title.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
-        title.setText("Agregar Nuevo Usuario");
+        title.setText("Agregar Nueva Periodicidad");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -78,19 +74,19 @@ public class Usuarios extends javax.swing.JPanel {
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setPreferredSize(new java.awt.Dimension(200, 10));
 
-        nombreUsuarioLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        nombreUsuarioLbl.setText("Nombre*");
+        nombrePeriodicidadLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        nombrePeriodicidadLbl.setText("Nombre de la Periodicidad*");
 
-        nombreUsuarioInput.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        nombreUsuarioInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nombreUsuarioInput.addActionListener(new java.awt.event.ActionListener() {
+        nombrePeriodicidadInput.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        nombrePeriodicidadInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nombrePeriodicidadInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreUsuarioInputActionPerformed(evt);
+                nombrePeriodicidadInputActionPerformed(evt);
             }
         });
 
-        ContrasenaUsuarioLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        ContrasenaUsuarioLbl.setText("Contraseña (Requerida para nuevos usuarios)");
+        DiasPeriodicidadLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        DiasPeriodicidadLbl.setText("Días de la Periodicidad*");
 
         ContrasenaUsuarioInput.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         ContrasenaUsuarioInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -100,14 +96,14 @@ public class Usuarios extends javax.swing.JPanel {
             }
         });
 
-        CorreoElectronicoUsuarioLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        CorreoElectronicoUsuarioLbl.setText("Correo Electronico*");
+        PorcentajeInteresesLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        PorcentajeInteresesLbl.setText("Porcentaje de Intereses*");
 
-        CorreoUsuarioInput.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        CorreoUsuarioInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        CorreoUsuarioInput.addActionListener(new java.awt.event.ActionListener() {
+        PorcentajeInteresesInput.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        PorcentajeInteresesInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PorcentajeInteresesInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CorreoUsuarioInputActionPerformed(evt);
+                PorcentajeInteresesInputActionPerformed(evt);
             }
         });
 
@@ -122,17 +118,17 @@ public class Usuarios extends javax.swing.JPanel {
             }
         });
 
-        clientesTable.setForeground(new java.awt.Color(255, 255, 255));
-        clientesTable.setModel(new javax.swing.table.DefaultTableModel(
+        PeriodicidadesTable.setForeground(new java.awt.Color(255, 255, 255));
+        PeriodicidadesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Correo", "Cliente Asociado"
+                "Nombre", "Días", "% Intereses"
             }
         ));
-        clientesTable.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(clientesTable);
+        PeriodicidadesTable.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(PeriodicidadesTable);
 
         deleteBtn.setBackground(new java.awt.Color(255, 51, 0));
         deleteBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -156,24 +152,24 @@ public class Usuarios extends javax.swing.JPanel {
             }
         });
 
-        ListaUsuarios.setBackground(new java.awt.Color(51, 51, 51));
+        ListaPeriodicidades.setBackground(new java.awt.Color(51, 51, 51));
 
         title1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         title1.setForeground(new java.awt.Color(255, 255, 255));
-        title1.setText("Lista de Usuarios");
+        title1.setText("Lista de Periodicidades");
 
-        javax.swing.GroupLayout ListaUsuariosLayout = new javax.swing.GroupLayout(ListaUsuarios);
-        ListaUsuarios.setLayout(ListaUsuariosLayout);
-        ListaUsuariosLayout.setHorizontalGroup(
-            ListaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListaUsuariosLayout.createSequentialGroup()
+        javax.swing.GroupLayout ListaPeriodicidadesLayout = new javax.swing.GroupLayout(ListaPeriodicidades);
+        ListaPeriodicidades.setLayout(ListaPeriodicidadesLayout);
+        ListaPeriodicidadesLayout.setHorizontalGroup(
+            ListaPeriodicidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListaPeriodicidadesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        ListaUsuariosLayout.setVerticalGroup(
-            ListaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListaUsuariosLayout.createSequentialGroup()
+        ListaPeriodicidadesLayout.setVerticalGroup(
+            ListaPeriodicidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListaPeriodicidadesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -194,22 +190,22 @@ public class Usuarios extends javax.swing.JPanel {
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(background1Layout.createSequentialGroup()
                         .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(nombreUsuarioLbl, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ContrasenaUsuarioLbl, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nombrePeriodicidadLbl, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DiasPeriodicidadLbl, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ContrasenaUsuarioInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                            .addComponent(nombreUsuarioInput, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(nombrePeriodicidadInput, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(40, 40, 40)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CorreoElectronicoUsuarioLbl)
+                            .addComponent(PorcentajeInteresesLbl)
                             .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CorreoUsuarioInput, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
-                        .addContainerGap(21, Short.MAX_VALUE))
+                            .addComponent(PorcentajeInteresesInput))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
                         .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(header, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ListaUsuarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ListaPeriodicidades, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane2))
                         .addGap(9, 9, 9))))
         );
@@ -221,22 +217,22 @@ public class Usuarios extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addComponent(CorreoElectronicoUsuarioLbl)
+                        .addComponent(PorcentajeInteresesLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CorreoUsuarioInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PorcentajeInteresesInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addComponent(nombreUsuarioLbl)
+                        .addComponent(nombrePeriodicidadLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombreUsuarioInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nombrePeriodicidadInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ContrasenaUsuarioLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DiasPeriodicidadLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ContrasenaUsuarioInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
-                .addComponent(ListaUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ListaPeriodicidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -246,74 +242,60 @@ public class Usuarios extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
-        background.setLayout(backgroundLayout);
-        backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 191, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+    private void nombrePeriodicidadInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePeriodicidadInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editBtnActionPerformed
-
-    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBtnActionPerformed
-
-    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saveBtnActionPerformed
-
-    private void CorreoUsuarioInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorreoUsuarioInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CorreoUsuarioInputActionPerformed
+    }//GEN-LAST:event_nombrePeriodicidadInputActionPerformed
 
     private void ContrasenaUsuarioInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaUsuarioInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContrasenaUsuarioInputActionPerformed
 
-    private void nombreUsuarioInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreUsuarioInputActionPerformed
+    private void PorcentajeInteresesInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PorcentajeInteresesInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombreUsuarioInputActionPerformed
+    }//GEN-LAST:event_PorcentajeInteresesInputActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ContrasenaUsuarioInput;
-    private javax.swing.JLabel ContrasenaUsuarioLbl;
-    private javax.swing.JLabel CorreoElectronicoUsuarioLbl;
-    private javax.swing.JTextField CorreoUsuarioInput;
-    private javax.swing.JPanel ListaUsuarios;
-    private javax.swing.JPanel background;
+    private javax.swing.JLabel DiasPeriodicidadLbl;
+    private javax.swing.JPanel ListaPeriodicidades;
+    private javax.swing.JTable PeriodicidadesTable;
+    private javax.swing.JTextField PorcentajeInteresesInput;
+    private javax.swing.JLabel PorcentajeInteresesLbl;
     private javax.swing.JPanel background1;
-    private javax.swing.JTable clientesTable;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton editBtn;
     private javax.swing.JPanel header;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField nombreUsuarioInput;
-    private javax.swing.JLabel nombreUsuarioLbl;
+    private javax.swing.JTextField nombrePeriodicidadInput;
+    private javax.swing.JLabel nombrePeriodicidadLbl;
     private javax.swing.JButton saveBtn;
     private javax.swing.JLabel title;
     private javax.swing.JLabel title1;
