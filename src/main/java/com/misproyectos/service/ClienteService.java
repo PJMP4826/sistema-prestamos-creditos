@@ -75,7 +75,7 @@ public class ClienteService {
     }
 
     private void limpiarCorreo(CorreoCliente c) {
-        c.setCorreo(c.getCorreo().trim());
+        c.setCorreo(c.getCorreo().trim().toLowerCase());
     }
 
     private void limpiarDireccion(DireccionCliente d) {

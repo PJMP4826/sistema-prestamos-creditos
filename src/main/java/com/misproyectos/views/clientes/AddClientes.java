@@ -4,7 +4,7 @@
  */
 package com.misproyectos.views.clientes;
 
-import javax.swing.JButton;
+import javax.swing.*;
 
 /**
  *
@@ -368,6 +368,10 @@ public class AddClientes extends javax.swing.JPanel {
     
     public JButton getDeleteBtn(){
         return deleteBtn;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
     
     
