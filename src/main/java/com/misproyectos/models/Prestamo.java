@@ -3,9 +3,8 @@ package com.misproyectos.models;
 import com.misproyectos.enums.EstadoPrestamo;
 import com.misproyectos.interfaces.BuilderInterface;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.UUID;
 
 public class Prestamo {
@@ -13,10 +12,10 @@ public class Prestamo {
     private final int idPrestamo;
     private final String uuid;
     private final int idCliente;
-    private final double montoPrestado;
+    private final BigDecimal montoPrestado;
     private final double tasaIntereses;
     private final double plazoPago;
-    private LocalDateTime fechaInicio;
+    private Timestamp fechaInicio;
     private final double pagoMensual;
     private final double saldoPendiente;
     private final EstadoPrestamo estadoPrestamo;
@@ -49,10 +48,10 @@ public class Prestamo {
         private int idPrestamo;
         private String uuid = UUID.randomUUID().toString();
         private int idCliente;
-        private double montoPrestado;
+        private BigDecimal montoPrestado;
         private double tasaIntereses;
         private double plazoPago;
-        private LocalDateTime fechaInicio;
+        private Timestamp fechaInicio;
         private double pagoMensual;
         private double saldoPendiente;
         private EstadoPrestamo estadoPrestamo = EstadoPrestamo.ACTIVO;
@@ -77,7 +76,7 @@ public class Prestamo {
             return this;
         }
 
-        public PrestamoBuilder setMontoPrestado(double montoPrestado) {
+        public PrestamoBuilder setMontoPrestado(BigDecimal montoPrestado) {
             this.montoPrestado = montoPrestado;
             return this;
         }
@@ -92,7 +91,7 @@ public class Prestamo {
             return this;
         }
 
-        public PrestamoBuilder setFechaInicio(LocalDateTime fechaInicio){
+        public PrestamoBuilder setFechaInicio(Timestamp fechaInicio){
             this.fechaInicio = fechaInicio;
             return this;
         }
@@ -136,7 +135,7 @@ public class Prestamo {
         return idCliente;
     }
 
-    public double getMontoPrestado() {
+    public BigDecimal getMontoPrestado() {
         return montoPrestado;
     }
 
@@ -148,7 +147,7 @@ public class Prestamo {
         return plazoPago;
     }
 
-    public LocalDateTime getFechaInicio(){
+    public Timestamp getFechaInicio(){
         return fechaInicio;
     }
 
