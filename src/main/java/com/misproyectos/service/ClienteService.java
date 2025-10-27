@@ -47,6 +47,10 @@ public class ClienteService {
         limpiarCorreo(correoCliente);
         limpiarDireccion(direccionCliente);
 
+        if(repClient.existeClientByRfc(cliente.getRfc())) {
+            throw new SQLException("RFC de Cliente ya existente");
+        }
+
         Long clientId = this.repClient.add(cliente);
         if (clientId <= 0) {
             throw new SQLException("No se pudo registrar el cliente");

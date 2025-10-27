@@ -69,11 +69,11 @@ public class ClienteController {
                     correoCliente
             );
 
-            if (isSuccess) {
-                clientView.mostrarMensaje("Cliente registrado correctamente");
-            } else {
+            if (!isSuccess) {
                 throw new ValidacionException("Error de validación");
             }
+
+            clientView.mostrarMensaje("Cliente registrado correctamente");
 
         } catch (ValidacionException ex) {
             clientView.mostrarMensaje("Error de validación: " + ex.getMessage());

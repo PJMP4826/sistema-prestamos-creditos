@@ -36,6 +36,24 @@ public class ClienteRepository implements ClienteRepInterface {
         return clientes;
     }
 
+    public boolean existeClientByRfc(String rfc) {
+        String sql = "SELECT COUNT(*) FROM clientes WHERE rfc = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, rfc.trim().toUpperCase());
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return false;
+    }
+
     @Override
     public Long add(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO clientes (nombre, rfc) VALUES (?, ?) RETURNING id";
