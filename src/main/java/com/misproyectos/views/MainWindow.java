@@ -7,6 +7,9 @@ package com.misproyectos.views;
 import com.misproyectos.controllers.ClienteController;
 import com.misproyectos.views.clientes.AddClientes;
 import com.misproyectos.views.usuarios.Usuarios;
+import com.misproyectos.views.periodicidades.Periodicidades;
+import com.misproyectos.views.Prestamos.SeleccionarCliente;
+import com.misproyectos.views.Prestamos.DatosDelPrestamo;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -56,9 +59,10 @@ public class MainWindow extends javax.swing.JFrame {
         menu = new javax.swing.JPanel();
         btnClientes = new javax.swing.JButton();
         btnAsignarPrestamos = new javax.swing.JButton();
-        btnRegistroPagos = new javax.swing.JButton();
+        btnPeriodicidadPagos = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
         btnDashboard = new javax.swing.JButton();
+        btnRegistroPagos1 = new javax.swing.JButton();
         content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,7 +103,7 @@ public class MainWindow extends javax.swing.JFrame {
         btnClientes.setText("Clientes");
         btnClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
         btnClientes.setBorderPainted(false);
-        btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +118,7 @@ public class MainWindow extends javax.swing.JFrame {
         btnAsignarPrestamos.setText("Asignar Préstamos");
         btnAsignarPrestamos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
         btnAsignarPrestamos.setBorderPainted(false);
-        btnAsignarPrestamos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAsignarPrestamos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAsignarPrestamos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnAsignarPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,18 +126,18 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        btnRegistroPagos.setBackground(new java.awt.Color(0, 153, 255));
-        btnRegistroPagos.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnRegistroPagos.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistroPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/paymets.png"))); // NOI18N
-        btnRegistroPagos.setText("Registros de pagos");
-        btnRegistroPagos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
-        btnRegistroPagos.setBorderPainted(false);
-        btnRegistroPagos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegistroPagos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnRegistroPagos.addActionListener(new java.awt.event.ActionListener() {
+        btnPeriodicidadPagos.setBackground(new java.awt.Color(0, 153, 255));
+        btnPeriodicidadPagos.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnPeriodicidadPagos.setForeground(new java.awt.Color(255, 255, 255));
+        btnPeriodicidadPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/paymets.png"))); // NOI18N
+        btnPeriodicidadPagos.setText("Periodicidad de pagos");
+        btnPeriodicidadPagos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
+        btnPeriodicidadPagos.setBorderPainted(false);
+        btnPeriodicidadPagos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnPeriodicidadPagos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPeriodicidadPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistroPagosActionPerformed(evt);
+                btnPeriodicidadPagosActionPerformed(evt);
             }
         });
 
@@ -144,7 +148,7 @@ public class MainWindow extends javax.swing.JFrame {
         btnUsuarios.setText("Crear Usuarios");
         btnUsuarios.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
         btnUsuarios.setBorderPainted(false);
-        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +163,7 @@ public class MainWindow extends javax.swing.JFrame {
         btnDashboard.setText("Dashboard");
         btnDashboard.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
         btnDashboard.setBorderPainted(false);
-        btnDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnDashboard.setIconTextGap(10);
         btnDashboard.setPreferredSize(new java.awt.Dimension(110, 26));
@@ -169,19 +173,35 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        btnRegistroPagos1.setBackground(new java.awt.Color(0, 153, 255));
+        btnRegistroPagos1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnRegistroPagos1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistroPagos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/paymets.png"))); // NOI18N
+        btnRegistroPagos1.setText("Registros de pagos");
+        btnRegistroPagos1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
+        btnRegistroPagos1.setBorderPainted(false);
+        btnRegistroPagos1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegistroPagos1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRegistroPagos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroPagos1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnRegistroPagos, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPeriodicidadPagos, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAsignarPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDashboard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(btnRegistroPagos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,10 +213,12 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnPeriodicidadPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAsignarPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnRegistroPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnRegistroPagos1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         content.setLayout(new java.awt.BorderLayout());
@@ -208,8 +230,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
         );
         backgroundLayout.setVerticalGroup(
@@ -220,7 +242,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,7 +256,7 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE))
+                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,12 +270,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnAsignarPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarPrestamosActionPerformed
-        // TODO add your handling code here:
+        ShowJPanel(new SeleccionarCliente());
     }//GEN-LAST:event_btnAsignarPrestamosActionPerformed
 
-    private void btnRegistroPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroPagosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistroPagosActionPerformed
+    private void btnPeriodicidadPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeriodicidadPagosActionPerformed
+        ShowJPanel(new Periodicidades());
+    }//GEN-LAST:event_btnPeriodicidadPagosActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
         ShowJPanel(new Usuarios());
@@ -261,6 +284,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
         ShowJPanel(new Dashboard());
     }//GEN-LAST:event_btnDashboardActionPerformed
+
+    private void btnRegistroPagos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroPagos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistroPagos1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,7 +320,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnAsignarPrestamos;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnDashboard;
-    private javax.swing.JButton btnRegistroPagos;
+    private javax.swing.JButton btnPeriodicidadPagos;
+    private javax.swing.JButton btnRegistroPagos1;
     private javax.swing.JButton btnUsuarios;
     private static javax.swing.JPanel content;
     private javax.swing.JPanel header;
