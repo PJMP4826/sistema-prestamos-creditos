@@ -12,26 +12,41 @@ public class ValidationService {
             TelefonoCliente telefonoCliente,
             CorreoCliente correoCliente
     ) throws ValidacionException {
-        validarRFC(cliente.getRfc());
         validarNombre(cliente.getNombre());
+        existeRFC(cliente.getRfc());
+        existeTelefono(telefonoCliente.getTelefono());
+        existeCorreo(correoCliente.getCorreo());
+        validarRFC(cliente.getRfc());
         validarTelefono(telefonoCliente.getTelefono());
         validarCorreo(correoCliente.getCorreo());
     }
 
-    private void limpiarCliente(Cliente c) {
+    public static void limpiarEntradas(
+            Cliente cliente,
+            TelefonoCliente telefonoCliente,
+            CorreoCliente correoCliente,
+            DireccionCliente direccionCliente
+    ) {
+        limpiarCliente(cliente);
+        limpiarTelefono(telefonoCliente);
+        limpiarCorreo(correoCliente);
+        limpiarDireccion(direccionCliente);
+    }
+
+    private static void limpiarCliente(Cliente c) {
         c.setNombre(c.getNombre().trim());
         c.setRfc(c.getRfc().trim());
     }
 
-    private void limpiarTelefono(TelefonoCliente t) {
+    private static void limpiarTelefono(TelefonoCliente t) {
         t.setTelefono(t.getTelefono().trim());
     }
 
-    private void limpiarCorreo(CorreoCliente c) {
+    private static void limpiarCorreo(CorreoCliente c) {
         c.setCorreo(c.getCorreo().trim());
     }
 
-    private void limpiarDireccion(DireccionCliente d) {
+    private static void limpiarDireccion(DireccionCliente d) {
         d.setDescription(d.getDescription().trim());
     }
 
@@ -50,6 +65,24 @@ public class ValidationService {
     public static void validarTelefono(String telefono) throws ValidacionException {
         if (telefono == null || telefono.trim().length() < 10) {
             throw new ValidacionException("El telefono debe tener minimo 10 dígitos");
+        }
+    }
+
+    public static void existeTelefono(String telefono) throws ValidacionException {
+        if (telefono == null || telefono.isEmpty()) {
+            throw new ValidacionException("El Telefono no puede estar vacio");
+        }
+    }
+
+    public static void existeCorreo(String correo) throws ValidacionException {
+        if (correo == null || correo.isEmpty()) {
+            throw new ValidacionException("El Correo no puede estar vacio");
+        }
+    }
+
+    public static void existeRFC(String rfc) throws ValidacionException {
+        if (rfc == null || rfc.isEmpty()) {
+            throw new ValidacionException("El RFC no puede estar vacio");
         }
     }
 

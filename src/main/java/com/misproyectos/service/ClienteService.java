@@ -42,10 +42,12 @@ public class ClienteService {
         ValidationService.validarEntradas(cliente, telefonoCliente, correoCliente);
 
         //sanitizar
-        limpiarCliente(cliente);
-        limpiarTelefono(telefonoCliente);
-        limpiarCorreo(correoCliente);
-        limpiarDireccion(direccionCliente);
+        ValidationService.limpiarEntradas(
+                cliente,
+                telefonoCliente,
+                correoCliente,
+                direccionCliente
+        );
 
         if(repClient.existeClientByRfc(cliente.getRfc())) {
             throw new SQLException("RFC de Cliente ya existente");
@@ -67,22 +69,5 @@ public class ClienteService {
         this.repCorreo.add(correoCliente);
 
         return true;
-    }
-
-    private void limpiarCliente(Cliente c) {
-        c.setNombre(c.getNombre().trim());
-        c.setRfc(c.getRfc().trim());
-    }
-
-    private void limpiarTelefono(TelefonoCliente t) {
-        t.setTelefono(t.getTelefono().trim());
-    }
-
-    private void limpiarCorreo(CorreoCliente c) {
-        c.setCorreo(c.getCorreo().trim().toLowerCase());
-    }
-
-    private void limpiarDireccion(DireccionCliente d) {
-        d.setDescription(d.getDescription().trim());
     }
 }
