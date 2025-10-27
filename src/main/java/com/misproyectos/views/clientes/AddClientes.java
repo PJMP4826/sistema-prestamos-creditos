@@ -354,6 +354,10 @@ public class AddClientes extends javax.swing.JPanel {
         return correoInput.getText().trim();
     }
     
+    public String getDireccion(){
+        return direccionInput.getText().trim();
+    }
+    
     public JButton getSaveBtn(){
         return saveBtn;
     }
