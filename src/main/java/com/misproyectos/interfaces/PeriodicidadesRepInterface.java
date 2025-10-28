@@ -12,5 +12,6 @@ public abstract class PeriodicidadesRepInterface {
 
     protected abstract List<Periodicidad> findAll() throws SQLException;
 
+    protected abstract boolean existePeriodicidadByName(String periodicidad) throws SQLException;
     //nota: queda pendiente checar si se usara findById
 }
