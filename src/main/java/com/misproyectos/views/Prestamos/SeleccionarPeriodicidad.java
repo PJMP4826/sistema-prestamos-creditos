@@ -4,7 +4,11 @@
  */
 package com.misproyectos.views.Prestamos;
 
+import com.misproyectos.models.Periodicidad;
+
 import static com.misproyectos.views.MainWindow.ShowJPanel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,6 +21,7 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
      */
     public SeleccionarPeriodicidad() {
         initComponents();
+        cargarPeriodicidades();
     }
 
     /**
@@ -317,6 +322,8 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
 
     private void SiguienteSeleccionarPeriodicidadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteSeleccionarPeriodicidadBtnActionPerformed
         ShowJPanel(new DatosDelPrestamo());
+        String seleccion = (String) this.SeleccionarPeriodicidadComboBox.getSelectedItem();
+        System.out.println("Seleccionado: " + seleccion);
     }//GEN-LAST:event_SiguienteSeleccionarPeriodicidadBtnActionPerformed
 
     private void SeleccionarPeriodicidadComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarPeriodicidadComboBoxActionPerformed
@@ -328,6 +335,42 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
     }//GEN-LAST:event_AnteriorSeleccionarPeriodicidadBtnActionPerformed
 
 
+    private void cargarPeriodicidades(){
+//        List<String> periodicidades = new ArrayList<>();
+//
+//        periodicidades.add("quincenal");
+//        periodicidades.add("mensual");
+//        periodicidades.add("semanal");
+//
+//        this.SeleccionarPeriodicidadComboBox.removeAllItems();
+//
+//        for (String nombre : periodicidades){
+//            this.SeleccionarPeriodicidadComboBox.addItem(nombre);
+//        }
+
+        List<Periodicidad> list = new ArrayList<>();
+
+        Periodicidad p1 = new Periodicidad();
+        p1.setNombrePeriodicidad("quincenal");
+
+        Periodicidad p2 = new Periodicidad();
+        p2.setNombrePeriodicidad("semanal");
+
+        Periodicidad p3 = new Periodicidad();
+        p3.setNombrePeriodicidad("mensual");
+
+        list.add(p1);
+        list.add(p2);
+        list.add(p3);
+
+        this.SeleccionarPeriodicidadComboBox.removeAllItems();
+
+        for (Periodicidad p : list){
+            //System.out.println(p.getNombrePeriodicidad());
+            this.SeleccionarPeriodicidadComboBox.addItem(p.getNombrePeriodicidad());
+        }
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnteriorSeleccionarPeriodicidadBtn;
     private javax.swing.JLabel DatosPrestamoLbl;
