@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ClienteRepInterface {
     Long add(Cliente cliente) throws SQLException;
+    boolean delete(String rfc) throws SQLException;
     boolean existeClientByRfc(String rfc) throws SQLException;
     List<Cliente> getClients() throws SQLException;
 }

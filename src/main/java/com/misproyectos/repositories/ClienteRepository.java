@@ -72,4 +72,20 @@ public class ClienteRepository implements ClienteRepInterface {
             }
         }
     }
+
+    @Override
+    public boolean delete(String rfc) throws SQLException {
+        String sql = "DELETE FROM clientes WHERE rfc = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, rfc);
+            int rowAffected = stmt.executeUpdate();
+
+            if (rowAffected <= 0) {
+                throw new SQLException("Errror al eliminar cliente");
+            }
+
+            return true;
+        }
+    }
 }

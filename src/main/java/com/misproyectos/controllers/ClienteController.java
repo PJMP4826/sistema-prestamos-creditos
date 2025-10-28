@@ -44,6 +44,13 @@ public class ClienteController {
                 }
             }
         });
+
+        clientView.getDeleteBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteCliente();
+            }
+        });
     }
 
     public void guardarCliente() throws SQLException {
@@ -117,6 +124,30 @@ public class ClienteController {
         } catch (SQLException e) {
             clientView.mostrarMensaje("Error al cargar clientes: " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+    public void deleteCliente() {
+        DefaultTableModel model = (DefaultTableModel) clientView.getClientesTable().getModel();
+        for (int i : clientView.getClientesTable().getSelectedColumns()) {
+            try {
+                boolean isDelete = service.deleteCliente((String) clientView.getClientesTable().getValueAt(i, 1));
+
+                if(!isDelete){
+                    throw new ValidacionException("Error de validación");
+                }
+                clientView.mostrarMensaje("Cliente eliminado correctamente");
+
+                model.removeRow(i);
+            } catch (ValidacionException ex) {
+                clientView.mostrarMensaje("Error de validación: " + ex.getMessage());
+            } catch (SQLException ex) {
+                clientView.mostrarMensaje("Error de base de datos: " + ex.getMessage());
+                ex.printStackTrace();
+            } catch (Exception ex) {
+                clientView.mostrarMensaje("Error inesperado: " + ex.getMessage());
+                ex.printStackTrace();
+            }
         }
     }
 }

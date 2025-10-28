@@ -50,7 +50,7 @@ public class ClienteService {
                 direccionCliente
         );
 
-        if(repClient.existeClientByRfc(cliente.getRfc())) {
+        if (repClient.existeClientByRfc(cliente.getRfc())) {
             throw new SQLException("RFC de Cliente ya existente");
         }
 
@@ -82,5 +82,16 @@ public class ClienteService {
         }
 
         return clientes;
+    }
+
+    public boolean deleteCliente(String rfc) throws ValidacionException, SQLException {
+        ValidationService.existeRFC(rfc);
+        //ValidationService.validarRFC(rfc);
+
+        if (!repClient.existeClientByRfc(rfc)) {
+            throw new SQLException("RFC de Cliente ya existente");
+        }
+
+        return repClient.delete(rfc);
     }
 }
