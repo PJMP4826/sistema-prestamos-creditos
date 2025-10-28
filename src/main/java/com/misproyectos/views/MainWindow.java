@@ -287,7 +287,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnRegistroPagos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroPagos1ActionPerformed
-        // TODO add your handling code here:
+        ShowJPanel(new Periodicidades());
     }//GEN-LAST:event_btnRegistroPagos1ActionPerformed
 
     /**

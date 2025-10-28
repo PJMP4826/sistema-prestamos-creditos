@@ -133,13 +133,11 @@
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnRegistroPagos1" pref="198" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="btnAsignarPrestamos" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnPeriodicidadPagos" alignment="0" pref="198" max="32767" attributes="0"/>
-                              <Component id="btnUsuarios" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnClientes" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnDashboard" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="btnAsignarPrestamos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnPeriodicidadPagos" alignment="0" pref="198" max="32767" attributes="0"/>
+                          <Component id="btnUsuarios" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnClientes" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnDashboard" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="15" max="32767" attributes="0"/>
                   </Group>
