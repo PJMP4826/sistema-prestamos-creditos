@@ -1,4 +1,4 @@
-package com.misproyectos.service;
+package com.misproyectos.service.validations;
 
 import com.misproyectos.exceptions.ValidacionException;
 import com.misproyectos.models.Cliente;
@@ -6,7 +6,7 @@ import com.misproyectos.models.CorreoCliente;
 import com.misproyectos.models.DireccionCliente;
 import com.misproyectos.models.TelefonoCliente;
 
-public class ValidationService {
+public class ClientValidationService {
     public static void validarEntradas(
             Cliente cliente,
             TelefonoCliente telefonoCliente,

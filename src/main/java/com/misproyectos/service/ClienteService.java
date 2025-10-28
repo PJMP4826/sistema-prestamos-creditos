@@ -10,6 +10,7 @@ import com.misproyectos.models.Cliente;
 import com.misproyectos.models.CorreoCliente;
 import com.misproyectos.models.DireccionCliente;
 import com.misproyectos.models.TelefonoCliente;
+import com.misproyectos.service.validations.ClientValidationService;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -40,10 +41,10 @@ public class ClienteService {
             DireccionCliente direccionCliente,
             CorreoCliente correoCliente
     ) throws ValidacionException, SQLException {
-        ValidationService.validarEntradas(cliente, telefonoCliente, correoCliente);
+        ClientValidationService.validarEntradas(cliente, telefonoCliente, correoCliente);
 
         //sanitizar
-        ValidationService.limpiarEntradas(
+        ClientValidationService.limpiarEntradas(
                 cliente,
                 telefonoCliente,
                 correoCliente,
@@ -85,7 +86,7 @@ public class ClienteService {
     }
 
     public boolean deleteCliente(String rfc) throws ValidacionException, SQLException {
-        ValidationService.existeRFC(rfc);
+        ClientValidationService.existeRFC(rfc);
         //ValidationService.validarRFC(rfc);
 
         if (!repClient.existeClientByRfc(rfc)) {
