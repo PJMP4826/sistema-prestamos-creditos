@@ -13,9 +13,11 @@ import com.misproyectos.repositories.TelefonoRepository;
 import com.misproyectos.service.ClienteService;
 import com.misproyectos.views.clientes.AddClientes;
 
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ClienteController {
     private final AddClientes clientView;
@@ -83,6 +85,38 @@ public class ClienteController {
         } catch (Exception ex) {
             clientView.mostrarMensaje("Error inesperado: " + ex.getMessage());
             ex.printStackTrace();
+        }
+    }
+
+    public void loadClientes() {
+        DefaultTableModel model = (DefaultTableModel) clientView.getClientesTable().getModel();
+        model.setRowCount(0);
+
+        try {
+            List<Cliente> clientes = service.listarClientes();
+
+            for (Cliente cliente : clientes) {
+                String telefonos = "";
+                for (TelefonoCliente tel : cliente.getTelefonoClientes()) {
+                    telefonos += tel.getTelefono() + " ";
+                }
+
+                String correo = cliente.getCorreoClientes() != null ? cliente.getCorreoClientes().getCorreo() : "";
+                String direccion = cliente.getDireccionClientes() != null ? cliente.getDireccionClientes().getDescription() : "";
+
+                System.out.println(cliente.getRfc());
+                model.addRow(new Object[]{
+                        cliente.getNombre(),
+                        cliente.getRfc(),
+                        telefonos.trim(),
+                        correo,
+                        direccion
+                });
+            }
+
+        } catch (SQLException e) {
+            clientView.mostrarMensaje("Error al cargar clientes: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

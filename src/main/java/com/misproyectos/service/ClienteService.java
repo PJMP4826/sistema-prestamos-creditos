@@ -12,6 +12,7 @@ import com.misproyectos.models.DireccionCliente;
 import com.misproyectos.models.TelefonoCliente;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class ClienteService {
     private final ClienteRepInterface repClient;
@@ -69,5 +70,17 @@ public class ClienteService {
         this.repCorreo.add(correoCliente);
 
         return true;
+    }
+
+    public List<Cliente> listarClientes() throws SQLException {
+        List<Cliente> clientes = repClient.getClients();
+
+        for (Cliente cliente : clientes) {
+            cliente.setTelefonoClientes(repTel.findByClientId(cliente.getId()));
+            cliente.setDireccionClientes(repDireccion.findByClientId(cliente.getId()));
+            cliente.setCorreoClientes(repCorreo.findByClientId(cliente.getId()));
+        }
+
+        return clientes;
     }
 }

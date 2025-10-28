@@ -4,7 +4,19 @@
  */
 package com.misproyectos.views.clientes;
 
+import com.misproyectos.controllers.ClienteController;
+import com.misproyectos.models.Cliente;
+import com.misproyectos.models.CorreoCliente;
+import com.misproyectos.models.DireccionCliente;
+import com.misproyectos.models.TelefonoCliente;
+import com.misproyectos.repositories.ClienteRepository;
+import com.misproyectos.repositories.CorreoRepository;
+import com.misproyectos.repositories.DireccionRepository;
+import com.misproyectos.repositories.TelefonoRepository;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
  *
@@ -17,6 +29,7 @@ public class AddClientes extends javax.swing.JPanel {
      */
     public AddClientes() {
         initComponents();
+        loadClientes();
     }
 
     /**
@@ -148,7 +161,8 @@ public class AddClientes extends javax.swing.JPanel {
             }
         });
 
-        clientesTable.setForeground(new java.awt.Color(255, 255, 255));
+        clientesTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        clientesTable.setForeground(new java.awt.Color(0, 0, 0));
         clientesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -207,7 +221,7 @@ public class AddClientes extends javax.swing.JPanel {
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
                             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(backgroundLayout.createSequentialGroup()
                                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +246,7 @@ public class AddClientes extends javax.swing.JPanel {
                                             .addComponent(direccionLbl))
                                         .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(525, Short.MAX_VALUE)
                         .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
         );
@@ -332,49 +346,61 @@ public class AddClientes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_direccionInputActionPerformed
 
+    public void loadClientes(){
+        try {
+            ClienteController controller = new ClienteController(this);
+            controller.loadClientes();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getLocalizedMessage());
+        }
+    }
 
     //getters 
     public String getNombre(){
         return nombreClienteInput.getText().trim();
     }
-    
+
     public String getRfc(){
         return rfcInput.getText().trim();
     }
-    
+
     public String getTelefono(){
         return telefonoInput.getText().trim();
     }
-    
+
     public String getTipoTelefono(){
         return (String) typeTelefonoDropDown.getSelectedItem();
     }
-    
+
     public String getCorreo(){
         return correoInput.getText().trim();
     }
-    
+
     public String getDireccion(){
         return direccionInput.getText().trim();
     }
-    
+
     public JButton getSaveBtn(){
         return saveBtn;
     }
-    
+
     public JButton getEditBtn(){
         return editBtn;
     }
-    
+
     public JButton getDeleteBtn(){
         return deleteBtn;
+    }
+
+    public JTable getClientesTable() {
+        return this.clientesTable;
     }
 
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JTable clientesTable;

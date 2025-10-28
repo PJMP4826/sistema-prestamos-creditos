@@ -27,6 +27,7 @@ public class ClienteRepository implements ClienteRepInterface {
                 Cliente cliente = new Cliente();
                 cliente.setId(result.getLong("id"));
                 cliente.setNombre(result.getString("nombre"));
+                cliente.setRfc(result.getString("rfc"));
                 clientes.add(cliente);
             }
         } catch (SQLException e) {
