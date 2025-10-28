@@ -7,6 +7,7 @@ import com.misproyectos.repositories.PeriodicidadesRepository;
 import com.misproyectos.service.validations.PeriodicidadValidationService;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class PeriodicidadService {
     private final PeriodicidadesRepository repository;
@@ -32,5 +33,14 @@ public class PeriodicidadService {
         }
 
         return repository.add(periodicidad);
+    }
+
+    public List<Periodicidad> getPeriodicidades() throws SQLException {
+        try {
+            List<Periodicidad> periodicidades = repository.findAll();
+            return periodicidades;
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
     }
 }

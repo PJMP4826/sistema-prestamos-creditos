@@ -61,6 +61,8 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
                     periodicidades.add(periodicidad);
                 }
             }
+        } catch (SQLException e){
+            throw new SQLException("Error al obtener periodicidades");
         }
         return periodicidades;
     }
