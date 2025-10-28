@@ -372,7 +372,7 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
     }//GEN-LAST:event_AnteriorBtnActionPerformed
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
-        // TODO add your handling code here:
+        ShowJPanel(new ConfirmarPrestamo());
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
 

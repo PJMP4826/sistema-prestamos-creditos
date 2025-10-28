@@ -243,7 +243,7 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
                             .addGroup(background1Layout.createSequentialGroup()
                                 .addGap(118, 118, 118)
                                 .addComponent(decoracion2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addGap(50, 50, 50)
                         .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
                                 .addComponent(DatosPrestamoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
