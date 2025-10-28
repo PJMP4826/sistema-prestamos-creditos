@@ -6,6 +6,7 @@ import com.misproyectos.models.Periodicidad;
 
 import javax.xml.crypto.Data;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
@@ -44,7 +45,24 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
 
     @Override
     public List<Periodicidad> findAll() throws SQLException {
-        return null;
+        String sql = """
+                SELECT nombre_periodicidad, dias_periodicidad, porcentaje_intereses
+                	FROM public.periodicidad_pago;
+                """;
+        List<Periodicidad> periodicidades = new ArrayList<>();
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            try (ResultSet result = stmt.executeQuery()) {
+                while (result.next()) {
+                    Periodicidad periodicidad = new Periodicidad();
+                    periodicidad.setNombrePeriodicidad(result.getString("nombre_periodicidad"));
+                    periodicidad.setDiasPeriodicidad(result.getInt("dias_periodicidad"));
+                    periodicidad.setPorcentajeIntereses(result.getInt("porcentaje_intereses"));
+                    periodicidades.add(periodicidad);
+                }
+            }
+        }
+        return periodicidades;
     }
 
     @Override
