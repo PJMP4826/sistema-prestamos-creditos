@@ -6,6 +6,8 @@ package com.misproyectos.views.Prestamos;
 
 import com.misproyectos.models.Periodicidad;
 
+import javax.swing.*;
+
 import static com.misproyectos.views.MainWindow.ShowJPanel;
 import java.util.ArrayList;
 import java.util.List;
@@ -371,6 +373,11 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
         }
         
     }
+
+    public JComboBox<String> getJComboBoxPeriodicidades(){
+        return SeleccionarPeriodicidadComboBox;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnteriorSeleccionarPeriodicidadBtn;
     private javax.swing.JLabel DatosPrestamoLbl;
