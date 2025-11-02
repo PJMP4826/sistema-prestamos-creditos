@@ -41,4 +41,14 @@ public class Periodicidad {
     public void setPorcentajeIntereses(int porcentajeIntereses) {
         this.porcentajeIntereses = porcentajeIntereses;
     }
+
+    @Override
+    public String toString() {
+        return "Periodicidad{" +
+                "idPeriodicidad=" + idPeriodicidad +
+                ", nombrePeriodicidad='" + nombrePeriodicidad + '\'' +
+                ", diasPeriodicidad=" + diasPeriodicidad +
+                ", porcentajeIntereses=" + porcentajeIntereses +
+                '}';
+    }
 }

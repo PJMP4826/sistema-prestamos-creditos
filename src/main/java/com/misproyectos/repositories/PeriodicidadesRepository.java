@@ -3,6 +3,7 @@ package com.misproyectos.repositories;
 import com.misproyectos.config.Database;
 import com.misproyectos.interfaces.PeriodicidadesRepInterface;
 import com.misproyectos.models.Periodicidad;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,7 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
                     periodicidades.add(periodicidad);
                 }
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new SQLException("Error al obtener periodicidades");
         }
         return periodicidades;
@@ -81,5 +82,28 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
         }
 
         return false;
+    }
+
+    public Periodicidad findById(int id) throws SQLException {
+        String sql = """
+                SELECT id, nombre_periodicidad, dias_periodicidad, porcentaje_intereses
+                	FROM public.periodicidad_pago WHERE id = ?
+                """;
+
+        Periodicidad periodicidad = new Periodicidad();
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try (ResultSet result = stmt.executeQuery()) {
+                while (result.next()) {
+                    periodicidad.setNombrePeriodicidad(result.getString("nombre_periodicidad"));
+                    periodicidad.setDiasPeriodicidad(result.getInt("dias_periodicidad"));
+                    periodicidad.setPorcentajeIntereses(result.getInt("porcentaje_intereses"));
+                }
+            }
+        } catch (SQLException e) {
+            throw new SQLException("Error al obtener la periodicidad seleccionada");
+        }
+
+        return periodicidad;
     }
 }
