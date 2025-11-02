@@ -5,9 +5,11 @@ import com.misproyectos.models.Periodicidad;
 import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.views.periodicidades.Periodicidades;
 
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.List;
 
 public class PeriodicidadController {
     private final Periodicidades periodicidadView;
@@ -19,6 +21,27 @@ public class PeriodicidadController {
     ) {
         this.periodicidadView = view;
         this.service = service;
+    }
+
+    public void loadPeriodicidades() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.setRowCount(0);
+
+        try {
+            List<Periodicidad> periodicidads = service.getPeriodicidades();
+
+            for(Periodicidad periodicidad : periodicidads){
+                model.addRow(new Object[] {
+                        periodicidad.getNombrePeriodicidad(),
+                        periodicidad.getDiasPeriodicidad(),
+                        periodicidad.getPorcentajeIntereses()
+                });
+            }
+
+        }catch (SQLException e){
+            periodicidadView.mostrarMensaje("Errror al cargar las periodicidades" + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public void initListener() {
