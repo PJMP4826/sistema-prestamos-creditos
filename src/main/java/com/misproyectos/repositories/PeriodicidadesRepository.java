@@ -44,7 +44,7 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
     @Override
     public List<Periodicidad> findAll() throws SQLException {
         String sql = """
-                SELECT nombre_periodicidad, dias_periodicidad, porcentaje_intereses
+                SELECT id, nombre_periodicidad, dias_periodicidad, porcentaje_intereses
                 	FROM public.periodicidad_pago;
                 """;
         List<Periodicidad> periodicidades = new ArrayList<>();
@@ -53,6 +53,7 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
             try (ResultSet result = stmt.executeQuery()) {
                 while (result.next()) {
                     Periodicidad periodicidad = new Periodicidad();
+                    periodicidad.setIdPeriodicidad(result.getLong("id"));
                     periodicidad.setNombrePeriodicidad(result.getString("nombre_periodicidad"));
                     periodicidad.setDiasPeriodicidad(result.getInt("dias_periodicidad"));
                     periodicidad.setPorcentajeIntereses(result.getInt("porcentaje_intereses"));
