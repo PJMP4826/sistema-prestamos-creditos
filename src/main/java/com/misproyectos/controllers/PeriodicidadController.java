@@ -30,16 +30,17 @@ public class PeriodicidadController {
         try {
             List<Periodicidad> periodicidads = service.getPeriodicidades();
 
-            for(Periodicidad periodicidad : periodicidads){
-                System.out.println(periodicidad.toString());
-                model.addRow(new Object[] {
+            for (Periodicidad periodicidad : periodicidads) {
+                System.out.println("Id periodicidad (no se muestra en la tabla): " + periodicidad.getIdPeriodicidad());
+                model.addRow(new Object[]{
+                        periodicidad.getIdPeriodicidad(),
                         periodicidad.getNombrePeriodicidad(),
                         periodicidad.getDiasPeriodicidad(),
                         periodicidad.getPorcentajeIntereses()
                 });
             }
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             periodicidadView.mostrarMensaje("Errror al cargar las periodicidades" + e.getMessage());
             e.printStackTrace();
         }
