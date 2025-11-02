@@ -24,13 +24,14 @@ public class PeriodicidadController {
     }
 
     public void loadPeriodicidades() {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = (DefaultTableModel) periodicidadView.getPeriodicidadesTable().getModel();
         model.setRowCount(0);
 
         try {
             List<Periodicidad> periodicidads = service.getPeriodicidades();
 
             for(Periodicidad periodicidad : periodicidads){
+                System.out.println(periodicidad.toString());
                 model.addRow(new Object[] {
                         periodicidad.getNombrePeriodicidad(),
                         periodicidad.getDiasPeriodicidad(),

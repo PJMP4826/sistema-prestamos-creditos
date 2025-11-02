@@ -4,6 +4,10 @@
  */
 package com.misproyectos.views.periodicidades;
 
+import com.misproyectos.controllers.PeriodicidadController;
+import com.misproyectos.repositories.PeriodicidadesRepository;
+import com.misproyectos.service.PeriodicidadService;
+
 import javax.swing.*;
 
 /**
@@ -17,6 +21,7 @@ public class Periodicidades extends javax.swing.JPanel {
      */
     public Periodicidades() {
         initComponents();
+        loadPeriodicidadesTable();
     }
 
     /**
@@ -282,6 +287,16 @@ public class Periodicidades extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_editBtnActionPerformed
 
+    public void loadPeriodicidadesTable() {
+        try {
+            PeriodicidadService service = new PeriodicidadService(new PeriodicidadesRepository());
+            PeriodicidadController controller = new PeriodicidadController(this, service);
+            controller.loadPeriodicidades();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getLocalizedMessage());
+        }
+    }
+
     //getters
     public String getNombre() {
         return nombrePeriodicidadInput.getText().trim();
@@ -307,7 +322,7 @@ public class Periodicidades extends javax.swing.JPanel {
         return deleteBtn;
     }
 
-    public JTable getPeriodicidadesTable(){
+    public JTable getPeriodicidadesTable() {
         return PeriodicidadesTable;
     }
 
