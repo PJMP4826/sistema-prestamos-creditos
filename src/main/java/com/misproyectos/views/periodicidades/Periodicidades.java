@@ -307,6 +307,10 @@ public class Periodicidades extends javax.swing.JPanel {
         return deleteBtn;
     }
 
+    public JTable getPeriodicidadesTable(){
+        return PeriodicidadesTable;
+    }
+
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
