@@ -106,4 +106,29 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
 
         return periodicidad;
     }
+
+    public boolean update(Periodicidad periodicidad, int id) throws SQLException {
+        String sql = """
+                        UPDATE periodicidad_pago
+                        SET nombre_periodicidad = ?,
+                        dias_periodicidad = ?,
+                        porcentaje_intereses = ?
+                        WHERE id = ?
+                """;
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, periodicidad.getNombrePeriodicidad());
+            stmt.setInt(2, periodicidad.getDiasPeriodicidad());
+            stmt.setInt(3, periodicidad.getPorcentajeIntereses());
+            stmt.setInt(4, id);
+
+            int rowAffect = stmt.executeUpdate();
+
+            if (rowAffect <= 0) {
+                throw new SQLException("Error al actualizar");
+            }
+
+            return true;
+        }
+    }
 }
