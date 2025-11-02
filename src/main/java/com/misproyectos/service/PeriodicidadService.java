@@ -1,7 +1,6 @@
 package com.misproyectos.service;
 
 import com.misproyectos.exceptions.ValidacionException;
-import com.misproyectos.interfaces.PeriodicidadesRepInterface;
 import com.misproyectos.models.Periodicidad;
 import com.misproyectos.repositories.PeriodicidadesRepository;
 import com.misproyectos.service.validations.PeriodicidadValidationService;

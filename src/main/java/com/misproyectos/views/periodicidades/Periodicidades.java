@@ -307,6 +307,10 @@ public class Periodicidades extends javax.swing.JPanel {
         return deleteBtn;
     }
 
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DiasPeriodicidadLbl;
     private javax.swing.JPanel ListaPeriodicidades;

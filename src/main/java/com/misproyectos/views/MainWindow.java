@@ -5,6 +5,9 @@
 package com.misproyectos.views;
 
 import com.misproyectos.controllers.ClienteController;
+import com.misproyectos.controllers.PeriodicidadController;
+import com.misproyectos.repositories.PeriodicidadesRepository;
+import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.views.clientes.AddClientes;
 import com.misproyectos.views.usuarios.Usuarios;
 import com.misproyectos.views.periodicidades.Periodicidades;
@@ -275,7 +278,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAsignarPrestamosActionPerformed
 
     private void btnPeriodicidadPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeriodicidadPagosActionPerformed
-        ShowJPanel(new Periodicidades());
+        Periodicidades vistaPeriodicidades = new Periodicidades();
+        PeriodicidadesRepository repository = new PeriodicidadesRepository();
+        PeriodicidadService service = new PeriodicidadService(repository);
+        PeriodicidadController controller = new PeriodicidadController(vistaPeriodicidades, service);
+        controller.initListener();
+        ShowJPanel(vistaPeriodicidades);
     }//GEN-LAST:event_btnPeriodicidadPagosActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed

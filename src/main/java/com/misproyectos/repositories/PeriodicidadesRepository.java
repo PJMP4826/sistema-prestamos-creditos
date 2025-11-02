@@ -3,8 +3,6 @@ package com.misproyectos.repositories;
 import com.misproyectos.config.Database;
 import com.misproyectos.interfaces.PeriodicidadesRepInterface;
 import com.misproyectos.models.Periodicidad;
-
-import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
