@@ -4,6 +4,10 @@
  */
 package com.misproyectos.views.Prestamos;
 
+import com.misproyectos.controllers.prestamo.SeleccionarClienteController;
+
+import javax.swing.*;
+
 import static com.misproyectos.views.MainWindow.ShowJPanel;
 
 /**
@@ -17,6 +21,7 @@ public class SeleccionarCliente extends javax.swing.JPanel {
      */
     public SeleccionarCliente() {
         initComponents();
+        cargarClientes();
     }
 
     /**
@@ -280,6 +285,14 @@ public class SeleccionarCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_SelectClienteComboBoxActionPerformed
 
+    private void cargarClientes(){
+        SeleccionarClienteController controller = new SeleccionarClienteController(this);
+        controller.loadClientesJBox();
+    }
+
+    public JComboBox<String> getJComboBoxCliente(){
+        return SelectClienteComboBox;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ClienteLbl;
