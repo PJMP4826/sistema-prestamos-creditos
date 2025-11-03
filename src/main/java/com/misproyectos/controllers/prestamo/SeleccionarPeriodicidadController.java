@@ -31,4 +31,10 @@ public class SeleccionarPeriodicidadController extends PrestamoController {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
+    public String getSelectItemPeriodicidadJComboBox() {
+        JComboBox<String> select = selectPeriodicidadView.getJComboBoxPeriodicidades();
+        String selectItem = (String) select.getSelectedItem();
+        return selectItem;
+    }
 }

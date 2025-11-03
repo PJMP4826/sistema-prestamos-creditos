@@ -4,6 +4,8 @@
  */
 package com.misproyectos.views.Prestamos;
 
+import com.misproyectos.controllers.prestamo.ConfirmarPrestamoController;
+
 import javax.swing.*;
 
 import static com.misproyectos.views.MainWindow.ShowJPanel;
@@ -19,6 +21,7 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
      */
     public ConfirmarPrestamo() {
         initComponents();
+        initListeners();
     }
 
     /**
@@ -517,6 +520,11 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
 
     public void setMontoCuotaSelectedLbl(String montoCuotaSelectedLbl) {
         this.montoCuotaSelectedLbl.setText(montoCuotaSelectedLbl);
+    }
+
+    private void initListeners() {
+        ConfirmarPrestamoController controller = new ConfirmarPrestamoController(this);
+        controller.initListeners();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
