@@ -4,8 +4,10 @@ import com.misproyectos.exceptions.ValidacionException;
 import com.misproyectos.models.Periodicidad;
 import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.views.MainWindow;
+import com.misproyectos.views.periodicidades.EditPeriodicidadDialog;
 import com.misproyectos.views.periodicidades.Periodicidades;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class PeriodicidadController {
     private final Periodicidades periodicidadView;
+    private final EditPeriodicidadDialog editarDialog;
     private final PeriodicidadService service;
 
     public PeriodicidadController(
@@ -21,6 +24,7 @@ public class PeriodicidadController {
             PeriodicidadService service
     ) {
         this.periodicidadView = view;
+        this.editarDialog = new EditPeriodicidadDialog(jPanelToJFrame(), true);
         this.service = service;
     }
 
@@ -62,7 +66,8 @@ public class PeriodicidadController {
         periodicidadView.getEditBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                editarPeriodicidad();
+                abrirEditDialog();
+                //editarPeriodicidad();
             }
         });
     }
@@ -108,5 +113,13 @@ public class PeriodicidadController {
         //MainWindow.ShowJPanel();
 
 
+    }
+
+    private JFrame jPanelToJFrame(){
+        return (JFrame) SwingUtilities.getWindowAncestor(periodicidadView);
+    }
+
+    private void abrirEditDialog(){
+        editarDialog.setVisible(true);
     }
 }
