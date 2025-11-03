@@ -22,8 +22,8 @@ import javax.swing.JPanel;
  * @author Fausto
  */
 public class MainWindow extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainWindow.class.getName());
+
+    public static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainWindow.class.getName());
 
     /**
      * Creates new form MainWindow
@@ -32,15 +32,15 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         InitContent();
     }
-    
+
     private void InitContent(){
         ShowJPanel(new Dashboard());
     }
-    
-    
+
+
     public static void ShowJPanel(JPanel p) {
         p.setLocation(0,0);
-        
+
         content.removeAll();
         content.add(p, BorderLayout.CENTER);
         content.revalidate();

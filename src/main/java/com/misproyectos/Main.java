@@ -1,80 +1,19 @@
 package com.misproyectos;
 
-import com.misproyectos.config.Database;
-import com.misproyectos.enums.TipoTelefono;
-import com.misproyectos.models.Cliente;
-import com.misproyectos.models.CorreoCliente;
-import com.misproyectos.models.DireccionCliente;
-import com.misproyectos.models.TelefonoCliente;
-import com.misproyectos.repositories.ClienteRepository;
-import com.misproyectos.repositories.CorreoRepository;
-import com.misproyectos.repositories.DireccionRepository;
-import com.misproyectos.repositories.TelefonoRepository;
+import com.misproyectos.views.MainWindow;
 
-import java.sql.Connection;
-import java.util.List;
+import javax.swing.*;
+
+import static com.misproyectos.views.MainWindow.logger;
 
 public class Main {
     public static void main(String[] args) {
-//        Prestamo prestamo = Prestamo.builder()
-//                .setIdPrestamo(123)
-//                .build();
-//
-//        System.out.println("Prestamo: " + prestamo.toString());
-//        System.out.println("Prestamo id: " + prestamo.getIdPrestamo());
-
-        try {
-            //Connection db = Database.getInstance().getConnection();
-            //System.out.println("Conexion exitosa: " + db);
-
-            ClienteRepository repClient = new ClienteRepository();
-            Cliente cliente = new Cliente();
-            cliente.setNombre("Socrates");
-            cliente.setRfc("SCXCVBBHJ23NJK");
-
-            //id autogenerado por Postgres
-            Long clientId = repClient.add(cliente);
-
-            //Objects
-            TipoTelefono tipo = TipoTelefono.fromTag("Móvil");
-            TelefonoCliente telefono = new TelefonoCliente();
-
-            DireccionCliente address = new DireccionCliente();
-            CorreoCliente correo = new CorreoCliente();
-
-            //agregar Data
-            telefono.setIdCliente(clientId);
-            telefono.setTelefono("9323896754");
-            telefono.setTipo(tipo);
-
-            address.setIdCliente(clientId);
-            address.setDescription("Calle 3, Centro, Gaviotas, Tabasco");
-
-            correo.setIdCliente(clientId);
-            correo.setCorreo("socrates@philosophy.com");
-
-            //Insert data
-            TelefonoRepository repTel = new TelefonoRepository();
-            repTel.add(telefono);
-
-            DireccionRepository repAddress = new DireccionRepository();
-            repAddress.add(address);
-
-            CorreoRepository emailRep = new CorreoRepository();
-            emailRep.add(correo);
-
-            System.out.println("Cliente id: " + clientId);
-            System.out.println("Cliente info: " + cliente.toString());
-
-            //List<Cliente> clientes = rep.getClients();
-            //for (Cliente c : clientes) {
-                //System.out.println(c);
-            //}
-
-        } catch (Exception e) {
-            System.out.println("Conexion faild: ");
-            e.printStackTrace();
-        }
-
+        java.awt.EventQueue.invokeLater(() -> {
+            MainWindow window = new MainWindow();
+            window.setTitle("Sistema de Prestamos");
+            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window.setLocationRelativeTo(null);
+            window.setVisible(true);
+        });
     }
 }
