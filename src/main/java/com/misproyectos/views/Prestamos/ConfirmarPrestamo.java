@@ -483,6 +483,42 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
 
     }//GEN-LAST:event_confirmarPrestamoBtnActionPerformed
 
+    public JButton getConfirmarPrestamoBtn() {
+        return confirmarPrestamoBtn;
+    }
+
+    public void setClienteSelectedLbl(String clienteSelectedLbl) {
+        this.clienteSelectedLbl.setText(clienteSelectedLbl);
+    }
+
+    public void setPeriodicidadSelectedLbl(String periodicidadSelectedLbl) {
+        this.periodicidadSelectedLbl.setText(periodicidadSelectedLbl);
+    }
+
+    public void setImporteSelectedLbl(String importeSelectedLbl) {
+        this.importeSelectedLbl.setText(importeSelectedLbl);
+    }
+
+    public void setPlazoSelectedLbl(String plazoSelectedLbl) {
+        this.plazoSelectedLbl.setText(plazoSelectedLbl);
+    }
+
+    public void setInteresSelectedLbl(String interesSelectedLbl) {
+        this.interesSelectedLbl.setText(interesSelectedLbl);
+    }
+
+    public void setTotalPagarSelectedLbl(String totalPagarSelectedLbl) {
+        this.totalPagarSelectedLbl.setText(totalPagarSelectedLbl);
+    }
+
+    public void setNoCuotasSelectedLbl(String noCuotasSelectedLbl) {
+        this.noCuotasSelectedLbl.setText(noCuotasSelectedLbl);
+    }
+
+    public void setMontoCuotaSelectedLbl(String montoCuotaSelectedLbl) {
+        this.montoCuotaSelectedLbl.setText(montoCuotaSelectedLbl);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConfirmarPrestamoTitle;
     private javax.swing.JLabel DatosPrestamoLbl;
