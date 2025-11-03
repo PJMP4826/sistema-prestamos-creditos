@@ -9,10 +9,8 @@ import com.misproyectos.controllers.PeriodicidadController;
 import com.misproyectos.repositories.PeriodicidadesRepository;
 import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.views.clientes.AddClientes;
-import com.misproyectos.views.usuarios.Usuarios;
 import com.misproyectos.views.periodicidades.Periodicidades;
 import com.misproyectos.views.Prestamos.SeleccionarCliente;
-import com.misproyectos.views.Prestamos.DatosDelPrestamo;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -63,7 +61,6 @@ public class MainWindow extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         btnAsignarPrestamos = new javax.swing.JButton();
         btnPeriodicidadPagos = new javax.swing.JButton();
-        btnUsuarios = new javax.swing.JButton();
         btnDashboard = new javax.swing.JButton();
         btnRegistroPagos1 = new javax.swing.JButton();
         content = new javax.swing.JPanel();
@@ -144,21 +141,6 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        btnUsuarios.setBackground(new java.awt.Color(0, 153, 255));
-        btnUsuarios.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        btnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add_user.png"))); // NOI18N
-        btnUsuarios.setText("Crear Usuarios");
-        btnUsuarios.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 153, 255)));
-        btnUsuarios.setBorderPainted(false);
-        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuariosActionPerformed(evt);
-            }
-        });
-
         btnDashboard.setBackground(new java.awt.Color(0, 153, 255));
         btnDashboard.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnDashboard.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,12 +181,10 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRegistroPagos1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                    .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnAsignarPrestamos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPeriodicidadPagos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                        .addComponent(btnUsuarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDashboard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnAsignarPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPeriodicidadPagos, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
@@ -215,14 +195,12 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnPeriodicidadPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAsignarPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegistroPagos1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         content.setLayout(new java.awt.BorderLayout());
@@ -286,10 +264,6 @@ public class MainWindow extends javax.swing.JFrame {
         ShowJPanel(vistaPeriodicidades);
     }//GEN-LAST:event_btnPeriodicidadPagosActionPerformed
 
-    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        ShowJPanel(new Usuarios());
-    }//GEN-LAST:event_btnUsuariosActionPerformed
-
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
         ShowJPanel(new Dashboard());
     }//GEN-LAST:event_btnDashboardActionPerformed
@@ -331,7 +305,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnPeriodicidadPagos;
     private javax.swing.JButton btnRegistroPagos1;
-    private javax.swing.JButton btnUsuarios;
     private static javax.swing.JPanel content;
     private javax.swing.JPanel header;
     private javax.swing.JPanel menu;

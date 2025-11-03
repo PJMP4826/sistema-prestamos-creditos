@@ -4,7 +4,6 @@ import com.misproyectos.views.MainWindow;
 
 import javax.swing.*;
 
-import static com.misproyectos.views.MainWindow.logger;
 
 public class Main {
     public static void main(String[] args) {
