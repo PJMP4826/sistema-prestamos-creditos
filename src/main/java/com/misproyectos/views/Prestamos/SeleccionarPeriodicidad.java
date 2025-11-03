@@ -4,7 +4,11 @@
  */
 package com.misproyectos.views.Prestamos;
 
+import com.misproyectos.controllers.PeriodicidadController;
+import com.misproyectos.controllers.PrestamoController;
 import com.misproyectos.models.Periodicidad;
+import com.misproyectos.repositories.PeriodicidadesRepository;
+import com.misproyectos.service.PeriodicidadService;
 
 import javax.swing.*;
 
@@ -338,40 +342,8 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
 
 
     private void cargarPeriodicidades(){
-//        List<String> periodicidades = new ArrayList<>();
-//
-//        periodicidades.add("quincenal");
-//        periodicidades.add("mensual");
-//        periodicidades.add("semanal");
-//
-//        this.SeleccionarPeriodicidadComboBox.removeAllItems();
-//
-//        for (String nombre : periodicidades){
-//            this.SeleccionarPeriodicidadComboBox.addItem(nombre);
-//        }
-
-        List<Periodicidad> list = new ArrayList<>();
-
-        Periodicidad p1 = new Periodicidad();
-        p1.setNombrePeriodicidad("quincenal");
-
-        Periodicidad p2 = new Periodicidad();
-        p2.setNombrePeriodicidad("semanal");
-
-        Periodicidad p3 = new Periodicidad();
-        p3.setNombrePeriodicidad("mensual");
-
-        list.add(p1);
-        list.add(p2);
-        list.add(p3);
-
-        this.SeleccionarPeriodicidadComboBox.removeAllItems();
-
-        for (Periodicidad p : list){
-            //System.out.println(p.getNombrePeriodicidad());
-            this.SeleccionarPeriodicidadComboBox.addItem(p.getNombrePeriodicidad());
-        }
-        
+        PrestamoController controller = new PrestamoController(this);
+        controller.loadPeriodicidadesJBox();
     }
 
     public JComboBox<String> getJComboBoxPeriodicidades(){
