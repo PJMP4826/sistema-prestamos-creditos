@@ -84,6 +84,7 @@ public class PeriodicidadController {
             }
 
             periodicidadView.mostrarMensaje("Periodicidad agregada exitosamente");
+            loadPeriodicidades();
         } catch (ValidacionException ex) {
             periodicidadView.mostrarMensaje("Error de validación: " + ex.getMessage());
         } catch (SQLException ex) {
