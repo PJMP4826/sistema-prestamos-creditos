@@ -96,13 +96,13 @@ public class PeriodicidadController {
     }
 
     public void editarPeriodicidad() {
-        DefaultTableModel model = (DefaultTableModel) periodicidadView.getPeriodicidadesTable().getModel();
-        try {
-            int rowSelected = periodicidadView.getPeriodicidadesTable().getSelectedRow();
+        int rowSelected = periodicidadView.getPeriodicidadesTable().getSelectedRow();
 
-            if (rowSelected == -1) {
-                periodicidadView.mostrarMensaje("Debes seleccionar una fila primero");
-            }
+        if (rowSelected == -1) {
+            periodicidadView.mostrarMensaje("Debes seleccionar una fila primero");
+        }
+
+        try {
             Long idPeriodicidad = (Long) periodicidadView.getPeriodicidadesTable().getValueAt(rowSelected, 0);
 
             PeriodicidadesRepository repository = new PeriodicidadesRepository();
@@ -131,7 +131,6 @@ public class PeriodicidadController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Periodicidad periodicidad = new Periodicidad();
                     periodicidad.setNombrePeriodicidad(editarDialog.getNombre());
                     periodicidad.setDiasPeriodicidad(Integer.parseInt(editarDialog.getDiasPeriodicidad()));
                     periodicidad.setPorcentajeIntereses(Integer.parseInt(editarDialog.getPorcentaje()));
