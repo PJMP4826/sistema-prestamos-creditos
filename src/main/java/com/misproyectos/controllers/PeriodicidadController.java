@@ -108,23 +108,49 @@ public class PeriodicidadController {
             PeriodicidadesRepository repository = new PeriodicidadesRepository();
             Periodicidad periodicidad = repository.findById(idPeriodicidad);
 
-            abrirEditDialog(periodicidad);
+            abrirEditDialog(periodicidad, idPeriodicidad);
 
+        } catch (ValidacionException ex) {
+            periodicidadView.mostrarMensaje("Error de validación: " + ex.getMessage());
         } catch (SQLException ex) {
             periodicidadView.mostrarMensaje("Error de base de datos: " + ex.getMessage());
             ex.printStackTrace();
         }
-        //MainWindow.ShowJPanel();
     }
 
     private JFrame jPanelToJFrame() {
         return (JFrame) SwingUtilities.getWindowAncestor(periodicidadView);
     }
 
-    private void abrirEditDialog(Periodicidad periodicidad) {
+    private void abrirEditDialog(Periodicidad periodicidad, Long id) throws ValidacionException {
         EditPeriodicidadDialog editarDialog = new EditPeriodicidadDialog(jPanelToJFrame(), true);
 
         editarDialog.setPeriodicidadInputs(periodicidad);
+
+        editarDialog.getSaveBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Periodicidad periodicidad = new Periodicidad();
+                    periodicidad.setNombrePeriodicidad(editarDialog.getNombre());
+                    periodicidad.setDiasPeriodicidad(Integer.parseInt(editarDialog.getDiasPeriodicidad()));
+                    periodicidad.setPorcentajeIntereses(Integer.parseInt(editarDialog.getPorcentaje()));
+
+                    boolean isSuccess = service.updatePeriodicidad(periodicidad, id);
+
+                    if (!isSuccess) {
+                        throw new ValidacionException("Error de validación");
+                    }
+
+                    periodicidadView.mostrarMensaje("Periodicidad actualizada exitosamente");
+                    loadPeriodicidades();
+
+                } catch (ValidacionException | SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+                editarDialog.dispose();
+            }
+        });
 
         editarDialog.setVisible(true);
     }

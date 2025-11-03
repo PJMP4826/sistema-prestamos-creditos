@@ -34,7 +34,7 @@ public class PeriodicidadService {
         return repository.add(periodicidad);
     }
 
-    public boolean updatePeriodicidad(Periodicidad periodicidad, int id) throws ValidacionException, SQLException {
+    public boolean updatePeriodicidad(Periodicidad periodicidad, Long id) throws ValidacionException, SQLException {
         //validar
         if (periodicidad == null) {
             throw new ValidacionException("El objeto no puede ser null");
