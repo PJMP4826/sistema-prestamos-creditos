@@ -2,6 +2,7 @@ package com.misproyectos.controllers;
 
 import com.misproyectos.exceptions.ValidacionException;
 import com.misproyectos.models.Periodicidad;
+import com.misproyectos.repositories.PeriodicidadesRepository;
 import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.views.MainWindow;
 import com.misproyectos.views.periodicidades.EditPeriodicidadDialog;
@@ -16,7 +17,6 @@ import java.util.List;
 
 public class PeriodicidadController {
     private final Periodicidades periodicidadView;
-    private final EditPeriodicidadDialog editarDialog;
     private final PeriodicidadService service;
 
     public PeriodicidadController(
@@ -24,7 +24,6 @@ public class PeriodicidadController {
             PeriodicidadService service
     ) {
         this.periodicidadView = view;
-        this.editarDialog = new EditPeriodicidadDialog(jPanelToJFrame(), true);
         this.service = service;
     }
 
@@ -66,8 +65,7 @@ public class PeriodicidadController {
         periodicidadView.getEditBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                abrirEditDialog();
-                //editarPeriodicidad();
+                editarPeriodicidad();
             }
         });
     }
@@ -102,24 +100,32 @@ public class PeriodicidadController {
         try {
             int rowSelected = periodicidadView.getPeriodicidadesTable().getSelectedRow();
 
-            if(rowSelected == -1){
+            if (rowSelected == -1) {
                 periodicidadView.mostrarMensaje("Debes seleccionar una fila primero");
             }
             Long idPeriodicidad = (Long) periodicidadView.getPeriodicidadesTable().getValueAt(rowSelected, 0);
-            System.out.println(idPeriodicidad);
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+
+            PeriodicidadesRepository repository = new PeriodicidadesRepository();
+            Periodicidad periodicidad = repository.findById(idPeriodicidad);
+
+            abrirEditDialog(periodicidad);
+
+        } catch (SQLException ex) {
+            periodicidadView.mostrarMensaje("Error de base de datos: " + ex.getMessage());
+            ex.printStackTrace();
         }
         //MainWindow.ShowJPanel();
-
-
     }
 
-    private JFrame jPanelToJFrame(){
+    private JFrame jPanelToJFrame() {
         return (JFrame) SwingUtilities.getWindowAncestor(periodicidadView);
     }
 
-    private void abrirEditDialog(){
+    private void abrirEditDialog(Periodicidad periodicidad) {
+        EditPeriodicidadDialog editarDialog = new EditPeriodicidadDialog(jPanelToJFrame(), true);
+
+        editarDialog.setPeriodicidadInputs(periodicidad);
+
         editarDialog.setVisible(true);
     }
 }

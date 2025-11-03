@@ -84,7 +84,7 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
         return false;
     }
 
-    public Periodicidad findById(int id) throws SQLException {
+    public Periodicidad findById(Long id) throws SQLException {
         String sql = """
                 SELECT id, nombre_periodicidad, dias_periodicidad, porcentaje_intereses
                 	FROM public.periodicidad_pago WHERE id = ?
@@ -92,7 +92,7 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
 
         Periodicidad periodicidad = new Periodicidad();
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
+            stmt.setLong(1, id);
             try (ResultSet result = stmt.executeQuery()) {
                 while (result.next()) {
                     periodicidad.setNombrePeriodicidad(result.getString("nombre_periodicidad"));
