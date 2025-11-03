@@ -3,6 +3,7 @@ package com.misproyectos.controllers;
 import com.misproyectos.exceptions.ValidacionException;
 import com.misproyectos.models.Periodicidad;
 import com.misproyectos.service.PeriodicidadService;
+import com.misproyectos.views.MainWindow;
 import com.misproyectos.views.periodicidades.Periodicidades;
 
 import javax.swing.table.DefaultTableModel;
@@ -57,6 +58,13 @@ public class PeriodicidadController {
                 }
             }
         });
+
+        periodicidadView.getEditBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editarPeriodicidad();
+            }
+        });
     }
 
     public void guardarPeriodicidad() throws SQLException {
@@ -82,5 +90,23 @@ public class PeriodicidadController {
             periodicidadView.mostrarMensaje("Error inesperado: " + ex.getMessage());
             ex.printStackTrace();
         }
+    }
+
+    public void editarPeriodicidad() {
+        DefaultTableModel model = (DefaultTableModel) periodicidadView.getPeriodicidadesTable().getModel();
+        try {
+            int rowSelected = periodicidadView.getPeriodicidadesTable().getSelectedRow();
+
+            if(rowSelected == -1){
+                periodicidadView.mostrarMensaje("Debes seleccionar una fila primero");
+            }
+            Long idPeriodicidad = (Long) periodicidadView.getPeriodicidadesTable().getValueAt(rowSelected, 0);
+            System.out.println(idPeriodicidad);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        //MainWindow.ShowJPanel();
+
+
     }
 }

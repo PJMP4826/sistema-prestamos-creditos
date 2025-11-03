@@ -34,6 +34,21 @@ public class PeriodicidadService {
         return repository.add(periodicidad);
     }
 
+    public boolean updatePeriodicidad(Periodicidad periodicidad, int id) throws ValidacionException, SQLException {
+        //validar
+        if (periodicidad == null) {
+            throw new ValidacionException("El objeto no puede ser null");
+        }
+        PeriodicidadValidationService
+                .validateNamePeriodicidad(periodicidad.getNombrePeriodicidad());
+        PeriodicidadValidationService
+                .validateDaysPeriodicidad(periodicidad.getDiasPeriodicidad());
+        PeriodicidadValidationService
+                .validateInterestPercent(periodicidad.getPorcentajeIntereses());
+
+        return repository.update(periodicidad, id);
+    }
+
     public List<Periodicidad> getPeriodicidades() throws SQLException {
         try {
             List<Periodicidad> periodicidades = repository.findAll();
