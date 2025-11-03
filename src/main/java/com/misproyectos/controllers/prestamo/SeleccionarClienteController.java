@@ -31,4 +31,10 @@ public class SeleccionarClienteController extends PrestamoController {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
+    public String getSelectItemClienteJComboBox(){
+        JComboBox<String> select = selectClientView.getJComboBoxCliente();
+        String selectItem = (String) select.getSelectedItem();
+        return selectItem;
+    }
 }
