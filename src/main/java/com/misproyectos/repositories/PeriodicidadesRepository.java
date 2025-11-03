@@ -107,7 +107,7 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
         return periodicidad;
     }
 
-    public boolean update(Periodicidad periodicidad, int id) throws SQLException {
+    public boolean update(Periodicidad periodicidad, Long id) throws SQLException {
         String sql = """
                         UPDATE periodicidad_pago
                         SET nombre_periodicidad = ?,
@@ -120,7 +120,7 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
             stmt.setString(1, periodicidad.getNombrePeriodicidad());
             stmt.setInt(2, periodicidad.getDiasPeriodicidad());
             stmt.setInt(3, periodicidad.getPorcentajeIntereses());
-            stmt.setInt(4, id);
+            stmt.setLong(4, id);
 
             int rowAffect = stmt.executeUpdate();
 
