@@ -4,6 +4,8 @@
  */
 package com.misproyectos.views.Prestamos;
 
+import javax.swing.*;
+
 import static com.misproyectos.views.MainWindow.ShowJPanel;
 
 /**
@@ -31,7 +33,7 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         background1 = new javax.swing.JPanel();
         headerConfirmarPrestamo = new javax.swing.JPanel();
         ConfirmarPrestamoTitle = new javax.swing.JLabel();
-        SiguienteConfirmarPrestamoBtn = new javax.swing.JButton();
+        confirmarPrestamoBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListaPrestamosTable = new javax.swing.JTable();
         headerListaPrestamos = new javax.swing.JPanel();
@@ -46,26 +48,26 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         num3 = new javax.swing.JLabel();
         decoracion2 = new javax.swing.JPanel();
         num2 = new javax.swing.JLabel();
-        AnteriorConfirmarPrestamoBtn = new javax.swing.JButton();
+        anteriorConfirmarPrestamoBtn = new javax.swing.JButton();
         decoracion4 = new javax.swing.JPanel();
         num4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        clienteInfoLbl = new javax.swing.JLabel();
+        periodicidadInfoLbl = new javax.swing.JLabel();
+        importeInfoLbl = new javax.swing.JLabel();
+        plazoInfoLbl = new javax.swing.JLabel();
+        interesInfoLbl = new javax.swing.JLabel();
+        totalPagarLbl = new javax.swing.JLabel();
+        noCuotasInfoLbl = new javax.swing.JLabel();
+        montoCuotaInfoLbl = new javax.swing.JLabel();
+        clienteSelectedLbl = new javax.swing.JLabel();
+        plazoSelectedLbl = new javax.swing.JLabel();
+        importeSelectedLbl = new javax.swing.JLabel();
+        periodicidadSelectedLbl = new javax.swing.JLabel();
+        interesSelectedLbl = new javax.swing.JLabel();
+        totalPagarSelectedLbl = new javax.swing.JLabel();
+        noCuotasSelectedLbl = new javax.swing.JLabel();
+        montoCuotaSelectedLbl = new javax.swing.JLabel();
 
         background1.setBackground(new java.awt.Color(239, 239, 239));
         background1.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,13 +95,13 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        SiguienteConfirmarPrestamoBtn.setBackground(new java.awt.Color(0, 124, 239));
-        SiguienteConfirmarPrestamoBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        SiguienteConfirmarPrestamoBtn.setForeground(new java.awt.Color(255, 255, 255));
-        SiguienteConfirmarPrestamoBtn.setText("Confirmar Prestamo");
-        SiguienteConfirmarPrestamoBtn.addActionListener(new java.awt.event.ActionListener() {
+        confirmarPrestamoBtn.setBackground(new java.awt.Color(0, 124, 239));
+        confirmarPrestamoBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        confirmarPrestamoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        confirmarPrestamoBtn.setText("Confirmar Prestamo");
+        confirmarPrestamoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SiguienteConfirmarPrestamoBtnActionPerformed(evt);
+                confirmarPrestamoBtnActionPerformed(evt);
             }
         });
 
@@ -230,13 +232,13 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        AnteriorConfirmarPrestamoBtn.setBackground(new java.awt.Color(102, 102, 102));
-        AnteriorConfirmarPrestamoBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        AnteriorConfirmarPrestamoBtn.setForeground(new java.awt.Color(255, 255, 255));
-        AnteriorConfirmarPrestamoBtn.setText("Anterior");
-        AnteriorConfirmarPrestamoBtn.addActionListener(new java.awt.event.ActionListener() {
+        anteriorConfirmarPrestamoBtn.setBackground(new java.awt.Color(102, 102, 102));
+        anteriorConfirmarPrestamoBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        anteriorConfirmarPrestamoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        anteriorConfirmarPrestamoBtn.setText("Anterior");
+        anteriorConfirmarPrestamoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnteriorConfirmarPrestamoBtnActionPerformed(evt);
+                anteriorConfirmarPrestamoBtnActionPerformed(evt);
             }
         });
 
@@ -267,53 +269,45 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Resumen del Prestamo");
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel2.setText("Cliente:");
+        clienteInfoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        clienteInfoLbl.setText("Cliente:");
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel3.setText("Periodicidad:");
+        periodicidadInfoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        periodicidadInfoLbl.setText("Periodicidad:");
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel4.setText("Importe:");
+        importeInfoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        importeInfoLbl.setText("Importe:");
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel5.setText("Plazo:");
+        plazoInfoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        plazoInfoLbl.setText("Plazo:");
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel6.setText("Interes Total:");
+        interesInfoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        interesInfoLbl.setText("Interes Total:");
 
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel7.setText("Total a Pagar:");
+        totalPagarLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        totalPagarLbl.setText("Total a Pagar:");
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel8.setText("Numero de Cuotas:");
+        noCuotasInfoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        noCuotasInfoLbl.setText("Numero de Cuotas:");
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel9.setText("Monto por Cuota:");
+        montoCuotaInfoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        montoCuotaInfoLbl.setText("Monto por Cuota:");
 
-        jLabel10.setText("jLabel10");
-        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        clienteSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabel14.setText("jLabel10");
-        jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        plazoSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabel15.setText("jLabel10");
-        jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        importeSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabel16.setText("jLabel10");
-        jLabel16.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        periodicidadSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabel17.setText("jLabel10");
-        jLabel17.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        interesSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabel18.setText("jLabel10");
-        jLabel18.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        totalPagarSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabel19.setText("jLabel10");
-        jLabel19.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        noCuotasSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        jLabel20.setText("jLabel10");
-        jLabel20.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        montoCuotaSelectedLbl.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
@@ -357,43 +351,43 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
                                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
+                                        .addComponent(periodicidadInfoLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(periodicidadSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
                                     .addGroup(background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
+                                        .addComponent(plazoInfoLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(plazoSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
+                                        .addComponent(importeInfoLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(importeSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(clienteInfoLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(clienteSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
+                                        .addComponent(montoCuotaInfoLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(montoCuotaSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
+                                        .addComponent(noCuotasInfoLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(noCuotasSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
+                                        .addComponent(totalPagarLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(totalPagarSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
+                                        .addComponent(interesInfoLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(interesSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                                        .addComponent(AnteriorConfirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(anteriorConfirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(SiguienteConfirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(confirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(26, 26, 26)))
                         .addGap(14, 14, 14))))
         );
@@ -425,42 +419,41 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel17))
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(interesInfoLbl)
+                            .addComponent(interesSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel18))
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(totalPagarLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(totalPagarSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel19))
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(noCuotasInfoLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(noCuotasSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel20)))
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(montoCuotaInfoLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(montoCuotaSelectedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel10))
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(clienteInfoLbl)
+                            .addComponent(clienteSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(periodicidadInfoLbl)
+                            .addComponent(periodicidadSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(importeInfoLbl)
+                            .addComponent(importeSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel16))
-                        .addGap(10, 10, 10)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel15))
-                        .addGap(10, 10, 10)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(plazoInfoLbl)
+                            .addComponent(plazoSelectedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SiguienteConfirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AnteriorConfirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(confirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(anteriorConfirmarPrestamoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(headerListaPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -482,53 +475,52 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AnteriorConfirmarPrestamoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnteriorConfirmarPrestamoBtnActionPerformed
+    private void anteriorConfirmarPrestamoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorConfirmarPrestamoBtnActionPerformed
         ShowJPanel(new DatosDelPrestamo());
-    }//GEN-LAST:event_AnteriorConfirmarPrestamoBtnActionPerformed
+    }//GEN-LAST:event_anteriorConfirmarPrestamoBtnActionPerformed
 
-    private void SiguienteConfirmarPrestamoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteConfirmarPrestamoBtnActionPerformed
+    private void confirmarPrestamoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarPrestamoBtnActionPerformed
 
-    }//GEN-LAST:event_SiguienteConfirmarPrestamoBtnActionPerformed
-
+    }//GEN-LAST:event_confirmarPrestamoBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AnteriorConfirmarPrestamoBtn;
     private javax.swing.JLabel ConfirmarPrestamoTitle;
     private javax.swing.JLabel DatosPrestamoLbl;
     private javax.swing.JTable ListaPrestamosTable;
     private javax.swing.JLabel ListaPrestamosTitulo;
     private javax.swing.JLabel SelectClienteLbl;
     private javax.swing.JLabel SelectPeriodicidadLbl;
-    private javax.swing.JButton SiguienteConfirmarPrestamoBtn;
+    private javax.swing.JButton anteriorConfirmarPrestamoBtn;
     private javax.swing.JPanel background1;
+    private javax.swing.JLabel clienteInfoLbl;
+    private javax.swing.JLabel clienteSelectedLbl;
     private javax.swing.JLabel confirmarLbl;
+    private javax.swing.JButton confirmarPrestamoBtn;
     private javax.swing.JPanel decoracion1;
     private javax.swing.JPanel decoracion2;
     private javax.swing.JPanel decoracion3;
     private javax.swing.JPanel decoracion4;
     private javax.swing.JPanel headerConfirmarPrestamo;
     private javax.swing.JPanel headerListaPrestamos;
+    private javax.swing.JLabel importeInfoLbl;
+    private javax.swing.JLabel importeSelectedLbl;
+    private javax.swing.JLabel interesInfoLbl;
+    private javax.swing.JLabel interesSelectedLbl;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel montoCuotaInfoLbl;
+    private javax.swing.JLabel montoCuotaSelectedLbl;
+    private javax.swing.JLabel noCuotasInfoLbl;
+    private javax.swing.JLabel noCuotasSelectedLbl;
     private javax.swing.JLabel num1;
     private javax.swing.JLabel num2;
     private javax.swing.JLabel num3;
     private javax.swing.JLabel num4;
+    private javax.swing.JLabel periodicidadInfoLbl;
+    private javax.swing.JLabel periodicidadSelectedLbl;
+    private javax.swing.JLabel plazoInfoLbl;
+    private javax.swing.JLabel plazoSelectedLbl;
+    private javax.swing.JLabel totalPagarLbl;
+    private javax.swing.JLabel totalPagarSelectedLbl;
     // End of variables declaration//GEN-END:variables
 }
