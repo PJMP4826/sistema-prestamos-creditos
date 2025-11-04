@@ -530,6 +530,11 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         this.controller.autoFillLabels();
     }
 
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ConfirmarPrestamoTitle;
     private javax.swing.JLabel DatosPrestamoLbl;

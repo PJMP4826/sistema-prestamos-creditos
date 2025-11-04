@@ -6,10 +6,7 @@ import com.misproyectos.models.Cliente;
 import com.misproyectos.models.Periodicidad;
 import com.misproyectos.models.Prestamo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class PrestamoRepository extends PrestamoRepInterface {
             stmt.setLong(2, periodicidad.getIdPeriodicidad());
             stmt.setBigDecimal(3, prestamo.getMontoPrestado());
             stmt.setDouble(4, prestamo.getPlazoPago());
-            stmt.setTimestamp(5, prestamo.getFechaInicio());
+            stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));  //fecha actual
             stmt.setDouble(6, prestamo.getSaldoPendiente());
             stmt.setString(7, prestamo.getEstadoPrestamo().getTag());
 

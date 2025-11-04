@@ -1,8 +1,12 @@
 package com.misproyectos.controllers.prestamo;
 
 import com.misproyectos.controllers.PrestamoController;
+import com.misproyectos.enums.EstadoPrestamo;
 import com.misproyectos.exceptions.ValidacionException;
+import com.misproyectos.models.Cliente;
 import com.misproyectos.models.Periodicidad;
+import com.misproyectos.models.Prestamo;
+import com.misproyectos.repositories.PrestamoRepository;
 import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.service.PrestamoService;
 import com.misproyectos.views.Prestamos.ConfirmarPrestamo;
@@ -45,12 +49,7 @@ public class ConfirmarPrestamoController extends PrestamoController {
         confirmarPrestamoView.getConfirmarPrestamoBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Id del cliente seleccionado: " + seleccionarClienteController.getSelectedClienteId());
-                System.out.println("Cliente seleccionado: " + seleccionarClienteController.getSelectItemClienteJComboBox());
-                System.out.println("Id de la periodicidad seleccionada: " + seleccionarPeriodicidadController.getSelectedPeriodicidadId());
-                System.out.println("Periodicidad seleccionada: " + seleccionarPeriodicidadController.getSelectItemPeriodicidadJComboBox());
-                System.out.println("Importe: " + datosDelPrestamoView.getImporteSpinner());
-                System.out.println("Plazo: " + datosDelPrestamoView.getPlazoSpinner());
+                guadarPrestamo();
             }
         });
     }
@@ -84,5 +83,31 @@ public class ConfirmarPrestamoController extends PrestamoController {
         confirmarPrestamoView.setNoCuotasSelectedLbl(String.valueOf(plazo));
         confirmarPrestamoView.setMontoCuotaSelectedLbl(String.valueOf(montoCuota));
 
+    }
+
+    public void guadarPrestamo() {
+        PrestamoRepository prestamoRep = new PrestamoRepository();
+
+        Cliente cliente = new Cliente();
+        Periodicidad periodicidad = new Periodicidad();
+
+        cliente.setId(seleccionarClienteController.getSelectedClienteId());
+        periodicidad.setIdPeriodicidad(seleccionarPeriodicidadController.getSelectedPeriodicidadId());
+
+        EstadoPrestamo estadoPrest = EstadoPrestamo.fromTag("Activo");
+        Prestamo prestamo = Prestamo.builder()
+                .setMontoPrestado(datosDelPrestamoView.getImporteSpinner())
+                .setPlazoPago(datosDelPrestamoView.getPlazoSpinner().doubleValue())
+                .setSaldoPendiente(datosDelPrestamoView.getImporteSpinner().doubleValue())
+                .setEstadoPrestamo(estadoPrest)
+                .build();
+
+        try{
+            prestamoRep.add(prestamo, cliente, periodicidad);
+            confirmarPrestamoView.mostrarMensaje("Prestamo registrado correctamente");
+        }catch (SQLException ex){
+            confirmarPrestamoView.mostrarMensaje("Error de base de datos: " + ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 }
