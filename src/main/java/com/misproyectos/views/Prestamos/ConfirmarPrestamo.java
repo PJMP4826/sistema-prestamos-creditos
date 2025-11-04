@@ -21,7 +21,6 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
      */
     public ConfirmarPrestamo() {
         initComponents();
-        initListeners();
     }
 
     /**
@@ -522,9 +521,9 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         this.montoCuotaSelectedLbl.setText(montoCuotaSelectedLbl);
     }
 
-    private void initListeners() {
-        ConfirmarPrestamoController controller = new ConfirmarPrestamoController(this);
-        controller.initListeners();
+    public void setController(ConfirmarPrestamoController controller){
+        this.controller = controller;
+        this.controller.initListeners();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -566,5 +565,6 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
     private javax.swing.JLabel plazoSelectedLbl;
     private javax.swing.JLabel totalPagarLbl;
     private javax.swing.JLabel totalPagarSelectedLbl;
+    private ConfirmarPrestamoController controller;
     // End of variables declaration//GEN-END:variables
 }

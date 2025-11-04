@@ -1,19 +1,26 @@
 package com.misproyectos.controllers.prestamo;
 
+import com.misproyectos.controllers.PrestamoController;
 import com.misproyectos.views.Prestamos.ConfirmarPrestamo;
+import com.misproyectos.views.Prestamos.DatosDelPrestamo;
 import com.misproyectos.views.Prestamos.SeleccionarCliente;
 import com.misproyectos.views.Prestamos.SeleccionarPeriodicidad;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ConfirmarPrestamoController {
+public class ConfirmarPrestamoController extends PrestamoController {
     private final ConfirmarPrestamo confirmarPrestamoView;
+    private final DatosDelPrestamo datosDelPrestamoView;
     private final SeleccionarClienteController seleccionarClienteController;
     private final SeleccionarPeriodicidadController seleccionarPeriodicidadController;
 
-    public ConfirmarPrestamoController(ConfirmarPrestamo confirmarPrestamoView) {
+    public ConfirmarPrestamoController(
+            ConfirmarPrestamo confirmarPrestamoView,
+            DatosDelPrestamo datosDelPrestamoView
+    ) {
         this.confirmarPrestamoView = confirmarPrestamoView;
+        this.datosDelPrestamoView = datosDelPrestamoView;
         this.seleccionarClienteController = new SeleccionarClienteController(
                 new SeleccionarCliente()
         );
@@ -28,6 +35,8 @@ public class ConfirmarPrestamoController {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Cliente seleccionado: " + seleccionarClienteController.getSelectItemClienteJComboBox());
                 System.out.println("Periodicidad seleccionada: " + seleccionarPeriodicidadController.getSelectItemPeriodicidadJComboBox());
+                System.out.println("Importe: " + datosDelPrestamoView.getImporteSpinner());
+                System.out.println("Plazo: " + datosDelPrestamoView.getPlazoSpinner());
             }
         });
     }

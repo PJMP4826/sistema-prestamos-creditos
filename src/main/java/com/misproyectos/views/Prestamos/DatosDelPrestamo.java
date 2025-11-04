@@ -4,6 +4,10 @@
  */
 package com.misproyectos.views.Prestamos;
 
+import com.misproyectos.controllers.prestamo.ConfirmarPrestamoController;
+
+import java.math.BigDecimal;
+
 import static com.misproyectos.views.MainWindow.ShowJPanel;
 
 /**
@@ -68,18 +72,18 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         javax.swing.GroupLayout headerDatosPrestamoLayout = new javax.swing.GroupLayout(headerDatosPrestamo);
         headerDatosPrestamo.setLayout(headerDatosPrestamoLayout);
         headerDatosPrestamoLayout.setHorizontalGroup(
-            headerDatosPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerDatosPrestamoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DatosPrestamoTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerDatosPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerDatosPrestamoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(DatosPrestamoTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerDatosPrestamoLayout.setVerticalGroup(
-            headerDatosPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerDatosPrestamoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DatosPrestamoTitle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerDatosPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerDatosPrestamoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(DatosPrestamoTitle)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
@@ -104,12 +108,12 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
 
         ListaPrestamosTable.setForeground(new java.awt.Color(255, 255, 255));
         ListaPrestamosTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object[][]{
 
-            },
-            new String [] {
-                "Cliente", "Importe", "Plazo", "Periodicidad", "Fecha Inicio", "Saldo Actual", "Estado"
-            }
+                },
+                new String[]{
+                        "Cliente", "Importe", "Plazo", "Periodicidad", "Fecha Inicio", "Saldo Actual", "Estado"
+                }
         ));
         ListaPrestamosTable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(ListaPrestamosTable);
@@ -123,18 +127,18 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         javax.swing.GroupLayout headerListaPrestamosLayout = new javax.swing.GroupLayout(headerListaPrestamos);
         headerListaPrestamos.setLayout(headerListaPrestamosLayout);
         headerListaPrestamosLayout.setHorizontalGroup(
-            headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerListaPrestamosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaPrestamosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerListaPrestamosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(ListaPrestamosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerListaPrestamosLayout.setVerticalGroup(
-            headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerListaPrestamosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaPrestamosTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerListaPrestamosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(ListaPrestamosTitulo)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PlazoEntreLbl.setText("El plazo debe de estar entre 7 y 365 dias");
@@ -170,18 +174,18 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         javax.swing.GroupLayout decoracion1Layout = new javax.swing.GroupLayout(decoracion1);
         decoracion1.setLayout(decoracion1Layout);
         decoracion1Layout.setHorizontalGroup(
-            decoracion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, decoracion1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                decoracion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, decoracion1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109))
         );
         decoracion1Layout.setVerticalGroup(
-            decoracion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(decoracion1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, Short.MAX_VALUE)
-                .addContainerGap())
+                decoracion1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(decoracion1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         num4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
@@ -198,18 +202,18 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         javax.swing.GroupLayout decoracion3Layout = new javax.swing.GroupLayout(decoracion3);
         decoracion3.setLayout(decoracion3Layout);
         decoracion3Layout.setHorizontalGroup(
-            decoracion3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, decoracion3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                decoracion3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, decoracion3Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109))
         );
         decoracion3Layout.setVerticalGroup(
-            decoracion3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(decoracion3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, Short.MAX_VALUE)
-                .addContainerGap())
+                decoracion3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(decoracion3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         decoracion2.setBackground(new java.awt.Color(0, 153, 0));
@@ -222,18 +226,18 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         javax.swing.GroupLayout decoracion2Layout = new javax.swing.GroupLayout(decoracion2);
         decoracion2.setLayout(decoracion2Layout);
         decoracion2Layout.setHorizontalGroup(
-            decoracion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, decoracion2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                decoracion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, decoracion2Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109))
         );
         decoracion2Layout.setVerticalGroup(
-            decoracion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(decoracion2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, Short.MAX_VALUE)
-                .addContainerGap())
+                decoracion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(decoracion2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         AnteriorBtn.setBackground(new java.awt.Color(102, 102, 102));
@@ -249,121 +253,121 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
-            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(background1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(background1Layout.createSequentialGroup()
-                                .addComponent(SelectClienteLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(background1Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(decoracion1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(background1Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(SelectPeriodicidadLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DatosPrestamoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59))
-                            .addGroup(background1Layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(decoracion2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(decoracion3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(122, 122, 122)))
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(num4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(confirmarLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane2)
-                    .addComponent(headerListaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(headerDatosPrestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ImporteMayorIgualLbl)
-                            .addComponent(ImportePrestamoLbl)
-                            .addComponent(ImportePrestamoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                                .addComponent(AnteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SiguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(PlazoEntreLbl)
-                                .addComponent(PlazoDiasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(PlazoDiasLbl)))
-                        .addGap(33, 33, 33)))
-                .addGap(14, 14, 14))
+                background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(background1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(background1Layout.createSequentialGroup()
+                                                                .addComponent(SelectClienteLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addGroup(background1Layout.createSequentialGroup()
+                                                                .addGap(45, 45, 45)
+                                                                .addComponent(decoracion1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(background1Layout.createSequentialGroup()
+                                                                .addGap(22, 22, 22)
+                                                                .addComponent(SelectPeriodicidadLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(DatosPrestamoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(59, 59, 59))
+                                                        .addGroup(background1Layout.createSequentialGroup()
+                                                                .addGap(95, 95, 95)
+                                                                .addComponent(decoracion2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(decoracion3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(122, 122, 122)))
+                                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(num4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(confirmarLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
+                                        .addComponent(jScrollPane2)
+                                        .addComponent(headerListaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(headerDatosPrestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
+                                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(ImporteMayorIgualLbl)
+                                                        .addComponent(ImportePrestamoLbl)
+                                                        .addComponent(ImportePrestamoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(65, 65, 65)
+                                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
+                                                                .addComponent(AnteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(SiguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(PlazoEntreLbl)
+                                                                .addComponent(PlazoDiasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(PlazoDiasLbl)))
+                                                .addGap(33, 33, 33)))
+                                .addGap(14, 14, 14))
         );
         background1Layout.setVerticalGroup(
-            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(background1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addComponent(num4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(confirmarLbl))
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addComponent(decoracion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DatosPrestamoLbl))
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addComponent(decoracion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SelectPeriodicidadLbl))
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addComponent(decoracion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SelectClienteLbl)))
-                .addGap(18, 18, 18)
-                .addComponent(headerDatosPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(ImportePrestamoLbl)
-                        .addGap(12, 12, 12)
-                        .addComponent(ImportePrestamoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ImporteMayorIgualLbl))
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(PlazoDiasLbl)
-                        .addGap(9, 9, 9)
-                        .addComponent(PlazoDiasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PlazoEntreLbl)
-                        .addGap(18, 18, 18)
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SiguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AnteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addComponent(headerListaPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(background1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addComponent(num4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(confirmarLbl))
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addComponent(decoracion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(DatosPrestamoLbl))
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addComponent(decoracion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(SelectPeriodicidadLbl))
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addComponent(decoracion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(SelectClienteLbl)))
+                                .addGap(18, 18, 18)
+                                .addComponent(headerDatosPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addGap(50, 50, 50)
+                                                .addComponent(ImportePrestamoLbl)
+                                                .addGap(12, 12, 12)
+                                                .addComponent(ImportePrestamoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(ImporteMayorIgualLbl))
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addGap(50, 50, 50)
+                                                .addComponent(PlazoDiasLbl)
+                                                .addGap(9, 9, 9)
+                                                .addComponent(PlazoDiasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(PlazoEntreLbl)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(SiguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(AnteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(background1Layout.createSequentialGroup()
+                                                .addGap(50, 50, 50)
+                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(35, 35, 35)
+                                .addComponent(headerListaPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -372,9 +376,34 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
     }//GEN-LAST:event_AnteriorBtnActionPerformed
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
-        ShowJPanel(new ConfirmarPrestamo());
+        ConfirmarPrestamo confirmarPrestamoView = new ConfirmarPrestamo();
+        ConfirmarPrestamoController controller = new ConfirmarPrestamoController(
+                confirmarPrestamoView,
+                this
+        );
+        confirmarPrestamoView.setController(controller);
+        ShowJPanel(confirmarPrestamoView);
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
+//    public BigDecimal getImporteSpinner() {
+//        Object valor = ImportePrestamoSpinner.getValue();
+//        return new BigDecimal(valor.toString());
+//    }
+//
+//    public BigDecimal getPlazoSpinner() {
+//        Object valor = PlazoDiasSpinner.getValue();
+//        return new BigDecimal(valor.toString());
+//    }
+
+    public String getImporteSpinner() {
+        Object valor = ImportePrestamoSpinner.getValue();
+        return valor.toString();
+    }
+
+    public String getPlazoSpinner() {
+        Object valor = PlazoDiasSpinner.getValue();
+        return valor.toString();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnteriorBtn;
