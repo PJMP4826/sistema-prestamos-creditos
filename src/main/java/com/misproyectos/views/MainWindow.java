@@ -11,6 +11,7 @@ import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.views.clientes.AddClientes;
 import com.misproyectos.views.periodicidades.Periodicidades;
 import com.misproyectos.views.Prestamos.SeleccionarCliente;
+import com.misproyectos.views.RegistrosDePagos.Registrosdepagos;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -269,7 +270,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnRegistroPagos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroPagos1ActionPerformed
-        ShowJPanel(new Periodicidades());
+        ShowJPanel(new Registrosdepagos());
     }//GEN-LAST:event_btnRegistroPagos1ActionPerformed
 
     /**
