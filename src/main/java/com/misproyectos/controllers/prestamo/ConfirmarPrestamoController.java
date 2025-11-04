@@ -8,7 +8,6 @@ import com.misproyectos.views.Prestamos.SeleccionarPeriodicidad;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class ConfirmarPrestamoController extends PrestamoController {
@@ -35,7 +34,9 @@ public class ConfirmarPrestamoController extends PrestamoController {
         confirmarPrestamoView.getConfirmarPrestamoBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("Id del cliente seleccionado: " + seleccionarClienteController.getSelectedClienteId());
                 System.out.println("Cliente seleccionado: " + seleccionarClienteController.getSelectItemClienteJComboBox());
+                System.out.println("Id de la periodicidad seleccionada: " + seleccionarPeriodicidadController.getSelectedPeriodicidadId());
                 System.out.println("Periodicidad seleccionada: " + seleccionarPeriodicidadController.getSelectItemPeriodicidadJComboBox());
                 System.out.println("Importe: " + datosDelPrestamoView.getImporteSpinner());
                 System.out.println("Plazo: " + datosDelPrestamoView.getPlazoSpinner());

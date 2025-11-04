@@ -2,6 +2,7 @@ package com.misproyectos.controllers.prestamo;
 
 import com.misproyectos.controllers.PrestamoController;
 import com.misproyectos.models.Cliente;
+import com.misproyectos.models.PrestamoComboItem;
 import com.misproyectos.views.Prestamos.SeleccionarCliente;
 
 import javax.swing.*;
@@ -20,21 +21,31 @@ public class SeleccionarClienteController extends PrestamoController {
         try {
             List<Cliente> clientes = serviceClient.listarClientes();
 
-            JComboBox<String> select = selectClientView.getJComboBoxCliente();
+            JComboBox<PrestamoComboItem> select = selectClientView.getJComboBoxCliente();
 
             select.removeAllItems();
 
             for (Cliente c : clientes) {
-                select.addItem(c.getNombre());
+                //System.out.println(c.toString());
+                select.addItem(new PrestamoComboItem(
+                        c.getId(),
+                        c.getNombre()
+                ));
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
+    public Long getSelectedClienteId() {
+        JComboBox<PrestamoComboItem> select = selectClientView.getJComboBoxCliente();
+        PrestamoComboItem selectItem = (PrestamoComboItem) select.getSelectedItem();
+        return selectItem != null ? selectItem.getId() : null;
+    }
+
     public String getSelectItemClienteJComboBox() {
-        JComboBox<String> select = selectClientView.getJComboBoxCliente();
-        String selectItem = (String) select.getSelectedItem();
-        return selectItem;
+        JComboBox<PrestamoComboItem> select = selectClientView.getJComboBoxCliente();
+        PrestamoComboItem selectItem = (PrestamoComboItem) select.getSelectedItem();
+        return selectItem != null ? selectItem.toString() : "";
     }
 }

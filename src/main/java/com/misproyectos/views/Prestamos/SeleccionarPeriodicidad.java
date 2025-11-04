@@ -8,6 +8,7 @@ import com.misproyectos.controllers.PeriodicidadController;
 import com.misproyectos.controllers.PrestamoController;
 import com.misproyectos.controllers.prestamo.SeleccionarPeriodicidadController;
 import com.misproyectos.models.Periodicidad;
+import com.misproyectos.models.PrestamoComboItem;
 import com.misproyectos.repositories.PeriodicidadesRepository;
 import com.misproyectos.service.PeriodicidadService;
 
@@ -183,7 +184,7 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
         num6.setText("3");
 
         SeleccionarPeriodicidadComboBox.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        SeleccionarPeriodicidadComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Seleccione una Periodicidad", "Periodicidad 1", " "}));
+        SeleccionarPeriodicidadComboBox = new JComboBox<PrestamoComboItem>();
         SeleccionarPeriodicidadComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SeleccionarPeriodicidadComboBoxActionPerformed(evt);
@@ -348,7 +349,7 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
         controller.loadPeriodicidadesJBox();
     }
 
-    public JComboBox<String> getJComboBoxPeriodicidades() {
+    public JComboBox<PrestamoComboItem> getJComboBoxPeriodicidades() {
         return SeleccionarPeriodicidadComboBox;
     }
 
@@ -358,7 +359,7 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
     private javax.swing.JTable ListaPrestamosTable;
     private javax.swing.JLabel ListaPrestamosTitulo;
     private javax.swing.JLabel PeriodicidadPagoLbl;
-    private javax.swing.JComboBox<String> SeleccionarPeriodicidadComboBox;
+    private javax.swing.JComboBox<PrestamoComboItem>  SeleccionarPeriodicidadComboBox;
     private javax.swing.JLabel SeleccionarPeriodicidadTitle;
     private javax.swing.JLabel SelectClienteLbl;
     private javax.swing.JLabel SelectPeriodicidadLbl;

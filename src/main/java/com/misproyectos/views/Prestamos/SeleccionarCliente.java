@@ -5,6 +5,7 @@
 package com.misproyectos.views.Prestamos;
 
 import com.misproyectos.controllers.prestamo.SeleccionarClienteController;
+import com.misproyectos.models.PrestamoComboItem;
 
 import javax.swing.*;
 
@@ -181,7 +182,7 @@ public class SeleccionarCliente extends javax.swing.JPanel {
         num6.setText("3");
 
         SelectClienteComboBox.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        SelectClienteComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un Cliente", "Cliente 1", " " }));
+        SelectClienteComboBox = new JComboBox<PrestamoComboItem>();
         SelectClienteComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SelectClienteComboBoxActionPerformed(evt);
@@ -290,7 +291,7 @@ public class SeleccionarCliente extends javax.swing.JPanel {
         controller.loadClientesJBox();
     }
 
-    public JComboBox<String> getJComboBoxCliente(){
+    public JComboBox<PrestamoComboItem> getJComboBoxCliente(){
         return SelectClienteComboBox;
     }
 
@@ -299,7 +300,7 @@ public class SeleccionarCliente extends javax.swing.JPanel {
     private javax.swing.JLabel DatosPrestamoLbl;
     private javax.swing.JTable ListaPrestamosTable;
     private javax.swing.JLabel ListaPrestamosTitulo;
-    private javax.swing.JComboBox<String> SelectClienteComboBox;
+    private javax.swing.JComboBox<PrestamoComboItem> SelectClienteComboBox = new JComboBox<PrestamoComboItem>();
     private javax.swing.JLabel SelectClienteLbl;
     private javax.swing.JLabel SelectClienteTitle;
     private javax.swing.JLabel SelectPeriodicidadLbl;
