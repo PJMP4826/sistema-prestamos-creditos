@@ -103,7 +103,7 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
             }
         });
 
-        ListaPrestamosTable.setForeground(new java.awt.Color(255, 255, 255));
+        ListaPrestamosTable.setForeground(new java.awt.Color(0, 0, 0));
         ListaPrestamosTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
 
