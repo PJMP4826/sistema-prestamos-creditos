@@ -6,9 +6,13 @@ package com.misproyectos.views.Prestamos;
 
 import com.misproyectos.controllers.prestamo.ConfirmarPrestamoController;
 import com.misproyectos.exceptions.ValidacionException;
+import com.misproyectos.repositories.PeriodicidadesRepository;
+import com.misproyectos.service.PeriodicidadService;
+import com.misproyectos.service.PrestamoService;
 
 import javax.swing.*;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 
 import static com.misproyectos.views.MainWindow.ShowJPanel;
 
@@ -379,11 +383,23 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
 
     private void SiguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteBtnActionPerformed
         ConfirmarPrestamo confirmarPrestamoView = new ConfirmarPrestamo();
+        PrestamoService servicePrestamo = new PrestamoService();
+        PeriodicidadService periodicidadService = new PeriodicidadService(
+                new PeriodicidadesRepository()
+        );
         ConfirmarPrestamoController controller = new ConfirmarPrestamoController(
                 confirmarPrestamoView,
-                this
+                this,
+                servicePrestamo,
+                periodicidadService
         );
-        confirmarPrestamoView.setController(controller);
+        try {
+            confirmarPrestamoView.setController(controller);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ValidacionException e) {
+            throw new RuntimeException(e);
+        }
         if (validateAllSpinners()) {
             ShowJPanel(confirmarPrestamoView);
         }

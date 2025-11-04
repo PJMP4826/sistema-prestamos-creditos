@@ -10,28 +10,28 @@ public class PrestamoService {
 
     public double calcularMontoPorCuota(
             double importe,
-            double tasaInteres,
-            double plazo
+            double tasaInteresAnual,
+            double plazoDias
     ) {
-        double tasaPeriodica = tasaInteres / 100;
-        double factoElevado = Math.pow(1 * tasaPeriodica, plazo);
+        double tasaAnualDecimal = tasaInteresAnual / 100;
+        double tasaDiaria = tasaAnualDecimal / 365;
 
-        double numerador = tasaPeriodica * factoElevado;
-        double denominador = factoElevado - 1;
+        double interesTotal = importe * tasaDiaria * plazoDias;
 
-        double factorFormula = numerador / denominador;
+        double montoTotal = importe + interesTotal;
+        double cuotaDiaria = montoTotal / plazoDias;
 
-        double montoCuota = importe * factorFormula;
-
-        return montoCuota;
+        return Math.round(cuotaDiaria * 100.0) / 100.0;
     }
 
     public double calcularTotalToPagar(double montoCuota, double plazo) {
-        return montoCuota * plazo;
+        double total = montoCuota * plazo;
+        return Math.round(total * 100.0) / 100.0;
     }
 
     public double calcularInteresTotal(double totalPagar, double importe) {
-        return totalPagar - importe;
+        double interesTotal = totalPagar - importe;
+        return Math.round(interesTotal * 100.0) / 100.0;
     }
 
 }

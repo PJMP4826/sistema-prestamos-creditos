@@ -1,6 +1,9 @@
 package com.misproyectos.controllers.prestamo;
 
 import com.misproyectos.controllers.PrestamoController;
+import com.misproyectos.exceptions.ValidacionException;
+import com.misproyectos.models.Periodicidad;
+import com.misproyectos.service.PeriodicidadService;
 import com.misproyectos.service.PrestamoService;
 import com.misproyectos.views.Prestamos.ConfirmarPrestamo;
 import com.misproyectos.views.Prestamos.DatosDelPrestamo;
@@ -9,6 +12,7 @@ import com.misproyectos.views.Prestamos.SeleccionarPeriodicidad;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 
 public class ConfirmarPrestamoController extends PrestamoController {
@@ -16,12 +20,14 @@ public class ConfirmarPrestamoController extends PrestamoController {
     private final DatosDelPrestamo datosDelPrestamoView;
     private final SeleccionarClienteController seleccionarClienteController;
     private final SeleccionarPeriodicidadController seleccionarPeriodicidadController;
-    private final PrestamoService service;
+    private final PrestamoService servicePrestamo;
+    private final PeriodicidadService servicePeriodicidad;
 
     public ConfirmarPrestamoController(
             ConfirmarPrestamo confirmarPrestamoView,
             DatosDelPrestamo datosDelPrestamoView,
-            PrestamoService service
+            PrestamoService servicePrestamo,
+            PeriodicidadService servicePeriodicidad
     ) {
         this.confirmarPrestamoView = confirmarPrestamoView;
         this.datosDelPrestamoView = datosDelPrestamoView;
@@ -31,7 +37,8 @@ public class ConfirmarPrestamoController extends PrestamoController {
         this.seleccionarPeriodicidadController = new SeleccionarPeriodicidadController(
                 new SeleccionarPeriodicidad()
         );
-        this.service = service;
+        this.servicePrestamo = servicePrestamo;
+        this.servicePeriodicidad = servicePeriodicidad;
     }
 
     public void initListeners() {
@@ -48,7 +55,7 @@ public class ConfirmarPrestamoController extends PrestamoController {
         });
     }
 
-    public void autoFillLabels() {
+    public void autoFillLabels() throws ValidacionException, SQLException {
         confirmarPrestamoView.setClienteSelectedLbl(seleccionarClienteController.getSelectItemClienteJComboBox());
         confirmarPrestamoView.setPeriodicidadSelectedLbl(seleccionarPeriodicidadController.getSelectItemPeriodicidadJComboBox());
 
@@ -58,13 +65,24 @@ public class ConfirmarPrestamoController extends PrestamoController {
         confirmarPrestamoView.setImporteSelectedLbl(importe);
         confirmarPrestamoView.setPlazoSelectedLbl(datosDelPrestamoView.getPlazoSpinner().toString());
 
-//        double montoCuota = service.calcularMontoPorCuota(
-//               Double.parseDouble(importe),
-//                
-//        );
-//        double totalPagar = service.calcularTotalToPagar();
-//        double interesTotal = service.calcularInteresTotal();
-//
-//        confirmarPrestamoView.setInteresSelectedLbl();
+        Periodicidad periodicidad = servicePeriodicidad.findById(seleccionarPeriodicidadController.getSelectedPeriodicidadId());
+        double tasaInteres = periodicidad.getPorcentajeIntereses();
+        double plazo = datosDelPrestamoView.getPlazoSpinner().doubleValue();
+
+        String importeLimpio = importe.replace("$", "").replace(",", "").trim();
+        double montoCuota = servicePrestamo.calcularMontoPorCuota(
+                Double.parseDouble(importeLimpio),
+                tasaInteres,
+                plazo
+        );
+
+        double totalPagar = servicePrestamo.calcularTotalToPagar(montoCuota, plazo);
+        double interesTotal = servicePrestamo.calcularInteresTotal(totalPagar, Double.parseDouble(importeLimpio));
+
+        confirmarPrestamoView.setInteresSelectedLbl(String.valueOf(interesTotal));
+        confirmarPrestamoView.setTotalPagarSelectedLbl(String.valueOf(totalPagar));
+        confirmarPrestamoView.setNoCuotasSelectedLbl(String.valueOf(plazo));
+        confirmarPrestamoView.setMontoCuotaSelectedLbl(String.valueOf(montoCuota));
+
     }
 }
