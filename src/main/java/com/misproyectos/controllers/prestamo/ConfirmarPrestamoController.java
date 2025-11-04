@@ -49,8 +49,8 @@ public class ConfirmarPrestamoController extends PrestamoController {
 
         DecimalFormat format = new DecimalFormat("$#,##0.00");
         String importe = format.format(datosDelPrestamoView.getImporteSpinner());
-        String plazo = format.format(datosDelPrestamoView.getPlazoSpinner());
+
         confirmarPrestamoView.setImporteSelectedLbl(importe);
-        confirmarPrestamoView.setPlazoSelectedLbl(plazo);
+        confirmarPrestamoView.setPlazoSelectedLbl(datosDelPrestamoView.getPlazoSpinner().toString());
     }
 }
