@@ -32,19 +32,34 @@ public class UsuarioRepository {
         }
     }
 
-    public boolean existeUsuarioByTagName(Usuario usuario) throws SQLException{
+    public boolean existeUsuarioByTagName(Usuario usuario) throws SQLException {
         String sql = "SELECT COUNT(*) FROM usuarios WHERE nombre = ?";
 
-        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, usuario.getNombreUsuario());
 
-            try(ResultSet result = stmt.executeQuery()){
+            try (ResultSet result = stmt.executeQuery()) {
                 result.next();
                 int count = result.getInt(1);
 
                 //si count es mayor a cero el usuario existe
                 //si count es menor a cero el usuario no existe
                 return count > 0;
+            }
+        }
+    }
+
+    public String findPasswordByTagName(String tagName) throws SQLException {
+        String sql = "SELECT password FROM usuarios WHERE nombre = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, tagName);
+
+            try (ResultSet result = stmt.executeQuery()) {
+                if(result.next()){
+                    return result.getString("password");
+                }
+                return null;
             }
         }
     }

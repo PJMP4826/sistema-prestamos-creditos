@@ -4,7 +4,9 @@
  */
 package com.misproyectos.views.login;
 
+import com.misproyectos.controllers.LoginController;
 import com.misproyectos.exceptions.ValidacionException;
+import com.misproyectos.repositories.UsuarioRepository;
 
 import javax.swing.*;
 
@@ -22,6 +24,7 @@ public class LoginDialog extends javax.swing.JDialog {
     public LoginDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        initListeners();
     }
 
     /**
@@ -53,13 +56,13 @@ public class LoginDialog extends javax.swing.JDialog {
         usuarioLbl.setForeground(new java.awt.Color(255, 255, 255));
         usuarioLbl.setText("Nombre de usuario");
         jPanel1.add(usuarioLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
-        jPanel1.add(usuarioInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 260, 40));
+        jPanel1.add(usuarioInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 260, 40));
 
         passwordLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         passwordLbl.setForeground(new java.awt.Color(255, 255, 255));
         passwordLbl.setText("Contraseña");
         jPanel1.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-        jPanel1.add(passwordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 260, 40));
+        jPanel1.add(passwordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 260, 40));
 
         loginBtn.setBackground(new java.awt.Color(0, 124, 239));
         loginBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -73,12 +76,12 @@ public class LoginDialog extends javax.swing.JDialog {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -121,6 +124,14 @@ public class LoginDialog extends javax.swing.JDialog {
         });
     }
 
+    public void initListeners() {
+        LoginController controller = new LoginController(
+                this,
+                new UsuarioRepository()
+        );
+        controller.initListeners();
+    }
+
     public String getUsuario() {
         return usuarioInput.getText().trim();
     }
@@ -129,8 +140,8 @@ public class LoginDialog extends javax.swing.JDialog {
         return passwordInput.getText().trim();
     }
 
-    public JTextField getUsuarioInput() {
-        return usuarioInput;
+    public JButton iniciarSessionBtn() {
+        return loginBtn;
     }
 
     public boolean validarInputs() throws ValidacionException {
