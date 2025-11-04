@@ -57,4 +57,17 @@ public class PeriodicidadService {
             throw new SQLException(e);
         }
     }
+
+    public Periodicidad findById(Long id) throws ValidacionException, SQLException{
+        try {
+            if (id == null){
+                throw new ValidacionException("El id no puede ser null");
+            }
+
+           Periodicidad periodicidad = repository.findById(id);
+            return periodicidad;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -5,8 +5,11 @@
 package com.misproyectos.views.Prestamos;
 
 import com.misproyectos.controllers.prestamo.ConfirmarPrestamoController;
+import com.misproyectos.exceptions.ValidacionException;
 
 import javax.swing.*;
+
+import java.sql.SQLException;
 
 import static com.misproyectos.views.MainWindow.ShowJPanel;
 
@@ -521,7 +524,7 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         this.montoCuotaSelectedLbl.setText(montoCuotaSelectedLbl);
     }
 
-    public void setController(ConfirmarPrestamoController controller){
+    public void setController(ConfirmarPrestamoController controller) throws SQLException, ValidacionException {
         this.controller = controller;
         this.controller.initListeners();
         this.controller.autoFillLabels();

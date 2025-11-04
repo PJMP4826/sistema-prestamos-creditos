@@ -331,8 +331,6 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
 
     private void SiguienteSeleccionarPeriodicidadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteSeleccionarPeriodicidadBtnActionPerformed
         ShowJPanel(new DatosDelPrestamo());
-        String seleccion = (String) this.SeleccionarPeriodicidadComboBox.getSelectedItem();
-        System.out.println("Seleccionado: " + seleccion);
     }//GEN-LAST:event_SiguienteSeleccionarPeriodicidadBtnActionPerformed
 
     private void SeleccionarPeriodicidadComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarPeriodicidadComboBoxActionPerformed
