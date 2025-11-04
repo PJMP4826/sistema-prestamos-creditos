@@ -29,13 +29,16 @@ public class RegistroDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
-        usuarioLbl = new javax.swing.JLabel();
-        usuarioInput = new javax.swing.JTextField();
-        passwordLbl = new javax.swing.JLabel();
-        passwordInput = new javax.swing.JTextField();
-        loginBtn = new javax.swing.JButton();
+        usuario_r_Lbl = new javax.swing.JLabel();
+        usuarioInput_r = new javax.swing.JTextField();
+        correo_lbl = new javax.swing.JLabel();
+        correoInput_r = new javax.swing.JTextField();
+        password_r_Lbl = new javax.swing.JLabel();
+        passwordInput_r = new javax.swing.JTextField();
+        loginBtn_r = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -45,23 +48,29 @@ public class RegistroDialog extends javax.swing.JDialog {
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoPrestamos.png"))); // NOI18N
         jPanel1.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 140, 150));
 
-        usuarioLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        usuarioLbl.setForeground(new java.awt.Color(255, 255, 255));
-        usuarioLbl.setText("Nombre de usuario");
-        jPanel1.add(usuarioLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
-        jPanel1.add(usuarioInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 260, 40));
+        usuario_r_Lbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        usuario_r_Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        usuario_r_Lbl.setText("Nombre de usuario");
+        jPanel1.add(usuario_r_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        jPanel1.add(usuarioInput_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 260, 40));
 
-        passwordLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        passwordLbl.setForeground(new java.awt.Color(255, 255, 255));
-        passwordLbl.setText("Contraseña");
-        jPanel1.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-        jPanel1.add(passwordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 260, 40));
+        correo_lbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        correo_lbl.setForeground(new java.awt.Color(255, 255, 255));
+        correo_lbl.setText("Correo");
+        jPanel1.add(correo_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        jPanel1.add(correoInput_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 260, 40));
 
-        loginBtn.setBackground(new java.awt.Color(0, 124, 239));
-        loginBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
-        loginBtn.setText("Iniciar Sesión");
-        jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 40));
+        password_r_Lbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        password_r_Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        password_r_Lbl.setText("Contraseña");
+        jPanel1.add(password_r_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        jPanel1.add(passwordInput_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 260, 40));
+
+        loginBtn_r.setBackground(new java.awt.Color(0, 124, 239));
+        loginBtn_r.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        loginBtn_r.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtn_r.setText("Registrarse");
+        jPanel1.add(loginBtn_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 40));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgroundLogin.jpg"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 527));
@@ -118,15 +127,32 @@ public class RegistroDialog extends javax.swing.JDialog {
             }
         });
     }
-
+    
+    public String getUsuario2(){
+        return usuarioInput_r.getText().trim();
+    }
+    
+    public String getPassword2(){
+        return passwordInput_r.getText().trim();
+    }
+    
+    public String getCorreo1(){
+        return correoInput_r.getText().trim();
+    }
+            
+            
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JTextField correoInput_r;
+    private javax.swing.JLabel correo_lbl;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton loginBtn;
+    private javax.swing.JButton loginBtn_r;
     private javax.swing.JLabel logo;
-    private javax.swing.JTextField passwordInput;
-    private javax.swing.JLabel passwordLbl;
-    private javax.swing.JTextField usuarioInput;
-    private javax.swing.JLabel usuarioLbl;
+    private javax.swing.JTextField passwordInput_r;
+    private javax.swing.JLabel password_r_Lbl;
+    private javax.swing.JTextField usuarioInput_r;
+    private javax.swing.JLabel usuario_r_Lbl;
     // End of variables declaration//GEN-END:variables
 }
