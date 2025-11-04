@@ -43,6 +43,7 @@ public class LoginDialog extends javax.swing.JDialog {
         passwordLbl = new javax.swing.JLabel();
         passwordInput = new javax.swing.JTextField();
         loginBtn = new javax.swing.JButton();
+        registrateBtn = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -69,6 +70,12 @@ public class LoginDialog extends javax.swing.JDialog {
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Iniciar Sesión");
         jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 40));
+
+        registrateBtn.setBackground(new java.awt.Color(0, 124, 239));
+        registrateBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        registrateBtn.setForeground(new java.awt.Color(255, 255, 255));
+        registrateBtn.setText("Registrate");
+        jPanel1.add(registrateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgroundLogin.jpg"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 527));
@@ -194,6 +201,7 @@ public class LoginDialog extends javax.swing.JDialog {
     private javax.swing.JLabel logo;
     private javax.swing.JTextField passwordInput;
     private javax.swing.JLabel passwordLbl;
+    private javax.swing.JButton registrateBtn;
     private javax.swing.JTextField usuarioInput;
     private javax.swing.JLabel usuarioLbl;
     // End of variables declaration//GEN-END:variables
