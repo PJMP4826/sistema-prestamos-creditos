@@ -129,6 +129,10 @@ public class LoginDialog extends javax.swing.JDialog {
         return passwordInput.getText().trim();
     }
 
+    public JTextField getUsuarioInput() {
+        return usuarioInput;
+    }
+
     public boolean validarInputs() throws ValidacionException {
         try {
             validarUsuario();
@@ -137,6 +141,7 @@ public class LoginDialog extends javax.swing.JDialog {
         } catch (ValidacionException e) {
             mostrarMensaje("Error de validación: " + e.getMessage());
         }
+        return false;
     }
 
     public boolean validarUsuario() throws ValidacionException {
