@@ -48,4 +48,14 @@ public class SeleccionarClienteController extends PrestamoController {
         PrestamoComboItem selectItem = (PrestamoComboItem) select.getSelectedItem();
         return selectItem != null ? selectItem.toString() : "";
     }
+
+    @Override
+    public JTable getPrestamoTable() {
+        return selectClientView.getListaPrestamosTable();
+    }
+
+    @Override
+    public void mostrarMensaje(String mensaje) {
+        selectClientView.mostrarMensaje(mensaje);
+    }
 }

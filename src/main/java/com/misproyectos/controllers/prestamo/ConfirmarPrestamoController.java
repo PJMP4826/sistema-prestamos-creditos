@@ -3,7 +3,6 @@ package com.misproyectos.controllers.prestamo;
 import com.misproyectos.controllers.PrestamoController;
 import com.misproyectos.enums.EstadoPrestamo;
 import com.misproyectos.exceptions.ValidacionException;
-import com.misproyectos.interfaces.PrestamoViewInterface;
 import com.misproyectos.models.Cliente;
 import com.misproyectos.models.Periodicidad;
 import com.misproyectos.models.Prestamo;
@@ -15,14 +14,13 @@ import com.misproyectos.views.Prestamos.DatosDelPrestamo;
 import com.misproyectos.views.Prestamos.SeleccionarCliente;
 import com.misproyectos.views.Prestamos.SeleccionarPeriodicidad;
 
-import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.util.List;
 
-public class ConfirmarPrestamoController extends PrestamoController implements PrestamoViewInterface {
+public class ConfirmarPrestamoController extends PrestamoController {
     private final ConfirmarPrestamo confirmarPrestamoView;
     private final DatosDelPrestamo datosDelPrestamoView;
     private final SeleccionarClienteController seleccionarClienteController;
@@ -114,31 +112,13 @@ public class ConfirmarPrestamoController extends PrestamoController implements P
         }
     }
 
-    public void loadPrestamos() {
-        DefaultTableModel model = (DefaultTableModel) confirmarPrestamoView.getListaPrestamosTable().getModel();
-        model.setRowCount(0);
+    @Override
+    public JTable getPrestamoTable() {
+        return confirmarPrestamoView.getListaPrestamosTable();
+    }
 
-        try {
-            PrestamoRepository prestamoRepository = new PrestamoRepository();
-            List<Prestamo> prestamos = prestamoRepository.findAll();
-
-            for (Prestamo p : prestamos) {
-                String nombreCliente = p.getCliente().getNombre();
-                String nombrePeriodicidad = p.getPeriodicidadPago().getNombrePeriodicidad();
-
-                model.addRow(new Object[]{
-                        nombreCliente,
-                        p.getMontoPrestado(),
-                        p.getPlazoPago(),
-                        nombrePeriodicidad,
-                        p.getFechaInicio().toString(),
-                        p.getSaldoPendiente(),
-                        p.getEstadoPrestamo()
-                });
-            }
-        } catch (SQLException ex) {
-            confirmarPrestamoView.mostrarMensaje("Error al obtener los prestamos: " + ex.getMessage());
-            ex.printStackTrace();
-        }
+    @Override
+    public void mostrarMensaje(String mensaje) {
+        confirmarPrestamoView.mostrarMensaje(mensaje);
     }
 }

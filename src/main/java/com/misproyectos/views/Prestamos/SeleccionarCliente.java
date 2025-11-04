@@ -289,10 +289,19 @@ public class SeleccionarCliente extends javax.swing.JPanel {
     private void cargarClientes(){
         SeleccionarClienteController controller = new SeleccionarClienteController(this);
         controller.loadClientesJBox();
+        controller.loadPrestamos();
     }
 
     public JComboBox<PrestamoComboItem> getJComboBoxCliente(){
         return SelectClienteComboBox;
+    }
+
+    public JTable getListaPrestamosTable(){
+        return ListaPrestamosTable;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

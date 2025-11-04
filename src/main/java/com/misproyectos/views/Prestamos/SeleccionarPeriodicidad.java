@@ -345,11 +345,21 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
     private void cargarPeriodicidades() {
         SeleccionarPeriodicidadController controller = new SeleccionarPeriodicidadController(this);
         controller.loadPeriodicidadesJBox();
+        controller.loadPrestamos();
     }
 
     public JComboBox<PrestamoComboItem> getJComboBoxPeriodicidades() {
         return SeleccionarPeriodicidadComboBox;
     }
+
+    public JTable getListaPrestamosTable() {
+        return ListaPrestamosTable;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnteriorSeleccionarPeriodicidadBtn;
@@ -357,7 +367,7 @@ public class SeleccionarPeriodicidad extends javax.swing.JPanel {
     private javax.swing.JTable ListaPrestamosTable;
     private javax.swing.JLabel ListaPrestamosTitulo;
     private javax.swing.JLabel PeriodicidadPagoLbl;
-    private javax.swing.JComboBox<PrestamoComboItem>  SeleccionarPeriodicidadComboBox;
+    private javax.swing.JComboBox<PrestamoComboItem> SeleccionarPeriodicidadComboBox;
     private javax.swing.JLabel SeleccionarPeriodicidadTitle;
     private javax.swing.JLabel SelectClienteLbl;
     private javax.swing.JLabel SelectPeriodicidadLbl;

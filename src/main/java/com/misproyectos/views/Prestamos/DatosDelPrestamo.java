@@ -5,6 +5,7 @@
 package com.misproyectos.views.Prestamos;
 
 import com.misproyectos.controllers.prestamo.ConfirmarPrestamoController;
+import com.misproyectos.controllers.prestamo.DatosDelPrestamoController;
 import com.misproyectos.exceptions.ValidacionException;
 import com.misproyectos.repositories.PeriodicidadesRepository;
 import com.misproyectos.service.PeriodicidadService;
@@ -27,6 +28,7 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
      */
     public DatosDelPrestamo() {
         initComponents();
+        cargarPrestamos();
     }
 
     /**
@@ -464,9 +466,19 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         return true;
     }
 
+    public void cargarPrestamos(){
+        DatosDelPrestamoController controller = new DatosDelPrestamoController(this);
+        controller.loadPrestamos();
+    }
+
+    public JTable getListaPrestamosTable(){
+        return ListaPrestamosTable;
+    }
+
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
+
 
 //    public String getImporteSpinner() {
 //        Object valor = ImportePrestamoSpinner.getValue();
