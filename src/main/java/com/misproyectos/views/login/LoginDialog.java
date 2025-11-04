@@ -4,6 +4,10 @@
  */
 package com.misproyectos.views.login;
 
+import com.misproyectos.exceptions.ValidacionException;
+
+import javax.swing.*;
+
 /**
  *
  * @author Fausto
@@ -123,6 +127,48 @@ public class LoginDialog extends javax.swing.JDialog {
 
     public String getPassword() {
         return passwordInput.getText().trim();
+    }
+
+    public boolean validarInputs() throws ValidacionException {
+        try {
+            validarUsuario();
+            validarPassword();
+            return true;
+        } catch (ValidacionException e) {
+            mostrarMensaje("Error de validación: " + e.getMessage());
+        }
+    }
+
+    public boolean validarUsuario() throws ValidacionException {
+        String usuario = getUsuario();
+
+        if (usuario == null) {
+            throw new ValidacionException("Debes ingresar tu usuario");
+        }
+
+        if (usuario.trim().length() > 1000) {
+            throw new ValidacionException("Nombre de usuario demasiado grande");
+        }
+
+        return true;
+    }
+
+    public boolean validarPassword() throws ValidacionException {
+        String password = getPassword();
+
+        if (password == null) {
+            throw new ValidacionException("Desbes especificar una contraseña");
+        }
+
+        if (password.trim().length() > 1000) {
+            throw new ValidacionException("Tu contraseña es demansiado grande");
+        }
+
+        return true;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
