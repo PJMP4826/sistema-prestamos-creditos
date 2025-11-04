@@ -528,6 +528,11 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
         this.controller = controller;
         this.controller.initListeners();
         this.controller.autoFillLabels();
+        this.controller.loadPrestamos();
+    }
+
+    public JTable getListaPrestamosTable(){
+        return ListaPrestamosTable;
     }
 
     public void mostrarMensaje(String mensaje) {
