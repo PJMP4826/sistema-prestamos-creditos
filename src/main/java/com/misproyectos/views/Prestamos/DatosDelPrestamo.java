@@ -5,7 +5,9 @@
 package com.misproyectos.views.Prestamos;
 
 import com.misproyectos.controllers.prestamo.ConfirmarPrestamoController;
+import com.misproyectos.exceptions.ValidacionException;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 
 import static com.misproyectos.views.MainWindow.ShowJPanel;
@@ -382,7 +384,9 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
                 this
         );
         confirmarPrestamoView.setController(controller);
-        ShowJPanel(confirmarPrestamoView);
+        if (validateAllSpinners()) {
+            ShowJPanel(confirmarPrestamoView);
+        }
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
     public BigDecimal getImporteSpinner() {
@@ -393,6 +397,59 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
     public BigDecimal getPlazoSpinner() {
         Object valor = PlazoDiasSpinner.getValue();
         return new BigDecimal(valor.toString());
+    }
+
+    public boolean validateAllSpinners() {
+        try {
+            validateImporteSpinner();
+            validatePlazoSpinner();
+            return true;
+        } catch (ValidacionException e) {
+            mostrarMensaje("Error de validación: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private boolean validateImporteSpinner() throws ValidacionException {
+        BigDecimal importe = getImporteSpinner();
+
+        if (importe == null) {
+            throw new ValidacionException("El valor no puede ser null");
+        }
+        if (importe.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new ValidacionException("El importe no puede ser menor que cero");
+        }
+        if (importe.scale() > 2) {
+            throw new ValidacionException("El importe tiene mas de 2 decimales");
+        }
+        if (importe.compareTo(new BigDecimal("1000000")) > 0) {
+            throw new ValidacionException("El importe es demasiado alto");
+        }
+
+        return true;
+    }
+
+    private boolean validatePlazoSpinner() throws ValidacionException {
+        BigDecimal plazo = getPlazoSpinner();
+
+        if (plazo == null) {
+            throw new ValidacionException("El valor no puede ser null");
+        }
+        if (plazo.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new ValidacionException("El plazo no puede ser menor que cero");
+        }
+        if (plazo.scale() > 2) {
+            throw new ValidacionException("El importe tiene mas de 2 decimales");
+        }
+        if (plazo.compareTo(new BigDecimal("1000000")) > 0) {
+            throw new ValidacionException("El importe es demasiado alto");
+        }
+
+        return true;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
 //    public String getImporteSpinner() {
