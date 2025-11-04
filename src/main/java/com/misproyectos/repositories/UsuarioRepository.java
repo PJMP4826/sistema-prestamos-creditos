@@ -5,6 +5,7 @@ import com.misproyectos.models.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UsuarioRepository {
@@ -28,6 +29,23 @@ public class UsuarioRepository {
                 throw new SQLException("Errror al registrar usuario");
             }
             return true;
+        }
+    }
+
+    public boolean existeUsuarioByTagName(Usuario usuario) throws SQLException{
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE nombre = ?";
+
+        try(PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setString(1, usuario.getNombreUsuario());
+
+            try(ResultSet result = stmt.executeQuery()){
+                result.next();
+                int count = result.getInt(1);
+
+                //si count es mayor a cero el usuario existe
+                //si count es menor a cero el usuario no existe
+                return count > 0;
+            }
         }
     }
 }
