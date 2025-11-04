@@ -4,12 +4,17 @@
  */
 package com.misproyectos.views.login;
 
+import com.misproyectos.controllers.RegistroController;
+import com.misproyectos.repositories.UsuarioRepository;
+
+import javax.swing.*;
+
 /**
  *
  * @author Fausto
  */
 public class RegistroDialog extends javax.swing.JDialog {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroDialog.class.getName());
 
     /**
@@ -18,6 +23,7 @@ public class RegistroDialog extends javax.swing.JDialog {
     public RegistroDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        initListeners();
     }
 
     /**
@@ -33,12 +39,12 @@ public class RegistroDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         usuario_r_Lbl = new javax.swing.JLabel();
-        usuarioInput_r = new javax.swing.JTextField();
+        passwordInput = new javax.swing.JTextField();
         correo_lbl = new javax.swing.JLabel();
         correoInput_r = new javax.swing.JTextField();
         password_r_Lbl = new javax.swing.JLabel();
-        passwordInput_r = new javax.swing.JTextField();
-        loginBtn_r = new javax.swing.JButton();
+        nombreUsuarioInput = new javax.swing.JTextField();
+        registerBtn_r = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -52,7 +58,7 @@ public class RegistroDialog extends javax.swing.JDialog {
         usuario_r_Lbl.setForeground(new java.awt.Color(255, 255, 255));
         usuario_r_Lbl.setText("Nombre de usuario");
         jPanel1.add(usuario_r_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
-        jPanel1.add(usuarioInput_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 260, 40));
+        jPanel1.add(passwordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 260, 40));
 
         correo_lbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         correo_lbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -64,13 +70,13 @@ public class RegistroDialog extends javax.swing.JDialog {
         password_r_Lbl.setForeground(new java.awt.Color(255, 255, 255));
         password_r_Lbl.setText("Contraseña");
         jPanel1.add(password_r_Lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
-        jPanel1.add(passwordInput_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 260, 40));
+        jPanel1.add(nombreUsuarioInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 260, 40));
 
-        loginBtn_r.setBackground(new java.awt.Color(0, 124, 239));
-        loginBtn_r.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        loginBtn_r.setForeground(new java.awt.Color(255, 255, 255));
-        loginBtn_r.setText("Registrarse");
-        jPanel1.add(loginBtn_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 40));
+        registerBtn_r.setBackground(new java.awt.Color(0, 124, 239));
+        registerBtn_r.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        registerBtn_r.setForeground(new java.awt.Color(255, 255, 255));
+        registerBtn_r.setText("Registrarse");
+        jPanel1.add(registerBtn_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 40));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgroundLogin.jpg"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 527));
@@ -98,7 +104,7 @@ public class RegistroDialog extends javax.swing.JDialog {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -127,32 +133,46 @@ public class RegistroDialog extends javax.swing.JDialog {
             }
         });
     }
-    
-    public String getUsuario2(){
-        return usuarioInput_r.getText().trim();
+
+    public String getUsuario2() {
+        return nombreUsuarioInput.getText().trim();
     }
-    
-    public String getPassword2(){
-        return passwordInput_r.getText().trim();
+
+    public String getPassword2() {
+        return passwordInput.getText().trim();
     }
-    
-    public String getCorreo1(){
+
+    public String getCorreo1() {
         return correoInput_r.getText().trim();
     }
-            
-            
-            
+
+    public JButton getRegisternBtn_r() {
+        return registerBtn_r;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+    public void initListeners(){
+        RegistroController registroController = new RegistroController(
+                this,
+                new UsuarioRepository()
+        );
+        registroController.initListeners();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JTextField correoInput_r;
     private javax.swing.JLabel correo_lbl;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton loginBtn_r;
     private javax.swing.JLabel logo;
-    private javax.swing.JTextField passwordInput_r;
+    private javax.swing.JTextField nombreUsuarioInput;
+    private javax.swing.JTextField passwordInput;
     private javax.swing.JLabel password_r_Lbl;
-    private javax.swing.JTextField usuarioInput_r;
+    private javax.swing.JButton registerBtn_r;
     private javax.swing.JLabel usuario_r_Lbl;
     // End of variables declaration//GEN-END:variables
 }

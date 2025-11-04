@@ -1,12 +1,10 @@
 package com.misproyectos.controllers;
 
-import com.misproyectos.models.Usuario;
 import com.misproyectos.repositories.UsuarioRepository;
 import com.misproyectos.views.login.LoginDialog;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class LoginController {
     public LoginDialog loginDialog;
@@ -23,15 +21,5 @@ public class LoginController {
 
             }
         });
-    }
-
-    public void registrarUsuario() throws SQLException {
-        try {
-            Usuario usuario = new Usuario();
-            usuario.setNombreUsuario(loginDialog.);
-            if()
-        } catch (SQLException e) {
-            loginDialog.mostrarMensaje("Error de base de datos: " + e.getMessage());
-        }
     }
 }
