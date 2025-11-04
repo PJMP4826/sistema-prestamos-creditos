@@ -1,6 +1,7 @@
 package com.misproyectos.controllers.prestamo;
 
 import com.misproyectos.controllers.PrestamoController;
+import com.misproyectos.service.PrestamoService;
 import com.misproyectos.views.Prestamos.ConfirmarPrestamo;
 import com.misproyectos.views.Prestamos.DatosDelPrestamo;
 import com.misproyectos.views.Prestamos.SeleccionarCliente;
@@ -15,10 +16,12 @@ public class ConfirmarPrestamoController extends PrestamoController {
     private final DatosDelPrestamo datosDelPrestamoView;
     private final SeleccionarClienteController seleccionarClienteController;
     private final SeleccionarPeriodicidadController seleccionarPeriodicidadController;
+    private final PrestamoService service;
 
     public ConfirmarPrestamoController(
             ConfirmarPrestamo confirmarPrestamoView,
-            DatosDelPrestamo datosDelPrestamoView
+            DatosDelPrestamo datosDelPrestamoView,
+            PrestamoService service
     ) {
         this.confirmarPrestamoView = confirmarPrestamoView;
         this.datosDelPrestamoView = datosDelPrestamoView;
@@ -28,6 +31,7 @@ public class ConfirmarPrestamoController extends PrestamoController {
         this.seleccionarPeriodicidadController = new SeleccionarPeriodicidadController(
                 new SeleccionarPeriodicidad()
         );
+        this.service = service;
     }
 
     public void initListeners() {
@@ -53,5 +57,14 @@ public class ConfirmarPrestamoController extends PrestamoController {
 
         confirmarPrestamoView.setImporteSelectedLbl(importe);
         confirmarPrestamoView.setPlazoSelectedLbl(datosDelPrestamoView.getPlazoSpinner().toString());
+
+//        double montoCuota = service.calcularMontoPorCuota(
+//               Double.parseDouble(importe),
+//                
+//        );
+//        double totalPagar = service.calcularTotalToPagar();
+//        double interesTotal = service.calcularInteresTotal();
+//
+//        confirmarPrestamoView.setInteresSelectedLbl();
     }
 }
