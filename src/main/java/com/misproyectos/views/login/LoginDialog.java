@@ -35,7 +35,7 @@ public class LoginDialog extends javax.swing.JDialog {
         usuarioInput = new javax.swing.JTextField();
         passwordLbl = new javax.swing.JLabel();
         passwordInput = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -57,11 +57,11 @@ public class LoginDialog extends javax.swing.JDialog {
         jPanel1.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
         jPanel1.add(passwordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 260, 40));
 
-        jButton1.setBackground(new java.awt.Color(0, 124, 239));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Iniciar Sesión");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 40));
+        loginBtn.setBackground(new java.awt.Color(0, 124, 239));
+        loginBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(255, 255, 255));
+        loginBtn.setText("Iniciar Sesión");
+        jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 40));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgroundLogin.jpg"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 527));
@@ -119,8 +119,8 @@ public class LoginDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton loginBtn;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField passwordInput;
     private javax.swing.JLabel passwordLbl;
