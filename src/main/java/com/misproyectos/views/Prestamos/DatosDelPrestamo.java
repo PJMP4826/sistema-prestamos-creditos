@@ -385,25 +385,25 @@ public class DatosDelPrestamo extends javax.swing.JPanel {
         ShowJPanel(confirmarPrestamoView);
     }//GEN-LAST:event_SiguienteBtnActionPerformed
 
-//    public BigDecimal getImporteSpinner() {
+    public BigDecimal getImporteSpinner() {
+        Object valor = ImportePrestamoSpinner.getValue();
+        return new BigDecimal(valor.toString());
+    }
+
+    public BigDecimal getPlazoSpinner() {
+        Object valor = PlazoDiasSpinner.getValue();
+        return new BigDecimal(valor.toString());
+    }
+
+//    public String getImporteSpinner() {
 //        Object valor = ImportePrestamoSpinner.getValue();
-//        return new BigDecimal(valor.toString());
+//        return valor.toString();
 //    }
 //
-//    public BigDecimal getPlazoSpinner() {
+//    public String getPlazoSpinner() {
 //        Object valor = PlazoDiasSpinner.getValue();
-//        return new BigDecimal(valor.toString());
+//        return valor.toString();
 //    }
-
-    public String getImporteSpinner() {
-        Object valor = ImportePrestamoSpinner.getValue();
-        return valor.toString();
-    }
-
-    public String getPlazoSpinner() {
-        Object valor = PlazoDiasSpinner.getValue();
-        return valor.toString();
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnteriorBtn;

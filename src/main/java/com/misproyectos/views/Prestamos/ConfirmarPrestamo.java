@@ -524,6 +524,7 @@ public class ConfirmarPrestamo extends javax.swing.JPanel {
     public void setController(ConfirmarPrestamoController controller){
         this.controller = controller;
         this.controller.initListeners();
+        this.controller.autoFillLabels();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

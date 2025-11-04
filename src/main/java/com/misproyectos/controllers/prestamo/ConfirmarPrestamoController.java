@@ -8,6 +8,8 @@ import com.misproyectos.views.Prestamos.SeleccionarPeriodicidad;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class ConfirmarPrestamoController extends PrestamoController {
     private final ConfirmarPrestamo confirmarPrestamoView;
@@ -42,6 +44,13 @@ public class ConfirmarPrestamoController extends PrestamoController {
     }
 
     public void autoFillLabels() {
+        confirmarPrestamoView.setClienteSelectedLbl(seleccionarClienteController.getSelectItemClienteJComboBox());
+        confirmarPrestamoView.setPeriodicidadSelectedLbl(seleccionarPeriodicidadController.getSelectItemPeriodicidadJComboBox());
 
+        DecimalFormat format = new DecimalFormat("$#,##0.00");
+        String importe = format.format(datosDelPrestamoView.getImporteSpinner());
+        String plazo = format.format(datosDelPrestamoView.getPlazoSpinner());
+        confirmarPrestamoView.setImporteSelectedLbl(importe);
+        confirmarPrestamoView.setPlazoSelectedLbl(plazo);
     }
 }
