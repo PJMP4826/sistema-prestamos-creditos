@@ -6,6 +6,8 @@ package com.misproyectos.views;
 
 import com.misproyectos.controllers.DashboardController;
 
+import javax.swing.*;
+
 /**
  *
  * @author Fausto
@@ -60,22 +62,22 @@ public class Dashboard extends javax.swing.JPanel {
         javax.swing.GroupLayout activePrestamosCardLayout = new javax.swing.GroupLayout(activePrestamosCard);
         activePrestamosCard.setLayout(activePrestamosCardLayout);
         activePrestamosCardLayout.setHorizontalGroup(
-            activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(activePrestamosCardLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(clientesRegistradoLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(activePrestamosCardLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(clientesRegistradoLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(69, Short.MAX_VALUE))
         );
         activePrestamosCardLayout.setVerticalGroup(
-            activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(activePrestamosCardLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(clientesRegistradoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(activePrestamosCardLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(clientesRegistradoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         cobrosPendienteCard.setBackground(new java.awt.Color(255, 217, 61));
@@ -92,22 +94,22 @@ public class Dashboard extends javax.swing.JPanel {
         javax.swing.GroupLayout cobrosPendienteCardLayout = new javax.swing.GroupLayout(cobrosPendienteCard);
         cobrosPendienteCard.setLayout(cobrosPendienteCardLayout);
         cobrosPendienteCardLayout.setHorizontalGroup(
-            cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cobrosPendienteCardLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(numPrestamosActivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cobrosPendienteCardLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(numPrestamosActivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                                .addContainerGap(70, Short.MAX_VALUE))
         );
         cobrosPendienteCardLayout.setVerticalGroup(
-            cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cobrosPendienteCardLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(numPrestamosActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cobrosPendienteCardLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(numPrestamosActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -122,27 +124,27 @@ public class Dashboard extends javax.swing.JPanel {
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(title)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(title)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(title)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(title)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PeriodicidadesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object[][]{
 
-            },
-            new String [] {
-                "Cliente", "Correo", "Importe", "Plazo", "Periodicidad", "Fecha Inicio", "Saldo Actual", "Estado"
-            }
+                },
+                new String[]{
+                        "Cliente", "Correo", "Importe", "Plazo", "Periodicidad", "Fecha Inicio", "Saldo Actual", "Estado"
+                }
         ));
         PeriodicidadesTable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(PeriodicidadesTable);
@@ -155,86 +157,95 @@ public class Dashboard extends javax.swing.JPanel {
         javax.swing.GroupLayout headerListaPrestamosLayout = new javax.swing.GroupLayout(headerListaPrestamos);
         headerListaPrestamos.setLayout(headerListaPrestamosLayout);
         headerListaPrestamosLayout.setHorizontalGroup(
-            headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerListaPrestamosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaPrestamosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerListaPrestamosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(ListaPrestamosTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerListaPrestamosLayout.setVerticalGroup(
-            headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerListaPrestamosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaPrestamosTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                headerListaPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerListaPrestamosLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(ListaPrestamosTitulo)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(activePrestamosCard, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(cobrosPendienteCard, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addGap(424, 424, 424))
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane2)
-                .addGap(15, 15, 15))
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(headerListaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(activePrestamosCard, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cobrosPendienteCard, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                                .addGap(424, 424, 424))
+                        .addGroup(backgroundLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jScrollPane2)
+                                .addGap(15, 15, 15))
+                        .addGroup(backgroundLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(headerListaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
+                        .addGroup(backgroundLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(headerListaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(24, 24, 24)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(activePrestamosCard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cobrosPendienteCard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(headerListaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(24, 24, 24)
+                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(activePrestamosCard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cobrosPendienteCard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarInfoInit() {
         DashboardController controller = new DashboardController(this);
         controller.loadCards();
+        controller.loadPrestamos();
     }
 
-    public void setClientesRegistrados(String numClientesRegistrados){
+    public void setClientesRegistrados(String numClientesRegistrados) {
         clientesRegistradoLbl.setText(numClientesRegistrados);
     }
 
-    public void setNumPrestamosActivos(String numPrestamosActivos){
+    public void setNumPrestamosActivos(String numPrestamosActivos) {
         this.numPrestamosActivos.setText(numPrestamosActivos);
+    }
+
+    public JTable getPeriodicidadesTable() {
+        return PeriodicidadesTable;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
