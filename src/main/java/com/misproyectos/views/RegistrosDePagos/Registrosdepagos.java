@@ -19,13 +19,19 @@ import java.awt.Frame;
  */
 public class Registrosdepagos extends javax.swing.JPanel {
 
+    private PagosController controller;
     /**
      * Creates new form Registrosdepagos
      */
     public Registrosdepagos() {
         initComponents();
-        cargarPrestamosPendientesInit();
+        this.controller = new PagosController(
+                this,
+                new PrestamoRepository()
+        );
+        initListeners();
         hideRowIdPrestamo();
+        cargarPrestamosPendientesInit();
     }
 
     /**
@@ -264,11 +270,15 @@ public class Registrosdepagos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IrPagarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IrPagarBtnActionPerformed
-        Window topWindow = SwingUtilities.getWindowAncestor(this);
-        RealizarPago dialogoPago = new RealizarPago((Frame) topWindow, true);
-        dialogoPago.setLocationRelativeTo(topWindow);
-        dialogoPago.setVisible(true);
+        //Window topWindow = SwingUtilities.getWindowAncestor(this);
+        //RealizarPago dialogoPago = new RealizarPago((Frame) topWindow, true);
+        //dialogoPago.setLocationRelativeTo(topWindow);
+        //dialogoPago.setVisible(true);
     }//GEN-LAST:event_IrPagarBtnActionPerformed
+
+    public void initListeners() {
+        this.controller.iniListeners();
+    }
 
     public void hideRowIdPrestamo() {
         PrestamosPendientesTable.getColumnModel().getColumn(0).setMinWidth(0);
@@ -277,11 +287,7 @@ public class Registrosdepagos extends javax.swing.JPanel {
     }
 
     public void cargarPrestamosPendientesInit() {
-        PagosController controller = new PagosController(
-               this,
-               new PrestamoRepository()
-        );
-        controller.loadPrestamosPendientes();
+        this.controller.loadPrestamosPendientes();
     }
 
     public JTable getPrestamosPendientesTable() {
