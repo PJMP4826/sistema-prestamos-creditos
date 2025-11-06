@@ -3,6 +3,7 @@ package com.misproyectos.repositories;
 import com.misproyectos.config.Database;
 import com.misproyectos.interfaces.ClienteRepInterface;
 import com.misproyectos.models.Cliente;
+import com.misproyectos.models.SessionUsuario;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,20 +17,30 @@ public class ClienteRepository implements ClienteRepInterface {
     }
 
     public List<Cliente> getClients() {
-        String sql = "SELECT * FROM clientes";
+        String sql = """
+                SELECT
+                    c.id,
+                    c.nombre,
+                    c.rfc
+                FROM prestamos as p
+                INNER JOIN clientes as c ON p.cliente_id = c.id
+                INNER JOIN usuarios as u ON p.usuario_id = u.id
+                WHERE u.id = ?
+                """;
         List<Cliente> clientes = new ArrayList<>();
 
-        try (
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ResultSet result = stmt.executeQuery();
-        ) {
-            while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setId(result.getLong("id"));
-                cliente.setNombre(result.getString("nombre"));
-                cliente.setRfc(result.getString("rfc"));
-                clientes.add(cliente);
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, SessionUsuario.getUsuarioActual().getIdUsuario());
+            try (ResultSet result = stmt.executeQuery()) {
+                while (result.next()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(result.getLong("id"));
+                    cliente.setNombre(result.getString("nombre"));
+                    cliente.setRfc(result.getString("rfc"));
+                    clientes.add(cliente);
+                }
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
