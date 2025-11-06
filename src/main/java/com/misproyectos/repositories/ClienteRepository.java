@@ -22,9 +22,8 @@ public class ClienteRepository implements ClienteRepInterface {
                     c.id,
                     c.nombre,
                     c.rfc
-                FROM prestamos as p
-                INNER JOIN clientes as c ON p.cliente_id = c.id
-                INNER JOIN usuarios as u ON p.usuario_id = u.id
+                FROM clientes as c
+                INNER JOIN usuarios as u ON c.usuario_id = u.id
                 WHERE u.id = ?
                 """;
         List<Cliente> clientes = new ArrayList<>();
