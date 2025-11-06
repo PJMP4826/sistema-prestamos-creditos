@@ -288,6 +288,7 @@ public class Registrosdepagos extends javax.swing.JPanel {
 
     public void cargarPrestamosPendientesInit() {
         this.controller.loadPrestamosPendientes();
+        this.controller.loadResumenPrestamos();
     }
 
     public JTable getPrestamosPendientesTable() {

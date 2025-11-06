@@ -58,6 +58,18 @@ public class PagosController {
         }
     }
 
+    public void loadResumenPrestamos() {
+        try {
+            int totalPrestamosPendientes = prestamoRepository.countPrestamosPendientes();
+            double saldoPendiente = prestamoRepository.countSaldoPendientePrestamos();
+
+            pagosViews.setLblNumPrestamosActivos(String.valueOf(totalPrestamosPendientes));
+            pagosViews.setLblCantidadSaldo(String.valueOf(saldoPendiente));
+        } catch (SQLException e) {
+            pagosViews.mostrarMensaje("Error al cargar el resumen de prestamos pendientes");
+        }
+    }
+
     private JFrame jPanelToJFrame() {
         return (JFrame) SwingUtilities.getWindowAncestor(pagosViews);
     }
