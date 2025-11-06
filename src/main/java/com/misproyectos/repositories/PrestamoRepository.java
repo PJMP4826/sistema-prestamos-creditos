@@ -5,6 +5,7 @@ import com.misproyectos.interfaces.PrestamoRepInterface;
 import com.misproyectos.models.Cliente;
 import com.misproyectos.models.Periodicidad;
 import com.misproyectos.models.Prestamo;
+import com.misproyectos.models.SessionUsuario;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class PrestamoRepository extends PrestamoRepInterface {
         String sql = """
                    INSERT INTO prestamos(
                    cliente_id, periodicidad_id, importe, plazo, fecha_inicio, saldo_actual,
-                   aprobado) VALUES (?, ?, ?, ?, ?, ?, ?)
+                   aprobado, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """;
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -36,6 +37,7 @@ public class PrestamoRepository extends PrestamoRepInterface {
             stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));  //fecha actual
             stmt.setDouble(6, prestamo.getSaldoPendiente());
             stmt.setString(7, prestamo.getEstadoPrestamo().getTag());
+            stmt.setLong(8, SessionUsuario.getUsuarioActual().getIdUsuario());
 
             int rowsAffected = stmt.executeUpdate();
             if(rowsAffected <= 0){
