@@ -80,6 +80,7 @@ public class ClienteController {
             }
 
             clientView.mostrarMensaje("Cliente registrado correctamente");
+            loadClientes();
 
         } catch (ValidacionException ex) {
             clientView.mostrarMensaje("Error de validación: " + ex.getMessage());
