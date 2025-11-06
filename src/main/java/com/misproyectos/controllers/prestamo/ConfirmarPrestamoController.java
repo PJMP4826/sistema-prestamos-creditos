@@ -88,11 +88,16 @@ public class ConfirmarPrestamoController extends PrestamoController {
 
     public void guadarPrestamo() {
         PrestamoRepository prestamoRep = new PrestamoRepository();
+        Long clienteId = seleccionarClienteController.getSelectedClienteId();
+
+        if(clienteId == null){
+            confirmarPrestamoView.mostrarMensaje("Seleccione un cliente valido");
+        }
 
         Cliente cliente = new Cliente();
         Periodicidad periodicidad = new Periodicidad();
 
-        cliente.setId(seleccionarClienteController.getSelectedClienteId());
+        cliente.setId(clienteId);
         periodicidad.setIdPeriodicidad(seleccionarPeriodicidadController.getSelectedPeriodicidadId());
 
         EstadoPrestamo estadoPrest = EstadoPrestamo.fromTag("Activo");

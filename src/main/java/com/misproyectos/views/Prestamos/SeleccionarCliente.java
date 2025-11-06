@@ -5,6 +5,7 @@
 package com.misproyectos.views.Prestamos;
 
 import com.misproyectos.controllers.prestamo.SeleccionarClienteController;
+import com.misproyectos.models.Prestamo;
 import com.misproyectos.models.PrestamoComboItem;
 
 import javax.swing.*;
@@ -279,6 +280,8 @@ public class SeleccionarCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SiguienteSelectClienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteSelectClienteBtnActionPerformed
+        SeleccionarClienteController controller = new SeleccionarClienteController(this);
+        controller.getSelectedClienteId();
         ShowJPanel(new SeleccionarPeriodicidad());
     }//GEN-LAST:event_SiguienteSelectClienteBtnActionPerformed
 
@@ -309,7 +312,7 @@ public class SeleccionarCliente extends javax.swing.JPanel {
     private javax.swing.JLabel DatosPrestamoLbl;
     private javax.swing.JTable ListaPrestamosTable;
     private javax.swing.JLabel ListaPrestamosTitulo;
-    private javax.swing.JComboBox<PrestamoComboItem> SelectClienteComboBox = new JComboBox<PrestamoComboItem>();
+    private javax.swing.JComboBox<PrestamoComboItem> SelectClienteComboBox;
     private javax.swing.JLabel SelectClienteLbl;
     private javax.swing.JLabel SelectClienteTitle;
     private javax.swing.JLabel SelectPeriodicidadLbl;

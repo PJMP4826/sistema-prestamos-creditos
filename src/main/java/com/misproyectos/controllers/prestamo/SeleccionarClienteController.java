@@ -11,6 +11,7 @@ import java.util.List;
 
 public class SeleccionarClienteController extends PrestamoController {
     private final SeleccionarCliente selectClientView;
+    private static Long selectedClienteId;
 
     public SeleccionarClienteController(SeleccionarCliente selectClientView) {
         super();
@@ -32,6 +33,16 @@ public class SeleccionarClienteController extends PrestamoController {
                         c.getNombre()
                 ));
             }
+
+            if (selectedClienteId != null) {
+                for (int i = 0; i < select.getItemCount(); i++) {
+                    PrestamoComboItem item = select.getItemAt(i);
+                    if (item.getId().equals(selectedClienteId)) {
+                     select.setSelectedIndex(i);
+                     break;
+                    }
+                }
+            }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -40,7 +51,8 @@ public class SeleccionarClienteController extends PrestamoController {
     public Long getSelectedClienteId() {
         JComboBox<PrestamoComboItem> select = selectClientView.getJComboBoxCliente();
         PrestamoComboItem selectItem = (PrestamoComboItem) select.getSelectedItem();
-        return selectItem != null ? selectItem.getId() : null;
+        selectedClienteId = selectItem != null ? selectItem.getId() : null;
+        return selectedClienteId;
     }
 
     public String getSelectItemClienteJComboBox() {

@@ -3,6 +3,7 @@ package com.misproyectos.controllers.prestamo;
 import com.misproyectos.controllers.PrestamoController;
 import com.misproyectos.models.Periodicidad;
 import com.misproyectos.models.PrestamoComboItem;
+import com.misproyectos.views.Prestamos.SeleccionarCliente;
 import com.misproyectos.views.Prestamos.SeleccionarPeriodicidad;
 
 import javax.swing.*;
