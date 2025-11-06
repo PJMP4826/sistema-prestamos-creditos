@@ -80,17 +80,11 @@ public class Registrosdepagos extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Cliente", "Importe", "Saldo Pendiente", "Estado"
+                "Cliente", "Importe", "Saldo Pendiente"
             }
         ));
         PrestamosPendientesTable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(PrestamosPendientesTable);
-        if (PrestamosPendientesTable.getColumnModel().getColumnCount() > 0) {
-            PrestamosPendientesTable.getColumnModel().getColumn(0).setHeaderValue("Cliente");
-            PrestamosPendientesTable.getColumnModel().getColumn(1).setHeaderValue("Importe");
-            PrestamosPendientesTable.getColumnModel().getColumn(2).setHeaderValue("Saldo Pendiente");
-            PrestamosPendientesTable.getColumnModel().getColumn(3).setHeaderValue("Estado");
-        }
 
         IrPagarBtn.setBackground(new java.awt.Color(51, 204, 0));
         IrPagarBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
