@@ -3,6 +3,7 @@ package com.misproyectos.repositories;
 import com.misproyectos.config.Database;
 import com.misproyectos.interfaces.PeriodicidadesRepInterface;
 import com.misproyectos.models.Periodicidad;
+import com.misproyectos.models.SessionUsuario;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -45,12 +46,19 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
     @Override
     public List<Periodicidad> findAll() throws SQLException {
         String sql = """
-                SELECT id, nombre_periodicidad, dias_periodicidad, porcentaje_intereses
-                	FROM public.periodicidad_pago;
+                SELECT
+                    prd.id,
+                    prd.nombre_periodicidad,
+                    prd.dias_periodicidad,
+                    prd.porcentaje_intereses
+                FROM periodicidad_pago as prd
+                LEFT JOIN usuarios u ON prd.usuario_id = u.id
+                WHERE u.id = ?
                 """;
         List<Periodicidad> periodicidades = new ArrayList<>();
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, SessionUsuario.getUsuarioActual().getIdUsuario());
             try (ResultSet result = stmt.executeQuery()) {
                 while (result.next()) {
                     Periodicidad periodicidad = new Periodicidad();
