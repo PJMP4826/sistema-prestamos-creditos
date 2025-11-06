@@ -2,6 +2,7 @@ package com.misproyectos.controllers;
 
 import com.misproyectos.models.Usuario;
 import com.misproyectos.repositories.UsuarioRepository;
+import com.misproyectos.views.login.LoginDialog;
 import com.misproyectos.views.login.RegistroDialog;
 
 import java.awt.event.ActionEvent;
@@ -39,6 +40,9 @@ public class RegistroController {
 
             if (usuarioRepository.add(usuario)) {
                 registroDialog.mostrarMensaje("Registrado correctamente");
+                registroDialog.dispose();
+                LoginDialog loginDialog = new LoginDialog(new javax.swing.JFrame(), true);
+                loginDialog.showLoginDialog();
             }
         } catch (SQLException e) {
             registroDialog.mostrarMensaje("Error de base de datos: " + e.getMessage());
