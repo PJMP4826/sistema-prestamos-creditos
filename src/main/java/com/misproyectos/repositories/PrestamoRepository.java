@@ -40,10 +40,10 @@ public class PrestamoRepository extends PrestamoRepInterface {
             stmt.setLong(8, SessionUsuario.getUsuarioActual().getIdUsuario());
 
             int rowsAffected = stmt.executeUpdate();
-            if(rowsAffected <= 0){
+            if (rowsAffected <= 0) {
                 throw new SQLException("Errror al guadar el prestamo");
             }
-            return  true;
+            return true;
         }
     }
 
@@ -79,7 +79,7 @@ public class PrestamoRepository extends PrestamoRepInterface {
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setLong(1, SessionUsuario.getUsuarioActual().getIdUsuario());
-            try (ResultSet result = stmt.executeQuery()){
+            try (ResultSet result = stmt.executeQuery()) {
                 while (result.next()) {
                     Cliente cliente = new Cliente();
                     cliente.setNombre(result.getString("nombre_cliente"));
@@ -103,6 +103,38 @@ public class PrestamoRepository extends PrestamoRepInterface {
         } catch (SQLException e) {
             throw new RuntimeException("Error al obtener los prestamos", e);
         }
+        return prestamos;
+    }
+
+    public List<Prestamo> findPrestamosPendientes() throws SQLException {
+        String sql = """
+                SELECT
+                    c.nombre as nombre_cliente,
+                    p.importe,
+                    p.saldo_actual
+                FROM prestamos p
+                INNER JOIN clientes c ON p.cliente_id = c.id
+                INNER JOIN usuarios u ON p.usuario_id = u.id
+                WHERE saldo_actual >= 0 AND u.id = ?
+                """;
+        List<Prestamo> prestamos = new ArrayList<>();
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, SessionUsuario.getUsuarioActual().getIdUsuario());
+            try (ResultSet result = stmt.executeQuery()) {
+                while (result.next()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setNombre(result.getString("nombre_cliente"));
+                    Prestamo prestamo = Prestamo.builder()
+                            .setCliente(cliente)
+                            .setMontoPrestado(result.getBigDecimal("importe"))
+                            .setSaldoPendiente(result.getDouble("saldo_actual"))
+                            .build();
+                    prestamos.add(prestamo);
+                }
+            }
+        }
+
         return prestamos;
     }
 }
