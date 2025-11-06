@@ -39,7 +39,6 @@ public class RealizarPago extends javax.swing.JDialog {
         LblCantidadPagar = new javax.swing.JLabel();
         CantidadPagarInput = new javax.swing.JTextField();
         saveBtnRealizarPagos = new javax.swing.JButton();
-        CancelBtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -113,17 +112,6 @@ public class RealizarPago extends javax.swing.JDialog {
             }
         });
 
-        CancelBtn1.setBackground(new java.awt.Color(255, 0, 0));
-        CancelBtn1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        CancelBtn1.setForeground(new java.awt.Color(255, 255, 255));
-        CancelBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete.png"))); // NOI18N
-        CancelBtn1.setText("Cancelar");
-        CancelBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelBtn1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
@@ -133,22 +121,19 @@ public class RealizarPago extends javax.swing.JDialog {
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(background1Layout.createSequentialGroup()
-                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(LblCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LblSaldoPendiente, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SaldoPendienteInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                                    .addComponent(nombreClienteInput, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(88, 88, 88))
-                            .addGroup(background1Layout.createSequentialGroup()
-                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CantidadPagarInput, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LblCantidadPagar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(saveBtnRealizarPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CancelBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(LblCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblSaldoPendiente, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SaldoPendienteInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                            .addComponent(nombreClienteInput, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(65, 65, 65)
+                        .addComponent(saveBtnRealizarPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(background1Layout.createSequentialGroup()
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CantidadPagarInput, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblCantidadPagar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)))
                 .addGap(9, 9, 9))
         );
         background1Layout.setVerticalGroup(
@@ -158,25 +143,20 @@ public class RealizarPago extends javax.swing.JDialog {
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(LblCliente)
+                .addGap(7, 7, 7)
+                .addComponent(nombreClienteInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(nombreClienteInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LblSaldoPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SaldoPendienteInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(LblCantidadPagar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CantidadPagarInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CancelBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(saveBtnRealizarPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                        .addComponent(SaldoPendienteInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(saveBtnRealizarPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LblCantidadPagar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CantidadPagarInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,10 +190,6 @@ public class RealizarPago extends javax.swing.JDialog {
     private void saveBtnRealizarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnRealizarPagosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_saveBtnRealizarPagosActionPerformed
-
-    private void CancelBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CancelBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,40 +229,15 @@ public class RealizarPago extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CancelBtn1;
     private javax.swing.JTextField CantidadPagarInput;
     private javax.swing.JLabel LblCantidadPagar;
     private javax.swing.JLabel LblCliente;
     private javax.swing.JLabel LblSaldoPendiente;
     private javax.swing.JTextField SaldoPendienteInput;
     private javax.swing.JPanel background1;
-    private javax.swing.JPanel background3;
-    private javax.swing.JPanel background4;
-    private javax.swing.JPanel background5;
-    private javax.swing.JPanel background6;
     private javax.swing.JPanel header;
-    private javax.swing.JPanel header6;
-    private javax.swing.JPanel header7;
-    private javax.swing.JPanel header8;
-    private javax.swing.JPanel header9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField nombreClienteInput;
-    private javax.swing.JTextField nombrePeriodicidadInput2;
-    private javax.swing.JTextField nombrePeriodicidadInput3;
-    private javax.swing.JTextField nombrePeriodicidadInput4;
-    private javax.swing.JTextField nombrePeriodicidadInput5;
-    private javax.swing.JLabel nombrePeriodicidadLbl2;
-    private javax.swing.JLabel nombrePeriodicidadLbl3;
-    private javax.swing.JLabel nombrePeriodicidadLbl4;
-    private javax.swing.JLabel nombrePeriodicidadLbl5;
     private javax.swing.JButton saveBtnRealizarPagos;
-    private javax.swing.JLabel title6;
-    private javax.swing.JLabel title7;
-    private javax.swing.JLabel title8;
-    private javax.swing.JLabel title9;
     private javax.swing.JLabel titleRealizarPagos;
     // End of variables declaration//GEN-END:variables
 }
