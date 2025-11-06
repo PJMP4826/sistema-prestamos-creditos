@@ -4,6 +4,8 @@
  */
 package com.misproyectos.views;
 
+import com.misproyectos.controllers.DashboardController;
+
 /**
  *
  * @author Fausto
@@ -15,6 +17,7 @@ public class Dashboard extends javax.swing.JPanel {
      */
     public Dashboard() {
         initComponents();
+        cargarInfoInit();
     }
 
     /**
@@ -27,12 +30,12 @@ public class Dashboard extends javax.swing.JPanel {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        registeredClientsCard = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         activePrestamosCard = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        clientesRegistradoLbl = new javax.swing.JLabel();
         cobrosPendienteCard = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        numPrestamosActivos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
@@ -44,32 +47,6 @@ public class Dashboard extends javax.swing.JPanel {
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setForeground(new java.awt.Color(255, 255, 255));
 
-        registeredClientsCard.setBackground(new java.awt.Color(235, 83, 83));
-        registeredClientsCard.setPreferredSize(new java.awt.Dimension(148, 83));
-
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Cobros Pendientes");
-        jLabel4.setToolTipText("");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout registeredClientsCardLayout = new javax.swing.GroupLayout(registeredClientsCard);
-        registeredClientsCard.setLayout(registeredClientsCardLayout);
-        registeredClientsCardLayout.setHorizontalGroup(
-            registeredClientsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registeredClientsCardLayout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-        registeredClientsCardLayout.setVerticalGroup(
-            registeredClientsCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(registeredClientsCardLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel4)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
-
         activePrestamosCard.setBackground(new java.awt.Color(107, 203, 119));
         activePrestamosCard.setPreferredSize(new java.awt.Dimension(148, 0));
 
@@ -77,21 +54,28 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Clientes Registrados");
 
+        clientesRegistradoLbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        clientesRegistradoLbl.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout activePrestamosCardLayout = new javax.swing.GroupLayout(activePrestamosCard);
         activePrestamosCard.setLayout(activePrestamosCardLayout);
         activePrestamosCardLayout.setHorizontalGroup(
             activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(activePrestamosCardLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel5)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGroup(activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(clientesRegistradoLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         activePrestamosCardLayout.setVerticalGroup(
             activePrestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(activePrestamosCardLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel5)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clientesRegistradoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         cobrosPendienteCard.setBackground(new java.awt.Color(255, 217, 61));
@@ -102,20 +86,28 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel3.setText("Prestamos Activos");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        numPrestamosActivos.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        numPrestamosActivos.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout cobrosPendienteCardLayout = new javax.swing.GroupLayout(cobrosPendienteCard);
         cobrosPendienteCard.setLayout(cobrosPendienteCardLayout);
         cobrosPendienteCardLayout.setHorizontalGroup(
             cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cobrosPendienteCardLayout.createSequentialGroup()
-                .addGap(0, 76, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(cobrosPendienteCardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(numPrestamosActivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         cobrosPendienteCardLayout.setVerticalGroup(
             cobrosPendienteCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cobrosPendienteCardLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel3)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(numPrestamosActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -184,11 +176,9 @@ public class Dashboard extends javax.swing.JPanel {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(activePrestamosCard, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                .addGap(93, 93, 93)
+                .addGap(18, 18, 18)
                 .addComponent(cobrosPendienteCard, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addGap(94, 94, 94)
-                .addComponent(registeredClientsCard, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                .addGap(24, 24, 24))
+                .addGap(424, 424, 424))
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane2)
@@ -213,7 +203,6 @@ public class Dashboard extends javax.swing.JPanel {
                     .addComponent(headerListaPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(registeredClientsCard, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(activePrestamosCard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cobrosPendienteCard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
@@ -235,21 +224,33 @@ public class Dashboard extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cargarInfoInit() {
+        DashboardController controller = new DashboardController(this);
+        controller.loadCards();
+    }
+
+    public void setClientesRegistrados(String numClientesRegistrados){
+        clientesRegistradoLbl.setText(numClientesRegistrados);
+    }
+
+    public void setNumPrestamosActivos(String numPrestamosActivos){
+        this.numPrestamosActivos.setText(numPrestamosActivos);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ListaPrestamosTitulo;
     private javax.swing.JTable PeriodicidadesTable;
     private javax.swing.JPanel activePrestamosCard;
     private javax.swing.JPanel background;
+    private javax.swing.JLabel clientesRegistradoLbl;
     private javax.swing.JPanel cobrosPendienteCard;
     private javax.swing.JPanel header;
     private javax.swing.JPanel headerListaPrestamos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel registeredClientsCard;
+    private javax.swing.JLabel numPrestamosActivos;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
