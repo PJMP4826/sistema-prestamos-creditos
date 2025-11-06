@@ -2,10 +2,7 @@ package com.misproyectos.controllers;
 
 import com.misproyectos.enums.TipoTelefono;
 import com.misproyectos.exceptions.ValidacionException;
-import com.misproyectos.models.Cliente;
-import com.misproyectos.models.CorreoCliente;
-import com.misproyectos.models.DireccionCliente;
-import com.misproyectos.models.TelefonoCliente;
+import com.misproyectos.models.*;
 import com.misproyectos.repositories.ClienteRepository;
 import com.misproyectos.repositories.CorreoRepository;
 import com.misproyectos.repositories.DireccionRepository;
@@ -120,6 +117,8 @@ public class ClienteController {
                         direccion
                 });
             }
+
+            System.out.println("Usuario actual: " + SessionUsuario.getUsuarioActual().getNombreUsuario());
 
         } catch (SQLException e) {
             clientView.mostrarMensaje("Error al cargar clientes: " + e.getMessage());

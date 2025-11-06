@@ -1,6 +1,7 @@
 package com.misproyectos.controllers;
 
 import com.misproyectos.exceptions.ValidacionException;
+import com.misproyectos.models.SessionUsuario;
 import com.misproyectos.models.Usuario;
 import com.misproyectos.repositories.UsuarioRepository;
 import com.misproyectos.views.MainWindow;
@@ -50,6 +51,7 @@ public class LoginController {
                 return;
             }
 
+            SessionUsuario.iniciarSession(usuario);
             showMainWindow();
             loginDialog.dispose();
         } catch (SQLException | ValidacionException e) {
