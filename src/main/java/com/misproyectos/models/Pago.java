@@ -11,7 +11,7 @@ public class Pago {
     private BigDecimal importe;
 
     public Pago(){
-        
+
     }
 
     public Long getIdPrestamo() {
