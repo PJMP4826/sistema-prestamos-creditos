@@ -56,11 +56,30 @@ public class UsuarioRepository {
             stmt.setString(1, tagName);
 
             try (ResultSet result = stmt.executeQuery()) {
-                if(result.next()){
+                if (result.next()) {
                     return result.getString("password");
                 }
                 return null;
             }
         }
+    }
+
+    public Usuario findUsuarioByTagName(String tagName) throws SQLException {
+        String sql = "SELECT id, nombre, email FROM usuarios WHERE nombre = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, tagName);
+
+            try (ResultSet result = stmt.executeQuery()) {
+                if (result.next()) {
+                    Usuario usuario = new Usuario();
+                    usuario.setIdUsuario(result.getLong("id"));
+                    usuario.setNombreUsuario(result.getString("nombre"));
+                    usuario.setEmail(result.getString("email"));
+                    return usuario;
+                }
+            }
+        }
+        return null;
     }
 }
