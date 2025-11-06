@@ -273,12 +273,12 @@ public class Registrosdepagos extends javax.swing.JPanel {
         return IrPagarBtn;
     }
 
-    public JLabel getLblNumPrestamosActivos(){
-        return LblNumTotalPrestamos;
+    public void setLblNumPrestamosActivos(String numPrestamosActivos) {
+        LblNumTotalPrestamos.setText(numPrestamosActivos);
     }
 
-    public JLabel getLblCantidadSaldo(){
-        return Lblcantidadsaldo;
+    public void setLblCantidadSaldo(String cantidadSaldo) {
+        this.Lblcantidadsaldo.setText(cantidadSaldo);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
