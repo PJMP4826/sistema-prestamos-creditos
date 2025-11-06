@@ -61,37 +61,45 @@ public class PrestamoRepository extends PrestamoRepInterface {
 
     public List<Prestamo> findAll() throws SQLException {
         String sql = """
-                        SELECT c.nombre as nombre_cliente, p.importe, p.plazo, perd.nombre_periodicidad,
-                        		p.fecha_inicio, p.saldo_actual
-                        FROM
-                            prestamos p
-                        LEFT JOIN clientes c ON p.cliente_id = c.id
-                        LEFT JOIN periodicidad_pago perd ON p.periodicidad_id = perd.id
+                SELECT
+                    c.nombre as nombre_cliente,
+                    p.importe,
+                    p.plazo,
+                    perd.nombre_periodicidad,
+                    p.fecha_inicio,
+                    p.saldo_actual
+                FROM
+                    prestamos p
+                LEFT JOIN clientes c ON p.cliente_id = c.id
+                LEFT JOIN periodicidad_pago perd ON p.periodicidad_id = perd.id
+                INNER JOIN usuarios u ON p.usuario_id = u.id
+                WHERE u.id = ?;
                 """;
         List<Prestamo> prestamos = new ArrayList<>();
 
-        try (
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                ResultSet result = stmt.executeQuery();
-        ) {
-            while (result.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setNombre(result.getString("nombre_cliente"));
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, SessionUsuario.getUsuarioActual().getIdUsuario());
+            try (ResultSet result = stmt.executeQuery()){
+                while (result.next()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setNombre(result.getString("nombre_cliente"));
 
-                Periodicidad periodicidad = new Periodicidad();
-                periodicidad.setNombrePeriodicidad(result.getString("nombre_periodicidad"));
+                    Periodicidad periodicidad = new Periodicidad();
+                    periodicidad.setNombrePeriodicidad(result.getString("nombre_periodicidad"));
 
-                Prestamo prestamo = Prestamo.builder()
-                        .setMontoPrestado(result.getBigDecimal("importe"))
-                        .setPlazoPago(result.getInt("plazo"))
-                        .setFechaInicio(result.getTimestamp("fecha_inicio"))
-                        .setSaldoPendiente(result.getDouble("saldo_actual"))
-                        .setCliente(cliente)
-                        .setPeriodicidadPago(periodicidad)
-                        .build();
+                    Prestamo prestamo = Prestamo.builder()
+                            .setMontoPrestado(result.getBigDecimal("importe"))
+                            .setPlazoPago(result.getInt("plazo"))
+                            .setFechaInicio(result.getTimestamp("fecha_inicio"))
+                            .setSaldoPendiente(result.getDouble("saldo_actual"))
+                            .setCliente(cliente)
+                            .setPeriodicidadPago(periodicidad)
+                            .build();
 
-                prestamos.add(prestamo);
+                    prestamos.add(prestamo);
+                }
             }
+
         } catch (SQLException e) {
             throw new RuntimeException("Error al obtener los prestamos", e);
         }
