@@ -32,11 +32,11 @@ public class UsuarioRepository {
         }
     }
 
-    public boolean existeUsuarioByTagName(Usuario usuario) throws SQLException {
+    public boolean existeUsuarioByTagName(String tagName) throws SQLException {
         String sql = "SELECT COUNT(*) FROM usuarios WHERE nombre = ?";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, usuario.getNombreUsuario());
+            stmt.setString(1, tagName);
 
             try (ResultSet result = stmt.executeQuery()) {
                 result.next();

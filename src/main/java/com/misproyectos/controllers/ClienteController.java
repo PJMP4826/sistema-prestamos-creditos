@@ -118,6 +118,7 @@ public class ClienteController {
                 });
             }
 
+            System.out.println("Id de Usuario actual: " + SessionUsuario.getUsuarioActual().getIdUsuario());
             System.out.println("Usuario actual: " + SessionUsuario.getUsuarioActual().getNombreUsuario());
 
         } catch (SQLException e) {

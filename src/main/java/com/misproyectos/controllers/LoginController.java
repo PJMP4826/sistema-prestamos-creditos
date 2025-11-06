@@ -34,24 +34,24 @@ public class LoginController {
     }
 
     public void iniciarSesion() {
-        Usuario usuario = new Usuario();
-        usuario.setNombreUsuario(loginDialog.getUsuario());
-        usuario.setPassword(loginDialog.getPassword());
+        String nombreUsuario = loginDialog.getUsuario();
+        String password = loginDialog.getPassword();
 
         try {
             if (!validarInputs()) return;
 
-            if (!usuarioRepository.existeUsuarioByTagName(usuario)) {
+            if (!usuarioRepository.existeUsuarioByTagName(nombreUsuario)) {
                 loginDialog.mostrarMensaje("Usuario no existente");
                 return;
             }
 
-            if (!usuarioRepository.findPasswordByTagName(usuario.getNombreUsuario()).equals(usuario.getPassword())) {
+            if (!usuarioRepository.findPasswordByTagName(nombreUsuario).equals(password)) {
                 loginDialog.mostrarMensaje("Contraseña incorrecta");
                 return;
             }
 
-            SessionUsuario.iniciarSession(usuario);
+            Usuario usuarioAutenticado = usuarioRepository.findUsuarioByTagName(nombreUsuario);
+            SessionUsuario.iniciarSession(usuarioAutenticado);
             showMainWindow();
             loginDialog.dispose();
         } catch (SQLException | ValidacionException e) {
@@ -65,7 +65,6 @@ public class LoginController {
 
     public boolean validarUsuario() throws ValidacionException {
         String usuario = loginDialog.getUsuario();
-        System.out.println(usuario);
 
         if (usuario.isEmpty()) {
             throw new ValidacionException("Debes ingresar tu usuario");
