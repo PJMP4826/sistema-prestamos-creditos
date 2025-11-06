@@ -25,6 +25,7 @@ public class LoginDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         initListeners();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -75,7 +76,12 @@ public class LoginDialog extends javax.swing.JDialog {
         registrateBtn.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         registrateBtn.setForeground(new java.awt.Color(255, 255, 255));
         registrateBtn.setText("Registrate");
-        jPanel1.add(registrateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
+        registrateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(registrateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 470, 100, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgroundLogin.jpg"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 527));
@@ -93,6 +99,11 @@ public class LoginDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void registrateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrateBtnActionPerformed
+        RegistroDialog.showRegisterDialog();
+        this.dispose();
+    }//GEN-LAST:event_registrateBtnActionPerformed
 
     /**
      * @param args the command line arguments
