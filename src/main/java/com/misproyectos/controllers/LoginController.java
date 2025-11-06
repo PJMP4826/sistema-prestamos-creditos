@@ -1,6 +1,6 @@
 package com.misproyectos.controllers;
 
-import com.misproyectos.Main;
+import com.misproyectos.exceptions.ValidacionException;
 import com.misproyectos.models.Usuario;
 import com.misproyectos.repositories.UsuarioRepository;
 import com.misproyectos.views.MainWindow;
@@ -38,20 +38,56 @@ public class LoginController {
         usuario.setPassword(loginDialog.getPassword());
 
         try {
+            if (!validarInputs()) return;
+
             if (!usuarioRepository.existeUsuarioByTagName(usuario)) {
                 loginDialog.mostrarMensaje("Usuario no existente");
+                return;
             }
 
-            if (usuarioRepository.findPasswordByTagName(usuario.getNombreUsuario()).equals(usuario.getPassword())) {
-                showMainWindow();
-                loginDialog.dispose();
-            } else {
+            if (!usuarioRepository.findPasswordByTagName(usuario.getNombreUsuario()).equals(usuario.getPassword())) {
                 loginDialog.mostrarMensaje("Contraseña incorrecta");
+                return;
             }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            showMainWindow();
+            loginDialog.dispose();
+        } catch (SQLException | ValidacionException e) {
+            loginDialog.mostrarMensaje(e.getMessage());
         }
+    }
+
+    public boolean validarInputs() throws ValidacionException {
+        return validarUsuario() && validarPassword();
+    }
+
+    public boolean validarUsuario() throws ValidacionException {
+        String usuario = loginDialog.getUsuario();
+        System.out.println(usuario);
+
+        if (usuario.isEmpty()) {
+            throw new ValidacionException("Debes ingresar tu usuario");
+        }
+
+        if (usuario.trim().length() > 1000) {
+            throw new ValidacionException("Nombre de usuario demasiado grande");
+        }
+
+        return true;
+    }
+
+    public boolean validarPassword() throws ValidacionException {
+        String password = loginDialog.getPassword();
+
+        if (password.isEmpty()) {
+            throw new ValidacionException("Desbes especificar una contraseña");
+        }
+
+        if (password.trim().length() > 1000) {
+            throw new ValidacionException("Tu contraseña es demansiado grande");
+        }
+
+        return true;
     }
 
     public void showMainWindow() {
