@@ -20,13 +20,14 @@ public class PeriodicidadesRepository extends PeriodicidadesRepInterface {
     public boolean add(Periodicidad periodicidad) throws SQLException {
         String sql = """
                 INSERT INTO periodicidad_pago(
-                nombre_periodicidad, dias_periodicidad, porcentaje_intereses)
-                VALUES (?, ?, ?)
+                nombre_periodicidad, dias_periodicidad, porcentaje_intereses, usuario_id)
+                VALUES (?, ?, ?, ?)
                 """;
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, periodicidad.getNombrePeriodicidad());
             stmt.setInt(2, periodicidad.getDiasPeriodicidad());
             stmt.setInt(3, periodicidad.getPorcentajeIntereses());
+            stmt.setLong(4, SessionUsuario.getUsuarioActual().getIdUsuario());
 
             int rowAffected = stmt.executeUpdate();
 

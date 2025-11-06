@@ -68,11 +68,12 @@ public class ClienteRepository implements ClienteRepInterface {
 
     @Override
     public Long add(Cliente cliente) throws SQLException {
-        String sql = "INSERT INTO clientes (nombre, rfc) VALUES (?, ?) RETURNING id";
+        String sql = "INSERT INTO clientes (nombre, rfc, usuario_id) VALUES (?, ?, ?) RETURNING id";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getRfc());
+            stmt.setLong(3, SessionUsuario.getUsuarioActual().getIdUsuario());
 
             try (ResultSet res = stmt.executeQuery()) {
                 if (res.next()) {
