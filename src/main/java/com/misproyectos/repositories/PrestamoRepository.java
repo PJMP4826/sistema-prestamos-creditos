@@ -137,4 +137,44 @@ public class PrestamoRepository extends PrestamoRepInterface {
 
         return prestamos;
     }
+
+    public int countPrestamosPendientes() throws SQLException {
+        String sql = """
+                SELECT COUNT(*)
+                FROM prestamos p
+                INNER JOIN usuarios u ON p.usuario_id = u.id
+                WHERE p.saldo_actual >= 0
+                  AND u.id = ?
+                """;
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, SessionUsuario.getUsuarioActual().getIdUsuario());
+            try (ResultSet result = stmt.executeQuery()) {
+                if (result.next()) {
+                    return result.getInt(1);
+                }
+            }
+        }
+        return 0;
+    }
+
+    public double countSaldoPendientePrestamos() throws SQLException {
+        String sql = """
+                SELECT SUM(saldo_actual)
+                FROM prestamos p
+                INNER JOIN usuarios u ON p.usuario_id = u.id
+                WHERE p.saldo_actual >= 0
+                  AND u.id = ?;
+                """;
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, SessionUsuario.getUsuarioActual().getIdUsuario());
+            try (ResultSet result = stmt.executeQuery()) {
+                if (result.next()) {
+                    return result.getDouble(1);
+                }
+            }
+        }
+        return 0;
+    }
 }
