@@ -18,13 +18,13 @@ public class PagosRepository {
         String sql = "CALL registrar_pago(?, ?, ?)";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setLong(1, pago.getIdPrestamo());
+            stmt.setInt(1, pago.getIdPrestamo().intValue());
             stmt.setBigDecimal(2, pago.getImporte());
-            stmt.setLong(3, pago.getUsuarioId());
+            stmt.setInt(3, pago.getUsuarioId().intValue());
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw new SQLException("Error al registrar su pago: " , e.getMessage());
+            throw new SQLException("Error al registrar su pago: " + e.getMessage());
         }
     }
 }

@@ -8,6 +8,9 @@ import com.misproyectos.controllers.PagosController;
 import com.misproyectos.models.Prestamo;
 import com.misproyectos.repositories.PrestamoRepository;
 
+import javax.swing.*;
+import java.math.BigDecimal;
+
 /**
  *
  * @author IK
@@ -238,6 +241,23 @@ public class RealizarPago extends javax.swing.JDialog {
         this.SaldoPendienteInput.setText(String.valueOf(prestamoPendiente.getSaldoPendiente()));
         System.out.println("Cliente seleccionado: " + prestamoPendiente.getCliente().getNombre());
         System.out.println("Saldo selected: " + prestamoPendiente.getSaldoPendiente());
+    }
+
+    public JButton getSaveBtnRealizarPagos() {
+        return saveBtnRealizarPagos;
+    }
+
+    public BigDecimal getCantidadPagar() {
+        String cantidad = CantidadPagarInput.getText().trim();
+
+        if(cantidad.isEmpty()){
+            return null;
+        }
+        try{
+            return new BigDecimal(cantidad);
+        }catch (NumberFormatException e){
+            return null;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

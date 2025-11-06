@@ -1,7 +1,10 @@
 package com.misproyectos.controllers;
 
 import com.misproyectos.models.Cliente;
+import com.misproyectos.models.Pago;
 import com.misproyectos.models.Prestamo;
+import com.misproyectos.models.SessionUsuario;
+import com.misproyectos.repositories.PagosRepository;
 import com.misproyectos.repositories.PrestamoRepository;
 import com.misproyectos.views.RegistrosDePagos.RealizarPago;
 import com.misproyectos.views.RegistrosDePagos.Registrosdepagos;
@@ -64,6 +67,7 @@ public class PagosController {
 
         if (rowSelected == -1) {
             pagosViews.mostrarMensaje("Debes seleccionar el prestamos a pagar");
+            return;
         }
         Cliente cliente = new Cliente();
         String clienteSelected = (String) pagosViews.getPrestamosPendientesTable().getValueAt(rowSelected, 1);
@@ -83,10 +87,45 @@ public class PagosController {
     private void abrirPagoDialog(Prestamo prestamoPendiente) {
         RealizarPago pagoDialog = new RealizarPago(jPanelToJFrame(), true);
         pagoDialog.setPagoInputs(prestamoPendiente);
+
+        pagoDialog.getSaveBtnRealizarPagos().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                registrarPago(prestamoPendiente, pagoDialog);
+            }
+        });
+
         pagoDialog.setVisible(true);
     }
 
-    public void registrarPago() {
+    public void registrarPago(Prestamo prestamoPendiente, RealizarPago pagoDialog) {
+        try {
+            if (pagoDialog.getCantidadPagar() == null || pagoDialog.getCantidadPagar().compareTo(BigDecimal.ZERO) <= 0) {
+                pagosViews.mostrarMensaje("Debes especificar la cantidad a pagar");
+                return;
+            }
 
+            Pago pago = new Pago();
+            pago.setIdPrestamo((long) prestamoPendiente.getIdPrestamo());
+            pago.setImporte(pagoDialog.getCantidadPagar());
+            pago.setUsuarioId(SessionUsuario.getUsuarioActual().getIdUsuario());
+
+            PagosRepository pagosRepository = new PagosRepository();
+
+            boolean isSuccess = pagosRepository.registrarPago(pago);
+
+            if (!isSuccess) {
+                pagosViews.mostrarMensaje("Error al registrar el pago");
+                return;
+            }
+
+            pagosViews.mostrarMensaje("Pagos registrado correctamente");
+            loadPrestamosPendientes();
+            pagoDialog.dispose();
+
+        } catch (SQLException e) {
+            pagosViews.mostrarMensaje("Error de base de datos: " + e.getMessage());
+            pagoDialog.dispose();
+        }
     }
 }
