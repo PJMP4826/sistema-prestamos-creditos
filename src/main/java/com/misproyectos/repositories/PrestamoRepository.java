@@ -109,6 +109,7 @@ public class PrestamoRepository extends PrestamoRepInterface {
     public List<Prestamo> findPrestamosPendientes() throws SQLException {
         String sql = """
                 SELECT
+                    p.id,
                     c.nombre as nombre_cliente,
                     p.importe,
                     p.saldo_actual
@@ -126,6 +127,7 @@ public class PrestamoRepository extends PrestamoRepInterface {
                     Cliente cliente = new Cliente();
                     cliente.setNombre(result.getString("nombre_cliente"));
                     Prestamo prestamo = Prestamo.builder()
+                            .setIdPrestamo(result.getInt("id"))
                             .setCliente(cliente)
                             .setMontoPrestado(result.getBigDecimal("importe"))
                             .setSaldoPendiente(result.getDouble("saldo_actual"))

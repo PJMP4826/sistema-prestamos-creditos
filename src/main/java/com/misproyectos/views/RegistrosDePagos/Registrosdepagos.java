@@ -4,6 +4,9 @@
  */
 package com.misproyectos.views.RegistrosDePagos;
 
+import com.misproyectos.controllers.PagosController;
+import com.misproyectos.repositories.PrestamoRepository;
+
 import static com.misproyectos.views.MainWindow.ShowJPanel;
 
 import javax.swing.*;
@@ -21,6 +24,8 @@ public class Registrosdepagos extends javax.swing.JPanel {
      */
     public Registrosdepagos() {
         initComponents();
+        cargarPrestamosPendientesInit();
+        hideRowIdPrestamo();
     }
 
     /**
@@ -62,27 +67,27 @@ public class Registrosdepagos extends javax.swing.JPanel {
         javax.swing.GroupLayout headermodulopagosLayout = new javax.swing.GroupLayout(headermodulopagos);
         headermodulopagos.setLayout(headermodulopagosLayout);
         headermodulopagosLayout.setHorizontalGroup(
-                headermodulopagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(headermodulopagosLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(title_modulopagos)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            headermodulopagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headermodulopagosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(title_modulopagos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headermodulopagosLayout.setVerticalGroup(
-                headermodulopagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(headermodulopagosLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(title_modulopagos)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            headermodulopagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headermodulopagosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(title_modulopagos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PrestamosPendientesTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
+            new Object [][] {
 
-                },
-                new String[]{
-                        "Cliente", "Importe", "Saldo Pendiente"
-                }
+            },
+            new String [] {
+                "idPrestamo", "Cliente", "Importe", "Saldo Pendiente"
+            }
         ));
         PrestamosPendientesTable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(PrestamosPendientesTable);
@@ -107,18 +112,18 @@ public class Registrosdepagos extends javax.swing.JPanel {
         javax.swing.GroupLayout PrestamosPendientesLayout = new javax.swing.GroupLayout(PrestamosPendientes);
         PrestamosPendientes.setLayout(PrestamosPendientesLayout);
         PrestamosPendientesLayout.setHorizontalGroup(
-                PrestamosPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PrestamosPendientesLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(titlePrestamosPendientes)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            PrestamosPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PrestamosPendientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titlePrestamosPendientes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PrestamosPendientesLayout.setVerticalGroup(
-                PrestamosPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PrestamosPendientesLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(titlePrestamosPendientes)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            PrestamosPendientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PrestamosPendientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titlePrestamosPendientes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         textomodulopagos.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -142,25 +147,25 @@ public class Registrosdepagos extends javax.swing.JPanel {
         javax.swing.GroupLayout TotalprestamosCardLayout = new javax.swing.GroupLayout(TotalprestamosCard);
         TotalprestamosCard.setLayout(TotalprestamosCardLayout);
         TotalprestamosCardLayout.setHorizontalGroup(
-                TotalprestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(TotalprestamosCardLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(TotalprestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(LblPrestamosActivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(LblTotalPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(LblNumTotalPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(101, Short.MAX_VALUE))
+            TotalprestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TotalprestamosCardLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(TotalprestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LblPrestamosActivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LblTotalPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LblNumTotalPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         TotalprestamosCardLayout.setVerticalGroup(
-                TotalprestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(TotalprestamosCardLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(LblTotalPrestamos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LblNumTotalPrestamos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LblPrestamosActivos)
-                                .addGap(14, 14, 14))
+            TotalprestamosCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TotalprestamosCardLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(LblTotalPrestamos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LblNumTotalPrestamos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LblPrestamosActivos)
+                .addGap(14, 14, 14))
         );
 
         SaldototalCard.setBackground(new java.awt.Color(107, 203, 119));
@@ -181,80 +186,80 @@ public class Registrosdepagos extends javax.swing.JPanel {
         javax.swing.GroupLayout SaldototalCardLayout = new javax.swing.GroupLayout(SaldototalCard);
         SaldototalCard.setLayout(SaldototalCardLayout);
         SaldototalCardLayout.setHorizontalGroup(
-                SaldototalCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(SaldototalCardLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addGroup(SaldototalCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(LblPendientedecobrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(LblSaldoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Lblcantidadsaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(100, Short.MAX_VALUE))
+            SaldototalCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SaldototalCardLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(SaldototalCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LblPendientedecobrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LblSaldoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Lblcantidadsaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         SaldototalCardLayout.setVerticalGroup(
-                SaldototalCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(SaldototalCardLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(LblSaldoTotal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Lblcantidadsaldo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LblPendientedecobrar)
-                                .addGap(14, 14, 14))
+            SaldototalCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SaldototalCardLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(LblSaldoTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Lblcantidadsaldo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LblPendientedecobrar)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
-                background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(background1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(background1Layout.createSequentialGroup()
-                                                .addComponent(textomodulopagos)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(background1Layout.createSequentialGroup()
-                                                                .addComponent(TotalprestamosCard, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                                                                .addGap(121, 121, 121)
-                                                                .addComponent(SaldototalCard, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
-                                                        .addComponent(headermodulopagos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(PrestamosPendientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
-                                                        .addGroup(background1Layout.createSequentialGroup()
-                                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                                .addComponent(IrPagarBtn)))
-                                                .addGap(14, 14, 14))))
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(background1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(background1Layout.createSequentialGroup()
+                        .addComponent(textomodulopagos)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
+                        .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(background1Layout.createSequentialGroup()
+                                .addComponent(TotalprestamosCard, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                                .addGap(121, 121, 121)
+                                .addComponent(SaldototalCard, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
+                            .addComponent(headermodulopagos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PrestamosPendientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
+                            .addGroup(background1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(IrPagarBtn)))
+                        .addGap(14, 14, 14))))
         );
         background1Layout.setVerticalGroup(
-                background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(background1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(headermodulopagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(textomodulopagos)
-                                .addGap(39, 39, 39)
-                                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(TotalprestamosCard, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(SaldototalCard, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(50, 50, 50)
-                                .addComponent(PrestamosPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(IrPagarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(16, Short.MAX_VALUE))
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(background1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(headermodulopagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(textomodulopagos)
+                .addGap(39, 39, 39)
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TotalprestamosCard, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SaldototalCard, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(PrestamosPendientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(IrPagarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -264,6 +269,20 @@ public class Registrosdepagos extends javax.swing.JPanel {
         dialogoPago.setLocationRelativeTo(topWindow);
         dialogoPago.setVisible(true);
     }//GEN-LAST:event_IrPagarBtnActionPerformed
+
+    public void hideRowIdPrestamo() {
+        PrestamosPendientesTable.getColumnModel().getColumn(0).setMinWidth(0);
+        PrestamosPendientesTable.getColumnModel().getColumn(0).setMaxWidth(0);
+        PrestamosPendientesTable.getColumnModel().getColumn(0).setWidth(0);
+    }
+
+    public void cargarPrestamosPendientesInit() {
+        PagosController controller = new PagosController(
+               this,
+               new PrestamoRepository()
+        );
+        controller.loadPrestamosPendientes();
+    }
 
     public JTable getPrestamosPendientesTable() {
         return PrestamosPendientesTable;
@@ -279,6 +298,10 @@ public class Registrosdepagos extends javax.swing.JPanel {
 
     public void setLblCantidadSaldo(String cantidadSaldo) {
         this.Lblcantidadsaldo.setText(cantidadSaldo);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
